@@ -1,0 +1,104 @@
+//
+//  YZGifShowViewController.swift
+//  Funny
+//
+//  Created by yanzhen on 17/1/3.
+//  Copyright © 2017年 Y&Z. All rights reserved.
+//
+
+import UIKit
+
+class YZGifShowViewController: YZSuperSecondViewController, YZVideoPlayDelegate {
+
+    var dataSource = [YZGifShowModel]()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.separatorStyle = .none
+        tableView.rowHeight = (WIDTH - 100) / 3 * 4 + 77
+        gifShowRefresh()
+        netRequestWithMJRefresh(.push, baseView: nil)
+    }
+
+    private func gifShowRefresh() {
+        header = MJRefreshHeaderView.header()
+        footer = MJRefreshFooterView.footer()
+        header?.scrollView = tableView
+        footer?.scrollView = tableView
+        unowned let blockSelf = self
+        header?.beginRefreshingBlock = {(baseView) ->Void in
+            blockSelf.netRequestWithMJRefresh(.pull, baseView: baseView)
+        }
+        footer?.beginRefreshingBlock = {(baseView) ->Void in
+            blockSelf.netRequestWithMJRefresh(.push, baseView: baseView)
+        }
+    }
+
+    private func netRequestWithMJRefresh(_ refreshType: MJRefresh, baseView: MJRefreshBaseView?) {
+        let parameters = [
+            "os"         : "android",
+            "client_key" : "3c2cd3f3",
+            "last"       : "62",
+            "count"      : "20",
+            "token"      : "",
+            "page"       : "1",
+            "pcursor"    : "",
+            "pv"         : "false",
+            "mtype"      : "2",
+            "type"       : "7",
+            "sig"        : "030d2819371a88871dfdcef832f8d553",
+            ]
+        YZHttpManager.post(GifShowHeadURL, parameters: parameters, success: { (response) in
+            let feeds = response["feeds"] as! Array<[String : AnyObject]>
+            let models = YZGifShowModel.mj_objectArray(withKeyValuesArray: feeds)
+            var modelArray = [YZGifShowModel]()
+            for (_,value) in models!.enumerated() {
+                modelArray.append(value as! YZGifShowModel)
+            }
+            if refreshType == .pull {
+                self.dataSource.insert(contentsOf: modelArray, at: 0)
+            }else{
+                self.dataSource.append(contentsOf: modelArray)
+            }
+            baseView?.endRefreshing()
+            self.tableView.reloadData()
+        }) { (error) in
+            baseView?.endRefreshing()
+            print(error?.localizedDescription ?? "YZGifShowVC-Fail")
+        }
+    }
+//MARK: - tableView
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "YZGifShowTableViewCell") as? YZGifShowTableViewCell
+        if cell == nil {
+            cell = YZGifShowTableViewCell(style:.default, reuseIdentifier:"YZGifShowTableViewCell")
+            cell!.delegate = self
+        }
+        cell?.configCell(dataSource[indexPath.row])
+        cell?.tableViewReloadData()
+        return cell!
+    }
+//MARK: - YZVideoPlayDelegate
+    func playVideo(_ play: Bool, videoCell: YZVideoTableViewCell) {
+        let indexPath = tableView.indexPath(for: videoCell)
+        let url = dataSource[indexPath!.row].main_mv_url
+        if YZWindowViewManager.manager.isWindowViewShow() {
+            videoCell.playBtn.isSelected = false
+            YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
+        }else{
+            YZVideoManager.manager.playVideo(videoCell, urlString: url!)
+        }
+    }
+    
+    func playVideoOnWindow(_ videoCell: YZVideoTableViewCell) {
+        let indexPath = tableView.indexPath(for: videoCell)
+        let url = dataSource[indexPath!.row].main_mv_url
+        YZVideoManager.manager.tableViewReload()
+        YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
+    }
+
+}

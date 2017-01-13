@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="YZYKNearCollectionViewCell" id="gTV-IL-0wX" customClass="YZYKNearCollectionViewCell" customModule="Funny" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="120" height="150"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OYB-DR-tza">
+                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKQ-gK-rdk">
+                        <rect key="frame" x="0.0" y="125" width="120" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="OYB-DR-tza" secondAttribute="bottom" constant="30" id="DtN-A8-QBC"/>
+                <constraint firstAttribute="trailing" secondItem="OYB-DR-tza" secondAttribute="trailing" id="G0D-Po-sW9"/>
+                <constraint firstItem="LKQ-gK-rdk" firstAttribute="top" secondItem="OYB-DR-tza" secondAttribute="bottom" constant="5" id="OYd-5L-ehF"/>
+                <constraint firstItem="OYB-DR-tza" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="P5D-es-hu7"/>
+                <constraint firstAttribute="trailing" secondItem="LKQ-gK-rdk" secondAttribute="trailing" id="Wup-5X-AvK"/>
+                <constraint firstAttribute="bottom" secondItem="LKQ-gK-rdk" secondAttribute="bottom" constant="5" id="Xev-au-amP"/>
+                <constraint firstItem="LKQ-gK-rdk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gaz-Xo-JmK"/>
+                <constraint firstItem="OYB-DR-tza" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="kwF-Yv-3lf"/>
+            </constraints>
+            <connections>
+                <outlet property="addressLabel" destination="LKQ-gK-rdk" id="1PF-9G-Cqs"/>
+                <outlet property="mainIV" destination="OYB-DR-tza" id="n8c-Pz-f1J"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>
