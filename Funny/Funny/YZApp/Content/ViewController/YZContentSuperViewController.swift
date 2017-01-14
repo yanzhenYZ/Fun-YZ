@@ -45,7 +45,7 @@ class YZContentSuperViewController: YZSuperSecondViewController {
         }
     }
     
-    fileprivate func configureMJRefresh() {
+    private func configureMJRefresh() {
         header = MJRefreshHeaderView.header()
         footer = MJRefreshFooterView.footer()
         header?.scrollView = tableView

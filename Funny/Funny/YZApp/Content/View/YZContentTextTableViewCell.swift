@@ -10,8 +10,8 @@ import UIKit
 
 class YZContentTextTableViewCell: YZTextTableViewCell {
 
-    fileprivate var userView: YZUserView!
-    fileprivate var commentView: YZCommentView!
+    private var userView: YZUserView!
+    private var commentView: YZCommentView!
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         userView = YZUserView(frame: CGRect(x: CONTENTSPACE, y: 0, width: WIDTH - 4 * CONTENTSPACE, height: USERVIEWHEIGHT))

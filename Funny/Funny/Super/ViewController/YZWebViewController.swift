@@ -10,9 +10,9 @@ import UIKit
 
 class YZWebViewController: UIViewController, UIWebViewDelegate {
 
-    @IBOutlet fileprivate weak var webView: UIWebView!
-    @IBOutlet fileprivate weak var indicator: UIActivityIndicatorView!
-    fileprivate var urlStr: String = ""
+    @IBOutlet private weak var webView: UIWebView!
+    @IBOutlet private weak var indicator: UIActivityIndicatorView!
+    private var urlStr: String = ""
     
     init(urlString: String) {
         super.init(nibName: "YZWebViewController", bundle: nil)
@@ -32,7 +32,7 @@ class YZWebViewController: UIViewController, UIWebViewDelegate {
         return ""
     }
     
-    fileprivate func showWebView() {
+    private func showWebView() {
         indicator.stopAnimating()
         webView.isHidden = false
     }

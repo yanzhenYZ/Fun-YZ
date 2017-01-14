@@ -17,9 +17,9 @@ class YZShotView: UIView {
 
     weak var delegate: YZShotViewDelegate?
     
-    fileprivate var shapeLayer: CAShapeLayer!
-    fileprivate var shotRect: CGRect!
-    fileprivate var startPoint:CGPoint!
+    private var shapeLayer: CAShapeLayer!
+    private var shotRect: CGRect!
+    private var startPoint:CGPoint!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.clipsToBounds = true
@@ -60,15 +60,15 @@ class YZShotView: UIView {
         self.addGestureRecognizer(pan)
     }
     
-    @objc fileprivate func cancelBtnClick() {
+    @objc private func cancelBtnClick() {
         delegate?.shotPart(isShot: false, shotFrame: shotRect)
     }
     
-    @objc fileprivate func sureBtnClick() {
+    @objc private func sureBtnClick() {
         delegate?.shotPart(isShot: true, shotFrame: shotRect)
     }
     
-    @objc fileprivate func panAction(pan: UIPanGestureRecognizer) {
+    @objc private func panAction(pan: UIPanGestureRecognizer) {
         if pan.state == UIGestureRecognizerState.began {
             shapeLayer.path = nil
             startPoint = pan.location(in: self)

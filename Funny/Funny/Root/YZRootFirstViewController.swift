@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import YZUIKit
 
 class YZRootFirstViewController: UIViewController {
 
-    fileprivate var transition: YZTransition!
+    private var transition: YZTransition!
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -58,7 +58,7 @@ class YZVideoTableViewCell: YZTableViewCell {
         configureUI()
     }
     
-    @objc fileprivate func longPressGestureAction(longPress: UILongPressGestureRecognizer) {
+    @objc private func longPressGestureAction(longPress: UILongPressGestureRecognizer) {
         print("longPressGestureAction")
         if longPress.state == .began {
             let message = WXMediaMessage()
@@ -89,14 +89,14 @@ class YZVideoTableViewCell: YZTableViewCell {
         }
     }
     
-    @objc fileprivate func pinGestureAction(pin: UIPinchGestureRecognizer) {
+    @objc private func pinGestureAction(pin: UIPinchGestureRecognizer) {
         print("pinGestureAction")
         if pin.state == .began && isRefresh {
             delegate?.playVideoOnWindow(self)
         }
     }
     
-    @objc fileprivate func platBtnClick(btn: UIButton) {
+    @objc private func platBtnClick(btn: UIButton) {
         btn.isSelected = !btn.isSelected
         delegate?.playVideo(btn.isSelected, videoCell: self)
     }

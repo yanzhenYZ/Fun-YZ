@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YZUIKit
 
 private let VERSIONIVPATH = Document + "/VersionAbout/image.data"
 

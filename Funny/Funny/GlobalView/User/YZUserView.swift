@@ -11,9 +11,9 @@ import UIKit
 class YZUserView: UIView {
 
     
-    fileprivate var headImageView: UIImageView!
-    fileprivate var userNameLabel: UILabel!
-    fileprivate var createTimeLabel: UILabel!
+    private var headImageView: UIImageView!
+    private var userNameLabel: UILabel!
+    private var createTimeLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

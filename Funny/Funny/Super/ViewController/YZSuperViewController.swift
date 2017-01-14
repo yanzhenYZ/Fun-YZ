@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YZUIKit
 import CoreGraphics
 
 class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionSheetDelegate, YZShotViewDelegate {
@@ -65,7 +66,7 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
         YZFunnyManager.saveImage(image)
     }
     
-    fileprivate func clipImage(_ image: UIImage, rect: CGRect) ->UIImage {
+    private func clipImage(_ image: UIImage, rect: CGRect) ->UIImage {
         let scale = UIScreen.main.scale
         let frame = CGRect(x: rect.origin.x * scale, y: rect.origin.y * scale, width: rect.size.width * scale, height: rect.size.height * scale)
         let imageRef = image.cgImage

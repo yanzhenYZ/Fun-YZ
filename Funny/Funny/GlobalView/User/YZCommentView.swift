@@ -10,9 +10,9 @@ import UIKit
 
 class YZCommentView: UIView {
 
-    fileprivate var headImageView: UIImageView!
-    fileprivate var userNameLabel: UILabel!
-    fileprivate var userTextLabel: UILabel!
+    private var headImageView: UIImageView!
+    private var userNameLabel: UILabel!
+    private var userTextLabel: UILabel!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = YZColor(246, 246, 256)

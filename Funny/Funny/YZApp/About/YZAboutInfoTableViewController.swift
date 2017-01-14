@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YZUIKit
 
 private let ABOUTHEADHEIGHT: CGFloat = ISIPAD ? 400 : 290
 private let HEADIVPATH = Document + "/AboutHeadImage/image.data"

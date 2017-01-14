@@ -12,12 +12,12 @@ import AVFoundation
 class YZVideoManager: NSObject {
 
     
-    fileprivate var player: AVPlayer?
-    fileprivate var playerLayer: AVPlayerLayer?
-    fileprivate weak var videoCell: YZVideoTableViewCell?
-    fileprivate var urlStr: String?
-    fileprivate var isPlayEnd: Bool = false
-    fileprivate var enterBackground: Bool = false
+    private var player: AVPlayer?
+    private var playerLayer: AVPlayerLayer?
+    private weak var videoCell: YZVideoTableViewCell?
+    private var urlStr: String?
+    private var isPlayEnd: Bool = false
+    private var enterBackground: Bool = false
     
     public func playVideo(_ cell: YZVideoTableViewCell, urlString: String) {
         if !startPlayNewAV(urlString, play: cell.playBtn.isSelected) {
@@ -91,7 +91,7 @@ class YZVideoManager: NSObject {
         return true
     }
     
-    @objc fileprivate func updateProgress() {
+    @objc private func updateProgress() {
         let currentTime = CGFloat(self.player!.currentTime().value) / CGFloat(self.player!.currentTime().timescale)
         let time = CGFloat(self.player!.currentItem!.duration.value) / CGFloat(self.player!.currentItem!.duration.timescale)
         let progress = CGFloat(currentTime) / CGFloat(time)
@@ -154,13 +154,13 @@ class YZVideoManager: NSObject {
         enterBackground = status;
     }
 //MARK: - lazy
-    fileprivate lazy var timer:Timer = {
+    private lazy var timer:Timer = {
         let time = Timer(timeInterval: 0.1, target: self, selector: #selector(self.updateProgress), userInfo: nil, repeats: true);
         RunLoop.current.add(time, forMode: .commonModes)
         return time;
     }()
     
-    fileprivate lazy var layerDelegate: YZLayerDelegate = {
+    private lazy var layerDelegate: YZLayerDelegate = {
         let layerDelegate = YZLayerDelegate()
         return layerDelegate
     }()

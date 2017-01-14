@@ -10,9 +10,9 @@ import UIKit
 
 class YZContentVideoTableViewCell: YZVideoTableViewCell {
 
-    fileprivate var userView: YZUserView!
-    fileprivate var commentView: YZCommentView!
-    fileprivate var contentLabel: UILabel!
+    private var userView: YZUserView!
+    private var commentView: YZCommentView!
+    private var contentLabel: UILabel!
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

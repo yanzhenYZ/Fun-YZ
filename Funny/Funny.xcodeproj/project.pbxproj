@@ -145,8 +145,6 @@
 		9B29A1491E209EA900891D6B /* MBProgressHUD+YZZ.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1451E209EA900891D6B /* MBProgressHUD+YZZ.m */; };
 		9B29A14A1E209EA900891D6B /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B29A1461E209EA900891D6B /* MBProgressHUD.bundle */; };
 		9B29A14B1E209EA900891D6B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1481E209EA900891D6B /* MBProgressHUD.m */; };
-		9B29A14E1E20EDF000891D6B /* YZClipImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A14D1E20EDF000891D6B /* YZClipImageViewController.swift */; };
-		9B29A1501E20EE1800891D6B /* YZClipImageMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A14F1E20EE1800891D6B /* YZClipImageMaskView.swift */; };
 		9B29A1811E2360B700891D6B /* YZSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1801E2360B700891D6B /* YZSettingTableViewController.swift */; };
 		9B29A1831E23611100891D6B /* YZManagerLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1821E23611100891D6B /* YZManagerLockViewController.swift */; };
 		9B29A1861E23614500891D6B /* YZDeclartionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1841E23614500891D6B /* YZDeclartionViewController.swift */; };
@@ -162,11 +160,6 @@
 		9B32820B1E0D102F00506424 /* YZRootFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32820A1E0D102F00506424 /* YZRootFirstViewController.swift */; };
 		9B32820D1E0D103F00506424 /* YZRootSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32820C1E0D103F00506424 /* YZRootSecondViewController.swift */; };
 		9B32822F1E0D248E00506424 /* YZIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32822E1E0D248E00506424 /* YZIconButton.swift */; };
-		9B3282351E0D2BB000506424 /* YZTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3282341E0D2BB000506424 /* YZTransition.swift */; };
-		9B3282371E0D2BCE00506424 /* YZPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3282361E0D2BCE00506424 /* YZPresentationController.swift */; };
-		9B3282391E0D2BE600506424 /* YZAnimatedTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3282381E0D2BE600506424 /* YZAnimatedTransitioning.swift */; };
-		9B32824E1E10E37200506424 /* YZActionSheetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32824D1E10E37200506424 /* YZActionSheetItem.swift */; };
-		9B3282501E10E3CB00506424 /* YZActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32824F1E10E3CB00506424 /* YZActionSheet.swift */; };
 		9B32825F1E10F8D200506424 /* YZCircularMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B32825E1E10F8D200506424 /* YZCircularMenu.m */; };
 		9B3282621E10F91C00506424 /* YZSuperSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3282601E10F91C00506424 /* YZSuperSecondViewController.swift */; };
 		9B3282631E10F91C00506424 /* YZSuperSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3282611E10F91C00506424 /* YZSuperSecondViewController.xib */; };
@@ -426,6 +419,8 @@
 		9B904E931E0BD07600E99D25 /* YZRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904E921E0BD07600E99D25 /* YZRootViewController.swift */; };
 		9B904E9B1E0BD43600E99D25 /* YZSuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904E9A1E0BD43600E99D25 /* YZSuperViewController.swift */; };
 		9B904EC91E0CCC7B00E99D25 /* YZHttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904EC81E0CCC7B00E99D25 /* YZHttpManager.swift */; };
+		9B9ABF871E29F2C600FECACA /* YZUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9ABF861E29F2C600FECACA /* YZUIKit.framework */; };
+		9B9ABF881E29F2C600FECACA /* YZUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B9ABF861E29F2C600FECACA /* YZUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BF6A8271E14B3DB00F534F8 /* YZTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A8261E14B3DB00F534F8 /* YZTextTableViewCell.swift */; };
 		9BF6A8291E14B4B500F534F8 /* YZContentTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A8281E14B4B500F534F8 /* YZContentTextTableViewCell.swift */; };
 		9BF6A82B1E14B5B600F534F8 /* YZTextFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A82A1E14B5B600F534F8 /* YZTextFrame.swift */; };
@@ -457,6 +452,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9B9ABF881E29F2C600FECACA /* YZUIKit.framework in Embed Frameworks */,
 				9B3281E31E0CD6E600506424 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -659,8 +655,6 @@
 		9B29A1461E209EA900891D6B /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		9B29A1471E209EA900891D6B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		9B29A1481E209EA900891D6B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		9B29A14D1E20EDF000891D6B /* YZClipImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZClipImageViewController.swift; sourceTree = "<group>"; };
-		9B29A14F1E20EE1800891D6B /* YZClipImageMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZClipImageMaskView.swift; sourceTree = "<group>"; };
 		9B29A1801E2360B700891D6B /* YZSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZSettingTableViewController.swift; sourceTree = "<group>"; };
 		9B29A1821E23611100891D6B /* YZManagerLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZManagerLockViewController.swift; sourceTree = "<group>"; };
 		9B29A1841E23614500891D6B /* YZDeclartionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZDeclartionViewController.swift; sourceTree = "<group>"; };
@@ -675,11 +669,6 @@
 		9B32820A1E0D102F00506424 /* YZRootFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZRootFirstViewController.swift; sourceTree = "<group>"; };
 		9B32820C1E0D103F00506424 /* YZRootSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZRootSecondViewController.swift; sourceTree = "<group>"; };
 		9B32822E1E0D248E00506424 /* YZIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZIconButton.swift; sourceTree = "<group>"; };
-		9B3282341E0D2BB000506424 /* YZTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZTransition.swift; sourceTree = "<group>"; };
-		9B3282361E0D2BCE00506424 /* YZPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZPresentationController.swift; sourceTree = "<group>"; };
-		9B3282381E0D2BE600506424 /* YZAnimatedTransitioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZAnimatedTransitioning.swift; sourceTree = "<group>"; };
-		9B32824D1E10E37200506424 /* YZActionSheetItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZActionSheetItem.swift; sourceTree = "<group>"; };
-		9B32824F1E10E3CB00506424 /* YZActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZActionSheet.swift; sourceTree = "<group>"; };
 		9B3282591E10F8AA00506424 /* Funny-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Funny-Bridging-Header.h"; sourceTree = "<group>"; };
 		9B32825D1E10F8D200506424 /* YZCircularMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZCircularMenu.h; sourceTree = "<group>"; };
 		9B32825E1E10F8D200506424 /* YZCircularMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZCircularMenu.m; sourceTree = "<group>"; };
@@ -1158,6 +1147,7 @@
 		9B904E921E0BD07600E99D25 /* YZRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZRootViewController.swift; sourceTree = "<group>"; };
 		9B904E9A1E0BD43600E99D25 /* YZSuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZSuperViewController.swift; sourceTree = "<group>"; };
 		9B904EC81E0CCC7B00E99D25 /* YZHttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZHttpManager.swift; sourceTree = "<group>"; };
+		9B9ABF861E29F2C600FECACA /* YZUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YZUIKit.framework; path = "../../library/YZUIKit/Debug-iphoneos/YZUIKit.framework"; sourceTree = "<group>"; };
 		9BF6A8261E14B3DB00F534F8 /* YZTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZTextTableViewCell.swift; sourceTree = "<group>"; };
 		9BF6A8281E14B4B500F534F8 /* YZContentTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZContentTextTableViewCell.swift; sourceTree = "<group>"; };
 		9BF6A82A1E14B5B600F534F8 /* YZTextFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZTextFrame.swift; sourceTree = "<group>"; };
@@ -1192,6 +1182,7 @@
 				9B46F1C11E28A71500E16350 /* libWeChatSDK.a in Frameworks */,
 				9B46EEDE1E2602B200E16350 /* IJKMediaFramework.framework in Frameworks */,
 				9B29A1101E1E199200891D6B /* libsqlite3.tbd in Frameworks */,
+				9B9ABF871E29F2C600FECACA /* YZUIKit.framework in Frameworks */,
 				9B3281E21E0CD6E600506424 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1698,15 +1689,6 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
-		9B29A14C1E20EDC700891D6B /* YZClipImage */ = {
-			isa = PBXGroup;
-			children = (
-				9B29A14D1E20EDF000891D6B /* YZClipImageViewController.swift */,
-				9B29A14F1E20EE1800891D6B /* YZClipImageMaskView.swift */,
-			);
-			path = YZClipImage;
-			sourceTree = "<group>";
-		};
 		9B29A1791E23607E00891D6B /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -1777,9 +1759,6 @@
 		9B3282301E0D2B3F00506424 /* YZLib */ = {
 			isa = PBXGroup;
 			children = (
-				9B29A14C1E20EDC700891D6B /* YZClipImage */,
-				9B3282331E0D2B3F00506424 /* YZTransition */,
-				9B3282321E0D2B3F00506424 /* YZSheetAction */,
 				9B3282311E0D2B3F00506424 /* YZAwesomeMenu */,
 			);
 			path = YZLib;
@@ -1792,25 +1771,6 @@
 				9B32825E1E10F8D200506424 /* YZCircularMenu.m */,
 			);
 			path = YZAwesomeMenu;
-			sourceTree = "<group>";
-		};
-		9B3282321E0D2B3F00506424 /* YZSheetAction */ = {
-			isa = PBXGroup;
-			children = (
-				9B32824D1E10E37200506424 /* YZActionSheetItem.swift */,
-				9B32824F1E10E3CB00506424 /* YZActionSheet.swift */,
-			);
-			path = YZSheetAction;
-			sourceTree = "<group>";
-		};
-		9B3282331E0D2B3F00506424 /* YZTransition */ = {
-			isa = PBXGroup;
-			children = (
-				9B3282341E0D2BB000506424 /* YZTransition.swift */,
-				9B3282361E0D2BCE00506424 /* YZPresentationController.swift */,
-				9B3282381E0D2BE600506424 /* YZAnimatedTransitioning.swift */,
-			);
-			path = YZTransition;
 			sourceTree = "<group>";
 		};
 		9B3282491E10CCC700506424 /* YZApp */ = {
@@ -2554,6 +2514,7 @@
 			isa = PBXGroup;
 			children = (
 				9B46F1B01E2784B800E16350 /* LaunchScreen.storyboard */,
+				9B9ABF861E29F2C600FECACA /* YZUIKit.framework */,
 				9B3281E11E0CD6E600506424 /* Alamofire.framework */,
 				9B904E721E0B7BC100E99D25 /* Assets.xcassets */,
 				9B904E771E0B7BC100E99D25 /* Info.plist */,
@@ -2831,7 +2792,6 @@
 				9B46F0F41E26139A00E16350 /* GPUImageMotionBlurFilter.m in Sources */,
 				9B46F0CC1E26139900E16350 /* GPUImageGaussianBlurPositionFilter.m in Sources */,
 				9B06D0F81E125BFD004C5AC7 /* UIImage+WebP.m in Sources */,
-				9B29A14E1E20EDF000891D6B /* YZClipImageViewController.swift in Sources */,
 				9B06D1071E13510D004C5AC7 /* YZUserView.swift in Sources */,
 				9B46F0EB1E26139A00E16350 /* GPUImageLuminanceRangeFilter.m in Sources */,
 				9B904E9B1E0BD43600E99D25 /* YZSuperViewController.swift in Sources */,
@@ -2926,7 +2886,6 @@
 				9B46EEBE1E24C36E00E16350 /* YZYKNearCollectionViewCell.swift in Sources */,
 				9B06D0911E124E8E004C5AC7 /* YZContentUser.swift in Sources */,
 				9BF6A8381E15005200F534F8 /* YZWindowLoadingView.swift in Sources */,
-				9B3282501E10E3CB00506424 /* YZActionSheet.swift in Sources */,
 				9B46F0C81E26139900E16350 /* GPUImageFramebuffer.m in Sources */,
 				9B29A0CC1E1CCDB700891D6B /* YZNEPictureTableViewCell.swift in Sources */,
 				9B46F13A1E26139A00E16350 /* GPUImageWhiteBalanceFilter.m in Sources */,
@@ -2957,7 +2916,6 @@
 				9B46F1251E26139A00E16350 /* GPUImageSwirlFilter.m in Sources */,
 				9B46F15A1E26139A00E16350 /* hashswf.c in Sources */,
 				9B46F0E11E26139A00E16350 /* GPUImageKuwaharaRadius3Filter.m in Sources */,
-				9B3282351E0D2BB000506424 /* YZTransition.swift in Sources */,
 				9BF6A8361E14DBE200F534F8 /* YZLayerDelegate.swift in Sources */,
 				9B46F12F1E26139A00E16350 /* GPUImageTransformFilter.m in Sources */,
 				9B06D0F91E125BFD004C5AC7 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -2971,7 +2929,6 @@
 				9B06D0AF1E124E9D004C5AC7 /* NSObject+MJKeyValue.m in Sources */,
 				9B46F1191E26139A00E16350 /* GPUImageSkinToneFilter.m in Sources */,
 				9B46F12E1E26139A00E16350 /* GPUImageToonFilter.m in Sources */,
-				9B29A1501E20EE1800891D6B /* YZClipImageMaskView.swift in Sources */,
 				9B06D0F51E125BFD004C5AC7 /* UIButton+WebCache.m in Sources */,
 				9B06D0EE1E125BFD004C5AC7 /* SDImageCacheConfig.m in Sources */,
 				9B46EECE1E24CF9700E16350 /* YZYKDeclarationViewController.swift in Sources */,
@@ -3105,7 +3062,6 @@
 				9B46F0C71E26139900E16350 /* GPUImageFourInputFilter.m in Sources */,
 				9B29A0C51E1CCB8D00891D6B /* YZNetEaseViewController.swift in Sources */,
 				9B46F0DF1E26139A00E16350 /* GPUImageJFAVoronoiFilter.m in Sources */,
-				9B32824E1E10E37200506424 /* YZActionSheetItem.swift in Sources */,
 				9B46F11A1E26139A00E16350 /* GPUImageSmoothToonFilter.m in Sources */,
 				9B46F1151E26139A00E16350 /* GPUImageSharpenFilter.m in Sources */,
 				9B46F0C51E26139900E16350 /* GPUImageFilterGroup.m in Sources */,
@@ -3118,7 +3074,6 @@
 				9B06D0B11E124E9D004C5AC7 /* NSString+MJExtension.m in Sources */,
 				9B46F1351E26139A00E16350 /* GPUImageUnsharpMaskFilter.m in Sources */,
 				9B46EEC71E24CF2900E16350 /* YZYKVideoQualityTableViewController.swift in Sources */,
-				9B3282391E0D2BE600506424 /* YZAnimatedTransitioning.swift in Sources */,
 				9B46F1291E26139A00E16350 /* GPUImageThresholdEdgeDetectionFilter.m in Sources */,
 				9B46F0E01E26139A00E16350 /* GPUImageKuwaharaFilter.m in Sources */,
 				9B29A1941E237A6400891D6B /* YZTextField.swift in Sources */,
@@ -3151,7 +3106,6 @@
 				9B29A0B41E1BAE9A00891D6B /* YZUCNewsModel.swift in Sources */,
 				9B29A1901E2377E500891D6B /* YZPasswordModifyViewController.swift in Sources */,
 				9B904E901E0BD06000E99D25 /* YZFunny.swift in Sources */,
-				9B3282371E0D2BCE00506424 /* YZPresentationController.swift in Sources */,
 				9B29A0EC1E1DD5D000891D6B /* YZNoteViewController.swift in Sources */,
 				9B46EEAF1E2483E300E16350 /* YZYKNearCollectionViewController.swift in Sources */,
 				9B29A0621E1B3B4F00891D6B /* YZWhatSomeViewController.swift in Sources */,
@@ -3337,6 +3291,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../library/IJKMedia/",
 					"$(SRCROOT)/../library/Alamofire/Debug$(EFFECTIVE_PLATFORM_NAME)",
+					"$(SRCROOT)/../library/YZUIKit/Debug$(EFFECTIVE_PLATFORM_NAME)",
 				);
 				INFOPLIST_FILE = Funny/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -3366,6 +3321,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../library/IJKMedia/",
 					"$(SRCROOT)/../library/Alamofire/Debug$(EFFECTIVE_PLATFORM_NAME)",
+					"$(SRCROOT)/../library/YZUIKit/Debug$(EFFECTIVE_PLATFORM_NAME)",
 				);
 				INFOPLIST_FILE = Funny/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

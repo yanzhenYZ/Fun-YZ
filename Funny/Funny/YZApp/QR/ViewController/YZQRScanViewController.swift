@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YZUIKit
 
 class YZQRScanViewController: UIViewController {
 
