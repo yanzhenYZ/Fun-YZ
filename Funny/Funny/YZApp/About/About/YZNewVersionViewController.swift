@@ -14,7 +14,7 @@ class YZNewVersionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView.text = "1.0.0基于Swift3.0-Funny"
+        textView.text = "1.0.0:基于Swift3.0-Funny\n17.03.03:模仿FaceTime页面"
     }
 
     override var previewActionItems: [UIPreviewActionItem] {

@@ -19,7 +19,7 @@ class YZYKLiveViewController: UIViewController, LFLiveSessionDelegate {
         preView = UIView(frame: CGRectScreen)
         self.view.addSubview(preView)
         self.view.insertSubview(preView, at: 1)
-        YZFunnyManager.requestAccessForVideo()
+        YZFunnyManager.requestAccessForVideo(completionHandler: nil)
         YZFunnyManager.requestAccessForAudio()
         
         session = LFLiveSession(audioConfiguration: LFLiveAudioConfiguration.default(), videoConfiguration: LFLiveVideoConfiguration.defaultConfiguration(for: LFLiveVideoQuality(rawValue: YZUserDefaultsManager.getVideoQuality())!))

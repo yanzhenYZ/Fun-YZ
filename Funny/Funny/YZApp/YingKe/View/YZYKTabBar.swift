@@ -20,7 +20,7 @@ protocol YKTabBarDelegate: NSObjectProtocol {
 
 class YZYKTabBar: UIView {
 
-    weak var delegate: YKTabBarDelegate?
+    var delegate: YKTabBarDelegate?
     private var homeBtn: UIButton!
     private var myBtn: UIButton!
     private var launchBtn: UIButton!

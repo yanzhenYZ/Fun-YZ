@@ -155,6 +155,7 @@
 		9B29A1901E2377E500891D6B /* YZPasswordModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A18E1E2377E500891D6B /* YZPasswordModifyViewController.swift */; };
 		9B29A1911E2377E500891D6B /* YZPasswordModifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B29A18F1E2377E500891D6B /* YZPasswordModifyViewController.xib */; };
 		9B29A1941E237A6400891D6B /* YZTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1931E237A6400891D6B /* YZTextField.swift */; };
+		9B2D4D021E69567A00FA5507 /* YZFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2D4D011E69567A00FA5507 /* YZFaceView.swift */; };
 		9B3281E21E0CD6E600506424 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3281E11E0CD6E600506424 /* Alamofire.framework */; };
 		9B3281E31E0CD6E600506424 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B3281E11E0CD6E600506424 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B32820B1E0D102F00506424 /* YZRootFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32820A1E0D102F00506424 /* YZRootFirstViewController.swift */; };
@@ -665,6 +666,7 @@
 		9B29A18E1E2377E500891D6B /* YZPasswordModifyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZPasswordModifyViewController.swift; sourceTree = "<group>"; };
 		9B29A18F1E2377E500891D6B /* YZPasswordModifyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YZPasswordModifyViewController.xib; sourceTree = "<group>"; };
 		9B29A1931E237A6400891D6B /* YZTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZTextField.swift; sourceTree = "<group>"; };
+		9B2D4D011E69567A00FA5507 /* YZFaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZFaceView.swift; sourceTree = "<group>"; };
 		9B3281E11E0CD6E600506424 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../library/Alamofire/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		9B32820A1E0D102F00506424 /* YZRootFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZRootFirstViewController.swift; sourceTree = "<group>"; };
 		9B32820C1E0D103F00506424 /* YZRootSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZRootSecondViewController.swift; sourceTree = "<group>"; };
@@ -1739,10 +1741,10 @@
 		9B32822C1E0D247700506424 /* GlobalView */ = {
 			isa = PBXGroup;
 			children = (
+				9B32822D1E0D247700506424 /* Root */,
 				9B29A1921E237A0D00891D6B /* Password */,
 				9B29A0FA1E1DD7E500891D6B /* Lock */,
 				9B06D1051E1350FB004C5AC7 /* User */,
-				9B32822D1E0D247700506424 /* Root */,
 			);
 			path = GlobalView;
 			sourceTree = "<group>";
@@ -1750,6 +1752,7 @@
 		9B32822D1E0D247700506424 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				9B2D4D011E69567A00FA5507 /* YZFaceView.swift */,
 				9B32822E1E0D248E00506424 /* YZIconButton.swift */,
 				9B06D0041E111021004C5AC7 /* YZShotView.swift */,
 			);
@@ -3079,6 +3082,7 @@
 				9B29A1941E237A6400891D6B /* YZTextField.swift in Sources */,
 				9B46F1091E26139A00E16350 /* GPUImagePrewittEdgeDetectionFilter.m in Sources */,
 				9B46F0AE1E26139900E16350 /* GPUImageColorLocalBinaryPatternFilter.m in Sources */,
+				9B2D4D021E69567A00FA5507 /* YZFaceView.swift in Sources */,
 				9B46F0C11E26139900E16350 /* GPUImageExposureFilter.m in Sources */,
 				9B46F15C1E26139A00E16350 /* parseurl.c in Sources */,
 				9B46F14A1E26139A00E16350 /* LFHardwareVideoEncoder.m in Sources */,
@@ -3289,10 +3293,11 @@
 				DEVELOPMENT_TEAM = M7R5TQ8AQY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../library/IJKMedia/",
 					"$(SRCROOT)/../library/Alamofire/Debug$(EFFECTIVE_PLATFORM_NAME)",
 					"$(SRCROOT)/../library/YZUIKit/Debug$(EFFECTIVE_PLATFORM_NAME)",
+					"$(SRCROOT)/../library/IJKMedia/",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Funny/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3300,7 +3305,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Funny/Lib/WeChatSDK1.7.5",
 				);
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Alamofire,
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = YZ.Funny;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Funny/Funny-Bridging-Header.h";
@@ -3319,10 +3328,11 @@
 				DEVELOPMENT_TEAM = M7R5TQ8AQY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SRCROOT)/../library/IJKMedia/",
 					"$(SRCROOT)/../library/Alamofire/Debug$(EFFECTIVE_PLATFORM_NAME)",
 					"$(SRCROOT)/../library/YZUIKit/Debug$(EFFECTIVE_PLATFORM_NAME)",
+					"$(SRCROOT)/../library/IJKMedia/",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = Funny/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -3330,7 +3340,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Funny/Lib/WeChatSDK1.7.5",
 				);
-				OTHER_LDFLAGS = "-all_load";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Alamofire,
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = YZ.Funny;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Funny/Funny-Bridging-Header.h";

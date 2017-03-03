@@ -71,7 +71,7 @@ class YZFunnyManager: NSObject {
         return manager.imageCache!.getSize()
     }
 //MARK: - Audio and Video
-    class func requestAccessForVideo() {
+    class func requestAccessForVideo(completionHandler handler: ((Bool) -> Swift.Void)?){
         let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
         switch status {
         case .notDetermined:
@@ -79,13 +79,16 @@ class YZFunnyManager: NSObject {
                 if granted {
                     print("--用户开启摄像头--")
                 }
+                handler?(granted)
             })
             break
         case .authorized:
             print("--用户已开启摄像头--")
+            handler?(true)
             break
         default:
             print("--用户拒绝开启摄像头--")
+            handler?(false)
             break
         }
     }

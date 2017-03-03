@@ -13,12 +13,24 @@ class YZRootViewController: UIViewController {
     private var scrollView: UIScrollView!
     private var firstVC: YZRootFirstViewController!
     private var secondVC: YZRootSecondViewController!
+    private var faceView: YZFaceView?
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Funny"
         automaticallyAdjustsScrollViewInsets = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "weibo_profile_s"), style: .plain, target: self, action: #selector(self.aboutFunny(_:)))
+        unowned let blockSelf = self
+        YZFunnyManager.requestAccessForVideo { (authorized) in
+            if authorized {
+                DispatchQueue.main.async(execute: { 
+                    blockSelf.faceView = YZFaceView(frame: CGRectScreen)
+                    blockSelf.faceView?.backgroundColor = UIColor.red
+                    blockSelf.view.insertSubview(blockSelf.faceView!, at: 0)
+                    blockSelf.faceView?.startRunning()
+                })
+            }
+        }
         
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 64, width: WIDTH, height: HEIGHT - 64))
         scrollView.showsVerticalScrollIndicator = false
@@ -35,6 +47,16 @@ class YZRootViewController: UIViewController {
         scrollView.addSubview(firstVC.view)
         scrollView.addSubview(secondVC.view)
         scrollView.contentSize = CGSize(width: 0, height: childVCHeight * 2)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.faceView?.startRunning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.faceView?.stopRunning()
     }
 
     public func widgetIntoViewController(_ tag: Int) {

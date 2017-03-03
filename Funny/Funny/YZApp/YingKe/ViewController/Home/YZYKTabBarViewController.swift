@@ -31,6 +31,8 @@ class YZYKTabBarViewController: UITabBarController, YKTabBarDelegate {
             self.selectedIndex = type.rawValue - YKTabBarBtnType.home.rawValue
         }
     }
-    
+    deinit {
+        print("tabBar - deinit")
+    }
 
 }

@@ -25,7 +25,7 @@ class YZYKBeautyViewController: UIViewController {
         brightSlider.value = brightLevel
         beautySlider.value = beautyLevel
         YZFunnyManager.requestAccessForAudio()
-        YZFunnyManager.requestAccessForVideo()
+        YZFunnyManager.requestAccessForVideo(completionHandler: nil)
         
         session = LFLiveSession(audioConfiguration: LFLiveAudioConfiguration.default(), videoConfiguration: LFLiveVideoConfiguration.defaultConfiguration(for: LFLiveVideoQuality(rawValue: YZUserDefaultsManager.getVideoQuality())!))
         session.showDebugInfo = false

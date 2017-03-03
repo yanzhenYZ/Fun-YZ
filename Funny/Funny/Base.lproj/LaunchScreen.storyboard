@@ -23,6 +23,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fun_YZ" translatesAutoresizingMaskIntoConstraints="NO" id="7aE-2e-2oB">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,11 +33,16 @@
                             <constraint firstItem="7aE-2e-2oB" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="rxa-Oc-DQL"/>
                             <constraint firstAttribute="trailing" secondItem="7aE-2e-2oB" secondAttribute="trailing" id="vfA-92-3ak"/>
                         </constraints>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="subviews">
+                                <exclude reference="7aE-2e-2oB"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-175.19999999999999" y="323.38830584707648"/>
+            <point key="canvasLocation" x="-399" y="233"/>
         </scene>
     </scenes>
     <resources>
