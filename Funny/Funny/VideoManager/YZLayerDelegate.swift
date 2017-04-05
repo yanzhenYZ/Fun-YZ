@@ -19,9 +19,9 @@ class YZLayerDelegate: NSObject, CALayerDelegate {
         let attributes = [NSForegroundColorAttributeName : FunnyColor, NSFontAttributeName : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)]
         let tv: NSString = "Y&Z TV"
         if left {
-            tv.draw(in: CGRect(x: 5, y: 5, width: 120, height: 40), withAttributes: attributes)
+            tv.draw(in: CGRect(x: 5, y: 5, width: 120, height: 40), withAttributes: attributes as Any as? [String : Any])
         }else{
-            tv.draw(in: CGRect(x: x, y: 0, width: 120, height: 40), withAttributes: attributes)
+            tv.draw(in: CGRect(x: x, y: 0, width: 120, height: 40), withAttributes: attributes as Any as? [String : Any])
         }
         
         UIGraphicsPopContext()

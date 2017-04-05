@@ -27,7 +27,7 @@ class YZTodayCircleView: UIView {
         circleLayer.opacity = 0.25
         circleLayer.lineCap = kCALineCapRound
         circleLayer.lineWidth = lineWidth
-        let circlePath = UIBezierPath(arcCenter: CGPoint(x: width / 2, y: height / 2), radius: radius, startAngle: -CGFloat(M_PI_2), endAngle: CGFloat(M_PI_2) * 3, clockwise: true)
+        let circlePath = UIBezierPath(arcCenter: CGPoint(x: width / 2, y: height / 2), radius: radius, startAngle: -CGFloat(Double.pi/2), endAngle: CGFloat(Double.pi/2) * 3, clockwise: true)
         circleLayer.path = circlePath.cgPath
         self.layer.addSublayer(circleLayer)
         ///
@@ -38,7 +38,7 @@ class YZTodayCircleView: UIView {
         progressLayer.lineCap = kCAFillRuleNonZero
         progressLayer.strokeEnd = 0.0
         progressLayer.lineWidth = lineWidth
-        let progressPath = UIBezierPath(arcCenter: CGPoint(x: width * 0.5, y: height * 0.5), radius: radius, startAngle: -CGFloat(M_PI_2), endAngle: CGFloat(M_PI_2) * 3 , clockwise: true)
+        let progressPath = UIBezierPath(arcCenter: CGPoint(x: width * 0.5, y: height * 0.5), radius: radius, startAngle: -CGFloat(Double.pi/2), endAngle: CGFloat(Double.pi/2) * 3 , clockwise: true)
         progressLayer.path = progressPath.cgPath
         self.layer.addSublayer(progressLayer)
         ///

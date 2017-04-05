@@ -16,7 +16,7 @@ class YZIconButton: UIButton {
         self.imageView?.layer.cornerRadius = 12
         self.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         self.titleLabel?.textAlignment = .center
-        self.setTitleColor(UIColor.black, for: .normal)
+        self.setTitleColor(UIColor.white, for: .normal)
     }
     
     override func layoutSubviews() {

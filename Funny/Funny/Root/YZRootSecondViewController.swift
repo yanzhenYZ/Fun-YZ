@@ -33,7 +33,7 @@ class YZRootSecondViewController: UIViewController {
         }
         transition = YZTransition()
         transition.type = .custom
-        transition.rotation = Rotation(x: 0, y: 1, z: 0, angle: M_PI_2)
+        transition.rotation = Rotation(x: 0, y: 1, z: 0, angle: Double.pi/2)
     }
     
     @objc private func selectedApp(btn: YZIconButton) {

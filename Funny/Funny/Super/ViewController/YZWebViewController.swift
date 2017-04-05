@@ -24,7 +24,7 @@ class YZWebViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
 
         self.title = "Y&Z"
-        let request = URLRequest(url: NSURL(string: urlStr) as! URL)
+        let request = URLRequest(url: NSURL(string: urlStr)! as URL)
         webView.loadRequest(request)
     }
     

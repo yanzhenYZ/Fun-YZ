@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/YZUIKit-Swift.h</key>
 		<data>
-		c3WAepzBAlQ4cs2/eEYL8qNKoLk=
+		RLou/oGx7wkaa6f9dTO7uWiZs5c=
 		</data>
 		<key>Headers/YZUIKit.h</key>
 		<data>
@@ -14,23 +14,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		g2lrkDqzDkr/WxMc6bgQXDXEVCA=
+		IWqrOImlmu0ZijeaN7UyCYnDgdg=
 		</data>
 		<key>Modules/YZUIKit.swiftmodule/i386.swiftdoc</key>
 		<data>
-		ig2tGTCL6mUMpEzpw1KqAW1CIZg=
+		zIY96VlHNSsM9RQOygFUcyyCdoc=
 		</data>
 		<key>Modules/YZUIKit.swiftmodule/i386.swiftmodule</key>
 		<data>
-		oWJG1PejKL1wQv6Me8rTUkqZFfU=
+		fMX1yBFTQI/R0DfcRR+IYPaSzzQ=
 		</data>
 		<key>Modules/YZUIKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		Oi66cnQ7c38mwjvxW4eBu1zHeL0=
+		Ubms/Zl5C6moIopHfgFxIG/m0Y4=
 		</data>
 		<key>Modules/YZUIKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		97Y8BBdKvq5PYgdwZKn8b34QRZg=
+		jzrSSiGru5WLWeaLf+0M2vxOp+g=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,11 +43,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			c3WAepzBAlQ4cs2/eEYL8qNKoLk=
+			RLou/oGx7wkaa6f9dTO7uWiZs5c=
 			</data>
 			<key>hash2</key>
 			<data>
-			iRD+tUn8GlZEziZ4Uph0uRMZbsnNNVnrz6nasPPjV1k=
+			82ZDxKhsu6KmVRDTbGbnBnf+6I313UjwjwpJv+JZ9OQ=
 			</data>
 		</dict>
 		<key>Headers/YZUIKit.h</key>
@@ -65,44 +65,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ig2tGTCL6mUMpEzpw1KqAW1CIZg=
+			zIY96VlHNSsM9RQOygFUcyyCdoc=
 			</data>
 			<key>hash2</key>
 			<data>
-			4nPxgtols2cXsm/UVyCzh2Ue1BF3jg+P/nZPfh3ZYBY=
+			VIX1F2cLeWJe0J/btuKKevm6s6+l3Zn8L9rEaWnFD08=
 			</data>
 		</dict>
 		<key>Modules/YZUIKit.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oWJG1PejKL1wQv6Me8rTUkqZFfU=
+			fMX1yBFTQI/R0DfcRR+IYPaSzzQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			CTBUMlfjGv9hVMGYbN772COF5eoJfBRdjHhqMLcywrU=
+			vWxKmVKl1qmPodx+WIViH+X2VzCkzIBQmU5s0ri6T4w=
 			</data>
 		</dict>
 		<key>Modules/YZUIKit.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Oi66cnQ7c38mwjvxW4eBu1zHeL0=
+			Ubms/Zl5C6moIopHfgFxIG/m0Y4=
 			</data>
 			<key>hash2</key>
 			<data>
-			0rnTQAtX6ixpfyygIJYz4aup7IlHbG6BgJ6uy/KS+kM=
+			NV7kGhAsbmcOTnhgfvSB93iEEDZ8q6gvvY+FkbI3NtU=
 			</data>
 		</dict>
 		<key>Modules/YZUIKit.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			97Y8BBdKvq5PYgdwZKn8b34QRZg=
+			jzrSSiGru5WLWeaLf+0M2vxOp+g=
 			</data>
 			<key>hash2</key>
 			<data>
-			dyPZtcXx/BkITvlESr2KgL2bZOz3lRvtMotU3qZGfJY=
+			rLlHf9LOCBEB33FJ4hcLtpAoDTu8aaVkyTks8MgE2Ds=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -134,6 +134,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -179,6 +184,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

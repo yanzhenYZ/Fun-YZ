@@ -22,7 +22,7 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
         let menuItems = [block("shotPart"),block("home"),block("exit"),block("my")]
         let startItem =  YZCircularMenuItem(image: UIImage(named: "menu"), highlightedImage: nil, contentImage: UIImage(named: "plus"), highlightedContentImage: UIImage(named: "plusHL"));
         
-        let menu = YZCircularMenu(frame: CGRect(x: 0, y: HEIGHT - 200 - 49, width: 200, height: 200), start: startItem, start: CGPoint(x: 20, y: 180), menuWholeAngle: CGFloat(M_PI_2), menuItems: menuItems)
+        let menu = YZCircularMenu(frame: CGRect(x: 0, y: HEIGHT - 200 - 49, width: 200, height: 200), start: startItem, start: CGPoint(x: 20, y: 180), menuWholeAngle: CGFloat(Double.pi/2), menuItems: menuItems)
         menu?.delegate = self
         menu?.alpha = 0.5
         self.view.addSubview(menu!)

@@ -70,6 +70,7 @@ class YZQRMakeViewController: UIViewController {
         for _ in 0..<pixelNum {
             if (pCurPtr.pointee & 0xFFFFFF00) < 0x99999900 {
                 let ptr = unsafeBitCast(pCurPtr, to: UnsafeMutablePointer<CUnsignedChar>.self)
+//                let ptr = unsafeBitCast(pCurPtr, to: UnsafeMutablePointer<CUnsignedChar>.self)
                 ptr[3] = CUnsignedChar(red)
                 ptr[2] = CUnsignedChar(green)
                 ptr[1] = CUnsignedChar(blue)
@@ -89,7 +90,8 @@ class YZQRMakeViewController: UIViewController {
     }
     
     let ProviderReleaseDataCallback: @convention(c) (UnsafeMutableRawPointer?, UnsafeRawPointer, Int) ->Void = {(info, data, size) ->Void in
-        let ptr = unsafeBitCast(data, to: UnsafeMutableRawPointer.self)
+        let ptr = UnsafeMutableRawPointer(mutating: data)
+//        let ptr = unsafeBitCast(data, to: UnsafeMutableRawPointer.self)
         free(ptr)
     }
     
