@@ -29,7 +29,7 @@ class YZWalfareVideoTableViewCell: YZVideoTableViewCell {
         shareTitle = videoFrame.videoModel.wbody
         creatTimeLabel.text = dateString(Int(videoFrame.videoModel.update_time)!)
         contentLabel.text  = videoFrame.videoModel.wbody
-        mainImageView.yz_setImage(videoFrame.videoModel.vpic_small, placeholderImageString: nil)
+        mainImageView.yz_setImage(videoFrame.videoModel.vpic_small)
         ///
         contentLabel.frame  = videoFrame.contentLabelFrame
         mainImageView.frame = videoFrame.mainIVFrame

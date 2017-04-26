@@ -16,7 +16,7 @@ class YZUCPictureTableViewCell: UITableViewCell {
     
     public func configureCell(_ model: YZUCNewsModel) {
         let pictureModel = model.thumbnails![0]
-        onlyIV.yz_setImage(pictureModel.url, placeholderImageString: nil)
+        onlyIV.yz_setImage(pictureModel.url)
         titleLab.text = model.title
         
         let time = model.publish_time.intValue / 1000

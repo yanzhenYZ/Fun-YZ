@@ -16,7 +16,7 @@ class YZNEPictureTableViewCell: UITableViewCell {
     func configureCell(_ model: YZNetEaseModel) {
         titleLab.text = model.title
         subTitleLab.text = model.digest
-        onlyIv.yz_setImage(model.imgsrc, placeholderImageString: nil)
+        onlyIv.yz_setImage(model.imgsrc)
     }
     
 }

@@ -32,7 +32,7 @@ class YZYKTabBarViewController: UITabBarController, YKTabBarDelegate {
         }
     }
     deinit {
-        print("tabBar - deinit")
+        YZLog("tabBar - deinit")
     }
 
 }

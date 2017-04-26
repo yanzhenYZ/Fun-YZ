@@ -19,7 +19,7 @@ class YZYKNearCollectionViewCell: UICollectionViewCell {
             if !model.creator!.portrait.hasPrefix(YK_ImageURL_Header) {
                 mainIVURL = YK_ImageURL_Header + model.creator!.portrait
             }
-            mainIV.yz_setImage(mainIVURL!, placeholderImageString: "live_default")
+            mainIV.yz_setImage(mainIVURL!, placeholder: "live_default")
             if model.distance.isEmpty {
                 addressLabel.text = model.city.isEmpty ? "火星" : model.city
             }else{

@@ -8,6 +8,13 @@
 
 import UIKit
 
+//@objc protocol PersonProtocol {
+//    func eating()
+//    @objc optional func sleeping()
+//    //可选方法通过下面这种方式调用
+//    //delegate?.sleeping?()
+//}
+
 class YZRootViewController: UIViewController {
 
     private var scrollView: UIScrollView!
@@ -19,6 +26,7 @@ class YZRootViewController: UIViewController {
         
         self.title = "Funny"
         automaticallyAdjustsScrollViewInsets = false
+        self.view.backgroundColor = UIColor.gray
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "weibo_profile_s"), style: .plain, target: self, action: #selector(self.aboutFunny(_:)))
         unowned let blockSelf = self
         YZFunnyManager.requestAccessForVideo { (authorized) in

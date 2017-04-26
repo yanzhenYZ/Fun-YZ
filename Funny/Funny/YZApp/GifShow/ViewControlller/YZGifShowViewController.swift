@@ -64,7 +64,7 @@ class YZGifShowViewController: YZSuperSecondViewController, YZVideoPlayDelegate 
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZGifShowVC-Fail")
+            YZLog(error?.localizedDescription ?? "YZGifShowVC-Fail")
         }
     }
 //MARK: - tableView

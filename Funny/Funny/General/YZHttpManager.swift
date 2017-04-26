@@ -22,7 +22,7 @@ class YZHttpManager: NSObject {
     
     func startMonitoring(wifi:@escaping (Bool) -> Void) {
         netManager.listener = { status in
-            wifi(status == .reachable(Alamofire.NetworkReachabilityManager.ConnectionType.ethernetOrWiFi))
+            wifi(status == .reachable(.ethernetOrWiFi))
         }
         netManager.startListening()
     }
@@ -33,7 +33,7 @@ class YZHttpManager: NSObject {
                 success?(response.result.value as! [String : AnyObject])
             }else{
                 failure?(response.result.error)
-                print(response.result.error!.localizedDescription)
+                YZLog(response.result.error!.localizedDescription)
             }
         }
     }
@@ -49,12 +49,12 @@ class YZHttpManager: NSObject {
     }
     
     //在方法中直接使用block
-//    class func get(_ url: String, completionHandler:@escaping (Bool, Any?) -> Void) {
+//    class func get(_ url: String, completionHandler: @escaping (Bool, Any?) -> Void) {
 //        Alamofire.request(url).responseJSON { (response) in
 //            completionHandler(response.result.isSuccess,response.result.value)
 //        }
 //    }
-//    
+//
 //    class func post(_ url: String, parameters: [String: Any]? = nil, completionHandler:@escaping (Bool, Any?) -> Void) {
 //        Alamofire.request(url, method: .post, parameters: parameters).responseJSON { (response) in
 //            completionHandler(response.result.isSuccess,response.result.value)

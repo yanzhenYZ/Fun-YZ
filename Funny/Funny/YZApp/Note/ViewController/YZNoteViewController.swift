@@ -78,4 +78,5 @@ class YZNoteViewController: UIViewController, UICollectionViewDataSource, UIColl
         dataSource.remove(at: indexPath!.item)
         collectionView.reloadData()
     }
+    
 }

@@ -22,11 +22,11 @@ class YZUCPicturesTableViewCell: UITableViewCell {
         subTitleLab.text = dateString(time) + "    " + model.origin_src_name
         
         var pictureModel = model.thumbnails![0]
-        leftIV.yz_setImage(pictureModel.url, placeholderImageString: nil)
+        leftIV.yz_setImage(pictureModel.url)
         pictureModel = model.thumbnails![1]
-        middleIV.yz_setImage(pictureModel.url, placeholderImageString: nil)
+        middleIV.yz_setImage(pictureModel.url)
         pictureModel = model.thumbnails![2]
-        rightIV.yz_setImage(pictureModel.url, placeholderImageString: nil)
+        rightIV.yz_setImage(pictureModel.url)
         
     }
     

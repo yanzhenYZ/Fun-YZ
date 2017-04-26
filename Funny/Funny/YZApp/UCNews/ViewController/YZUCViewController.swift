@@ -42,7 +42,7 @@ class YZUCViewController: YZSuperSecondViewController {
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZUCViewController-Fail")
+            YZLog(error?.localizedDescription ?? "YZUCViewController-Fail")
         }
     }
     

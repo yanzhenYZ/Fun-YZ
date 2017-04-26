@@ -59,7 +59,7 @@ class YZContentRecommendViewController: YZContentSuperViewController, YZVideoPla
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "Fail")
+            YZLog(error?.localizedDescription ?? "Fail")
         }
 //        return
 //        YZHttpManager.get(urlString) { (success, response) in
@@ -97,7 +97,7 @@ class YZContentRecommendViewController: YZContentSuperViewController, YZVideoPla
 //                baseView?.endRefreshing()
 //                self.tableView.reloadData()
 //            }else{
-//                print("YZContentRecommendViewController---Fail")
+//                YZLog("YZContentRecommendViewController---Fail")
 //                baseView?.endRefreshing()
 //            }
 //        }

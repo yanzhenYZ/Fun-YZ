@@ -15,21 +15,21 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let block = {(imageName: String) -> YZCircularMenuItem in
+        let block = {(imageName: String) -> YZCircularItem in
             let menuItemImage = UIImage(named: "menu_bg")
-            return YZCircularMenuItem(image: menuItemImage, highlightedImage: nil, contentImage: UIImage(named: imageName), highlightedContentImage: nil)
+            return YZCircularItem(image: menuItemImage!, highlightedImage: nil, contentImage: UIImage(named: imageName)!, highlightedContentImage: nil)
         }
         let menuItems = [block("shotPart"),block("home"),block("exit"),block("my")]
-        let startItem =  YZCircularMenuItem(image: UIImage(named: "menu"), highlightedImage: nil, contentImage: UIImage(named: "plus"), highlightedContentImage: UIImage(named: "plusHL"));
+        let startItem =  YZCircularItem(image: UIImage(named: "menu")!, highlightedImage: nil, contentImage: UIImage(named: "plus")!, highlightedContentImage: UIImage(named: "plusHL"));
         
-        let menu = YZCircularMenu(frame: CGRect(x: 0, y: HEIGHT - 200 - 49, width: 200, height: 200), start: startItem, start: CGPoint(x: 20, y: 180), menuWholeAngle: CGFloat(Double.pi/2), menuItems: menuItems)
-        menu?.delegate = self
-        menu?.alpha = 0.5
-        self.view.addSubview(menu!)
+        let menu = YZCircularMenu(frame: CGRect(x: 0, y: HEIGHT - 200 - 49, width: 200, height: 200), startItem: startItem, startPoint: CGPoint(x: 20, y: 180), menuWholeAngle: Double.pi / 2, items: menuItems)
+        menu.delegate = self
+        menu.alpha = 0.5
+        self.view.addSubview(menu)
     }
 
 //MARK: YZCircularMenuDelegate
-    func yz_CircularMenu(_ menu: YZCircularMenu!, didSelect index: Int) {
+    func yz_CircularMenu(_ menu: YZCircularMenu, didSelect index: Int) {
         menu.alpha = 0.5
         if index == 0 {
             self.view.addSubview(self.shotView)
@@ -45,11 +45,11 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
         }
     }
     
-    func yz_CircularMenuWillAnimateOpen(_ menu: YZCircularMenu!) {
+    func yz_CircularMenuWillAnimateOpen(menu: YZCircularMenu) {
         menu.alpha = 1.0
     }
     
-    func yz_CircularMenuWillAnimateClose(_ menu: YZCircularMenu!) {
+    func yz_CircularMenuWillAnimateClose(menu: YZCircularMenu) {
         menu.alpha = 0.5
     }
 //MARK: YZActionSheetDelegate
@@ -61,9 +61,11 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
 //MARK: YZShotViewDelegate
     func shotPart(isShot: Bool, shotFrame frame: CGRect) {
         shotView.removeFromSuperview()
-        var image = self.view.getRenderImage()
-        image = clipImage(image, rect: frame)
-        YZFunnyManager.saveImage(image)
+        if isShot {
+            var image = self.view.getRenderImage()
+            image = clipImage(image, rect: frame)
+            YZFunnyManager.saveImage(image)
+        }
     }
     
     private func clipImage(_ image: UIImage, rect: CGRect) ->UIImage {
@@ -82,9 +84,9 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
     }
 //MARK: lazy var
     lazy var sheet: YZActionSheet = {
-        let titleItem = YZActionSheetItem(title: "退出程序", titleColor: nil, titleFont: nil)
-        let item = YZActionSheetItem(title: "确定", titleColor: nil, titleFont: nil);
-        return YZActionSheet(titleItem: titleItem, cancelItem: nil, delegate: self, actions: [item])
+        let titleItem = YZActionSheetItem(title: "退出程序", titleColor: UIColor.gray)
+        let item = YZActionSheetItem(title: "确定")
+        return YZActionSheet(titleItem: titleItem, delegate: self, actions: [item])
     }()
     
     lazy var shotView: YZShotView = {

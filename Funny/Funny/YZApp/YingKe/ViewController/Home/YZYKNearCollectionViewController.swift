@@ -68,7 +68,7 @@ class YZYKNearCollectionViewController: UICollectionViewController, UICollection
             self.collectionView?.reloadData()
         }) { (error) in
             self.header?.endRefreshing()
-            print(error?.localizedDescription ?? "YZYKHotTableVC--Fail")
+            YZLog(error?.localizedDescription ?? "YZYKHotTableVC--Fail")
         }
     }
 

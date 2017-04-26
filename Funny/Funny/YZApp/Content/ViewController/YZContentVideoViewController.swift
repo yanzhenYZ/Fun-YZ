@@ -58,7 +58,7 @@ class YZContentVideoViewController: YZContentSuperViewController, YZVideoPlayDel
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZContentVideoVC---Fail")
+            YZLog(error?.localizedDescription ?? "YZContentVideoVC---Fail")
         }
     }
 //MARK: tableView-

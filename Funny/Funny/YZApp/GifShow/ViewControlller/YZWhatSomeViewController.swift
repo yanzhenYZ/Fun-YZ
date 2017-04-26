@@ -58,7 +58,7 @@ class YZWhatSomeViewController: YZContentSuperViewController {
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZWhatSomeVC---Fail")
+            YZLog(error?.localizedDescription ?? "YZWhatSomeVC---Fail")
         }
     }
 //MARK: tableView

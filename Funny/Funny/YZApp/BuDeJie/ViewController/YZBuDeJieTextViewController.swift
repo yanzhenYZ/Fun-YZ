@@ -43,7 +43,7 @@ class YZBuDeJieTextViewController: YZBuDeJieViewController {
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZBuDeJieTextVV---Fail")
+            YZLog(error?.localizedDescription ?? "YZBuDeJieTextVV---Fail")
         }
     }
 //MARK: - tableView

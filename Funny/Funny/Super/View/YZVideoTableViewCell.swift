@@ -59,7 +59,7 @@ class YZVideoTableViewCell: YZTableViewCell {
     }
     
     @objc private func longPressGestureAction(longPress: UILongPressGestureRecognizer) {
-        print("longPressGestureAction")
+        YZLog("longPressGestureAction")
         if longPress.state == .began {
             let message = WXMediaMessage()
             message.title = shareTitle != nil ? shareTitle : "搞笑视频"
@@ -90,7 +90,7 @@ class YZVideoTableViewCell: YZTableViewCell {
     }
     
     @objc private func pinGestureAction(pin: UIPinchGestureRecognizer) {
-        print("pinGestureAction")
+        YZLog("pinGestureAction")
         if pin.state == .began && isRefresh {
             delegate?.playVideoOnWindow(self)
         }

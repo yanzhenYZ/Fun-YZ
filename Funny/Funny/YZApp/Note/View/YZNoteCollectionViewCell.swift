@@ -14,7 +14,7 @@ protocol YZNoteCollectionViewCellDelegate: NSObjectProtocol {
 
 class YZNoteCollectionViewCell: UICollectionViewCell {
 
-    public var delegate: YZNoteCollectionViewCellDelegate?
+    public weak var delegate: YZNoteCollectionViewCellDelegate?
     @IBOutlet private weak var textView: UITextView!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var deleteBtn: UIButton!
@@ -38,6 +38,6 @@ class YZNoteCollectionViewCell: UICollectionViewCell {
     
     @IBAction @objc private func deleteBtnClick(_ sender: UIButton) {
         delegate?.deleteNote(self)
-        print(1111)
+        YZLog(1111)
     }
 }

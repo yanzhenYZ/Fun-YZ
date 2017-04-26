@@ -17,11 +17,11 @@ class YZNEPicturesTableViewCell: UITableViewCell {
     @IBOutlet weak var rightIV: UIImageView!
     func configureCell(_ model: YZNetEaseModel) {
         titleLab.text = model.title
-        leftIV.yz_setImage(model.imgsrc, placeholderImageString: nil)
+        leftIV.yz_setImage(model.imgsrc)
         var pictureModel = model.imgextra![0]
-        middleIV.yz_setImage(pictureModel.imgsrc, placeholderImageString: nil)
+        middleIV.yz_setImage(pictureModel.imgsrc)
         pictureModel = model.imgextra![1]
-        rightIV.yz_setImage(pictureModel.imgsrc, placeholderImageString: nil)
+        rightIV.yz_setImage(pictureModel.imgsrc)
     }
     
 }

@@ -20,7 +20,7 @@ class YZGifShowTableViewCell: YZVideoTableViewCell {
     public func configCell(_ model: YZGifShowModel) {
         shareURL = model.main_mv_url
         userView.configureUserView(model.headurl, name: model.user_name, time: model.time)
-        mainImageView.yz_setImage(model.thumbnail_url, placeholderImageString: nil)
+        mainImageView.yz_setImage(model.thumbnail_url)
         let mainHeight = (WIDTH - 100) / 3 * 4
         let mainIVFrame = CGRect(x: 50, y: 65, width: WIDTH - 100, height: mainHeight)
         mainImageView.frame = mainIVFrame

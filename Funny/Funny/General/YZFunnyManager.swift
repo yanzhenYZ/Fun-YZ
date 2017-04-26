@@ -34,13 +34,13 @@ class YZFunnyManager: NSObject {
                     })
                 }else{
                     if Int32(error!._code) == kLAErrorUserFallback {
-                        print("User tapped Enter Password")
+                        YZLog("User tapped Enter Password")
                     }else if Int32(error!._code) == kLAErrorUserCancel {
                         //手动取消
-                        print("User tapped Cancel")
+                        YZLog("User tapped Cancel")
                     }else{
                         //失败
-                        print("Authenticated failed")
+                        YZLog("Authenticated failed")
                     }
                     DispatchQueue.main.async(execute: {
                         failed?()
@@ -77,17 +77,17 @@ class YZFunnyManager: NSObject {
         case .notDetermined:
             AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted) in
                 if granted {
-                    print("--用户开启摄像头--")
+                    YZLog("--用户开启摄像头--")
                 }
                 handler?(granted)
             })
             break
         case .authorized:
-            print("--用户已开启摄像头--")
+            YZLog("--用户已开启摄像头--")
             handler?(true)
             break
         default:
-            print("--用户拒绝开启摄像头--")
+            YZLog("--用户拒绝开启摄像头--")
             handler?(false)
             break
         }
@@ -99,15 +99,15 @@ class YZFunnyManager: NSObject {
         case .notDetermined:
             AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: { (granted) in
                 if granted {
-                    print("--用户开启麦克风--")
+                    YZLog("--用户开启麦克风--")
                 }
             })
             break
         case .authorized:
-            print("--用户已开启麦克风--")
+            YZLog("--用户已开启麦克风--")
             break
         default:
-            print("--用户拒绝开启麦克风--")
+            YZLog("--用户拒绝开启麦克风--")
             break
         }
 

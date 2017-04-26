@@ -28,7 +28,7 @@ class YZWalfareGirlTableViewCell: YZPictureTableViewCell {
     public func configureCell(_ girlframe: YZWalfareGirlFrame) {
         creatTimeLabel.text = dateString(Int(girlframe.girlModel.update_time)!)
         contentLabel.text  = girlframe.girlModel.wbody
-        mainImageView.yz_setImage(girlframe.girlModel.wpic_middle, placeholderImageString: nil)
+        mainImageView.yz_setImage(girlframe.girlModel.wpic_middle)
         ///
         contentLabel.frame = girlframe.contentLabelFrame
         mainImageView.frame = girlframe.mainIVFrame

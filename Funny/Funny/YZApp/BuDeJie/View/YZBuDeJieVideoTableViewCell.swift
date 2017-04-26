@@ -28,7 +28,7 @@ class YZBuDeJieVideoTableViewCell: YZVideoTableViewCell {
         shareTitle = videoFrame.videoModel.text
         userView.configureUserView(videoFrame.videoModel.profile_image, name: videoFrame.videoModel.name, time: videoFrame.videoModel.create_time)
         contentLabel.text = videoFrame.videoModel.text
-        mainImageView.yz_setImage(videoFrame.videoModel.bimageuri, placeholderImageString: nil)
+        mainImageView.yz_setImage(videoFrame.videoModel.bimageuri)
         contentLabel.frame = videoFrame.contentLabelFrame
         mainImageView.frame = videoFrame.mainIVFrame
         playBtn.frame = videoFrame.playBtnFrame

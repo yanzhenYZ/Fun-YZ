@@ -173,11 +173,8 @@ extension String {
 }
 
 extension UIImageView {
-    public func yz_setImage(_ urlString: String, placeholderImageString: String?) {
-        var image = UIImage(named: "Y&Z")
-        if placeholderImageString != nil {
-            image = UIImage(named: placeholderImageString!)
-        }
+    public func yz_setImage(_ urlString: String, placeholder imageName: String = "Y&Z") {
+        let image = UIImage(named: imageName)
         self.sd_setImage(with: URL(string: urlString), placeholderImage: image)
     }
 }

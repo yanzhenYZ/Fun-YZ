@@ -39,7 +39,7 @@ class YZNetEaseViewController: YZSuperSecondViewController {
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZNetEaseVC---Fail")
+            YZLog(error?.localizedDescription ?? "YZNetEaseVC---Fail")
         }
     }
     

@@ -33,7 +33,7 @@ class YZUserView: UIView {
     }
     
     public func configureUserView(_ headImageUrlString: String, name: String, time: String) {
-        headImageView.yz_setImage(headImageUrlString, placeholderImageString: nil)
+        headImageView.yz_setImage(headImageUrlString)
         userNameLabel.text   = name
         createTimeLabel.text = time
     }

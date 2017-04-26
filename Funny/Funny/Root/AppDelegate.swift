@@ -14,8 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var videoWindow: YZVideoWindow!
 
-    public func showVideoWindow() {
+    //可以忽略返回的结果
+    @discardableResult
+    public func showVideoWindow() -> Bool {
         videoWindow.makeKeyAndVisible()
+        return true
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

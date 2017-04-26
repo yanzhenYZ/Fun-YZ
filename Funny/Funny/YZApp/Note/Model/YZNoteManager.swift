@@ -18,7 +18,7 @@ class YZNoteManager: NSObject {
             do {
                 try FileManager.default.createDirectory(atPath: DBPath, withIntermediateDirectories: true, attributes: nil)
             } catch let error as NSError {
-                print(error.localizedDescription)
+                YZLog(error.localizedDescription)
             }
         }
         ///

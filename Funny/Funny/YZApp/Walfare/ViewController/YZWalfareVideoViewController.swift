@@ -32,7 +32,7 @@ class YZWalfareVideoViewController: YZWalfareViewController, YZVideoPlayDelegate
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZWalfareVideoVC---Fail")
+            YZLog(error?.localizedDescription ?? "YZWalfareVideoVC---Fail")
         }
     }
 //MARK: - tableView

@@ -43,7 +43,7 @@ class YZYKLiveViewController: UIViewController, LFLiveSessionDelegate {
         if !sender.isSelected {
             let streamInfo = LFLiveStreamInfo()
             streamInfo.url = YK_Live_Header + YZUserDefaultsManager.getSelfLiveAddress()
-            print(streamInfo.url)
+            YZLog(streamInfo.url)
             session.startLive(streamInfo)
         }else{
             session.stopLive()
@@ -56,6 +56,6 @@ class YZYKLiveViewController: UIViewController, LFLiveSessionDelegate {
     }
     
     func liveSession(_ session: LFLiveSession?, errorCode: LFLiveSocketErrorCode) {
-        print("LFLiveSocketErrorCode\(errorCode)")
+        YZLog("LFLiveSocketErrorCode\(errorCode)")
     }
 }

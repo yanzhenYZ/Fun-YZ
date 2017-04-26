@@ -43,7 +43,7 @@ class YZCommentView: UIView {
     }
     
     public func configureCommentView(_ user: YZContentUser) {
-        headImageView.yz_setImage(user.avatar_url!, placeholderImageString: nil)
+        headImageView.yz_setImage(user.avatar_url!)
         userNameLabel.text = user.user_name
         userTextLabel.text = user.text
         userTextLabel.height = self.height - COMMENTVIEWSPACE

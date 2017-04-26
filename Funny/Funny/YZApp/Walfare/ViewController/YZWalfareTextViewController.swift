@@ -32,7 +32,7 @@ class YZWalfareTextViewController: YZWalfareViewController {
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZWalfareTextVC---Fail")
+            YZLog(error?.localizedDescription ?? "YZWalfareTextVC---Fail")
         }
     }
 //MARK: - tableView

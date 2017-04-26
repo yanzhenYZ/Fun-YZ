@@ -135,6 +135,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import UIKit;
 @import CoreGraphics;
 @import ObjectiveC;
+@import QuartzCore;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -155,13 +156,60 @@ SWIFT_CLASS("_TtC7YZUIKit13YZActionSheet")
 - (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
 @end
 
+@class UIColor;
 
 SWIFT_CLASS("_TtC7YZUIKit17YZActionSheetItem")
 @interface YZActionSheetItem : NSObject
+/// titleFont default is 18
+/// titleColor default RGB 22/255.0
+- (nonnull instancetype)initWithTitle:(NSString * _Nonnull)title titleColor:(UIColor * _Nonnull)titleColor titleFont:(CGFloat)titleFont OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 @class UIImage;
+
+SWIFT_CLASS("_TtC7YZUIKit14YZCircularItem")
+@interface YZCircularItem : NSObject
+- (nonnull instancetype)initWithImage:(UIImage * _Nonnull)image highlightedImage:(UIImage * _Nullable)highlightedImage contentImage:(UIImage * _Nonnull)cImage highlightedContentImage:(UIImage * _Nullable)hImage OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+@protocol YZCircularMenuDelegate;
+@class CAAnimation;
+
+SWIFT_CLASS("_TtC7YZUIKit14YZCircularMenu")
+@interface YZCircularMenu : UIView <CAAnimationDelegate>
+@property (nonatomic, weak) id <YZCircularMenuDelegate> _Nullable delegate;
+/// default is 0
+@property (nonatomic) CGFloat rotateAngle;
+/// default is 0.036
+@property (nonatomic) CGFloat expandDuration;
+/// default is true
+@property (nonatomic) BOOL rotateAddButton;
+- (nonnull instancetype)initWithFrame:(CGRect)frame startItem:(YZCircularItem * _Nonnull)startItem startPoint:(CGPoint)startPoint menuWholeAngle:(double)menuWholeAngle items:(NSArray<YZCircularItem *> * _Nonnull)items OBJC_DESIGNATED_INITIALIZER;
+/// default is 120.0
+@property (nonatomic) CGFloat radius;
+- (void)open;
+- (void)close;
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent * _Nullable)event SWIFT_WARN_UNUSED_RESULT;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+/// CAAnimationDelegate
+- (void)animationDidStop:(CAAnimation * _Nonnull)anim finished:(BOOL)flag;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_PROTOCOL("_TtP7YZUIKit22YZCircularMenuDelegate_")
+@protocol YZCircularMenuDelegate <NSObject>
+- (void)yz_CircularMenu:(YZCircularMenu * _Nonnull)menu didSelect:(NSInteger)index;
+@optional
+- (void)yz_CircularMenuDidFinishAnimationCloseWithMenu:(YZCircularMenu * _Nonnull)menu;
+- (void)yz_CircularMenuDidFinishAnimationOpenWithMenu:(YZCircularMenu * _Nonnull)menu;
+- (void)yz_CircularMenuWillAnimateOpenWithMenu:(YZCircularMenu * _Nonnull)menu;
+- (void)yz_CircularMenuWillAnimateCloseWithMenu:(YZCircularMenu * _Nonnull)menu;
+@end
+
 @class UIScrollView;
 @class NSBundle;
 
@@ -181,7 +229,7 @@ SWIFT_CLASS("_TtC7YZUIKit12YZTransition")
 @interface YZTransition : NSObject <UIViewControllerTransitioningDelegate>
 /// default is 0.53
 @property (nonatomic) CGFloat duration;
-- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)presented presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
+- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)presented presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=8.0);
 - (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
 - (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;

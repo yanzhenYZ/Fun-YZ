@@ -49,7 +49,7 @@ class YZYKPlayerViewController: UIViewController {
         ///
         loadBlurImage = UIImageView(frame: self.view.bounds)
         if model.creator != nil {
-            loadBlurImage.yz_setImage(model.creator!.portrait, placeholderImageString: "default_room")
+            loadBlurImage.yz_setImage(model.creator!.portrait, placeholder: "default_room")
         }
         self.view.addSubview(loadBlurImage)
         
@@ -78,20 +78,20 @@ class YZYKPlayerViewController: UIViewController {
     private func installMovieNotificationObservers() {
         let center = NotificationCenter.default
         center.addObserver(forName: .IJKMPMoviePlayerLoadStateDidChange, object: player, queue: OperationQueue.main) { (notification) in
-            print(self.player.loadState)
+            YZLog(self.player.loadState)
         }
         
         center.addObserver(forName: .IJKMPMoviePlayerPlaybackDidFinish, object: player, queue: OperationQueue.main) { (notification) in
             let reason = notification.userInfo?[IJKMPMoviePlayerPlaybackDidFinishReasonUserInfoKey]
-            print(reason ?? "IJKMPMoviePlayerPlaybackDidFinish")
+            YZLog(reason ?? "IJKMPMoviePlayerPlaybackDidFinish")
         }
         
         center.addObserver(forName: .IJKMPMediaPlaybackIsPreparedToPlayDidChange, object: player, queue: OperationQueue.main) { (notification) in
-            print("mediaIsPreparedToPlayDidChange")
+            YZLog("mediaIsPreparedToPlayDidChange")
         }
         
         center.addObserver(forName: .IJKMPMoviePlayerPlaybackStateDidChange, object: player, queue: OperationQueue.main) { (notification) in
-            print(self.player.playbackState)
+            YZLog(self.player.playbackState)
             self.loadBlurImage.isHidden = true
             self.loadBlurImage.removeFromSuperview()
         }

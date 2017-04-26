@@ -51,7 +51,7 @@ class YZYKHotTableViewController: UITableViewController {
             self.tableView.reloadData()
         }) { (error) in
             self.header.endRefreshing()
-            print(error?.localizedDescription ?? "YZYKHotTableVC--Fail")
+            YZLog(error?.localizedDescription ?? "YZYKHotTableVC--Fail")
         }
         
     }

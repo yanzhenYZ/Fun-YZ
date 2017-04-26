@@ -42,7 +42,7 @@ class YZBuDeJieVideoViewController: YZBuDeJieViewController, YZVideoPlayDelegate
             self.tableView.reloadData()
         }) { (error) in
             baseView?.endRefreshing()
-            print(error?.localizedDescription ?? "YZBuDeJieVideoVC---Fail")
+            YZLog(error?.localizedDescription ?? "YZBuDeJieVideoVC---Fail")
         }
     }
 //MARK: - tableView
