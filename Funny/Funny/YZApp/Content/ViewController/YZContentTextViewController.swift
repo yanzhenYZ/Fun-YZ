@@ -43,7 +43,7 @@ class YZContentTextViewController: YZContentSuperViewController {
             var modelArray = [YZSuperFrame]()
             for (_,value) in models!.enumerated() {
                 let model = value as! YZContentModel
-                if model.group != nil {
+                if model.group~~ {
                     let textFrame = YZContentTextFrame()
                     textFrame.contentModel = model
                     modelArray.append(textFrame)

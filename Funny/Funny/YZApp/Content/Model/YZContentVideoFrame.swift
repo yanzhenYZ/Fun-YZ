@@ -17,7 +17,7 @@ class YZContentVideoFrame: YZVideoFrame {
             let group = contentModel.group!
             let viewWidth = WIDTH - 4 * CONTENTSPACE
             var rect = CGRect(x: CONTENTSPACE, y: USERVIEWHEIGHT - CONTENTSPACE / 2, width: viewWidth, height: 0)
-            if group.text != nil {
+            if group.text~~ {
                 rect.size.height = group.text!.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth) + CONTENTSPACE / 2
             }
             contentLabelFrame = rect

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AVKit
+import AVFoundation
 import LocalAuthentication
 
 class YZFunnyManager: NSObject {
@@ -17,7 +17,7 @@ class YZFunnyManager: NSObject {
     }
     
     class func image(_ image: UIImage,didFinishSavingWithError error: NSError?, contextInfo: AnyObject){
-        if error != nil {
+        if error~~ {
             MBProgressHUD.showMessage("保存失败", success: false, stringColor: UIColor.red)
         }else{
             MBProgressHUD.showMessage("已保存到相册", success: true, stringColor: UIColor.red)

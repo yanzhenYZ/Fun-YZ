@@ -62,7 +62,7 @@ class YZVideoTableViewCell: YZTableViewCell {
         YZLog("longPressGestureAction")
         if longPress.state == .began {
             let message = WXMediaMessage()
-            message.title = shareTitle != nil ? shareTitle : "搞笑视频"
+            message.title = shareTitle~~ ? shareTitle : "搞笑视频"
             var data = UIImageJPEGRepresentation(mainImageView.image!, 0.3)
             var scale: CGFloat = 0.2
             for _ in 0..<3 {

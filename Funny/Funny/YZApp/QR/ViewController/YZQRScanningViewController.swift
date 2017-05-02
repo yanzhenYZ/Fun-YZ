@@ -58,7 +58,7 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
     }
 
     private func startScanning() {
-        if session != nil {
+        if session~~ {
             return
         }
         let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -119,7 +119,7 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
         MBProgressHUD.hide(for: self.view, animated: true)
         
         let features = detector?.features(in: ciImage)
-        if features != nil && features!.count > 0 {
+        if features~~ && features!.count > 0 {
             for (_,value) in features!.enumerated() {
                 if value is CIQRCodeFeature {
                     let feature = value as! CIQRCodeFeature

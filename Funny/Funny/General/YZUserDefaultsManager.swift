@@ -13,7 +13,7 @@ class YZUserDefaultsManager: NSObject {
     class func getBrightLevel() ->Float {
         let ud = UserDefaults.standard
         let brightLevel = ud.object(forKey: "YK_BrightLevel")
-        return brightLevel != nil ? (brightLevel as! Float) / 10 : 0.5
+        return brightLevel~~ ? (brightLevel as! Float) / 10 : 0.5
     }
     
     class func saveBrightLevel(_ brightLevel: Float) {
@@ -25,7 +25,7 @@ class YZUserDefaultsManager: NSObject {
     class func getBeautyLevel() ->Float {
         let ud = UserDefaults.standard
         let beautyLevel = ud.object(forKey: "YK_BeautyLevel")
-        return beautyLevel != nil ? (beautyLevel as! Float) / 10 : 0.5
+        return beautyLevel~~ ? (beautyLevel as! Float) / 10 : 0.5
     }
     
     class func saveBeautyLevel(_ beautyLevel: Float) {
@@ -53,7 +53,7 @@ class YZUserDefaultsManager: NSObject {
     class func getSelfLiveAddress() ->String {
         let ud = UserDefaults.standard
         var address = ud.object(forKey: "YZYK_SelfLiveAddress")
-        if address != nil {
+        if address~~ {
             return address as! String
         }else{
             address = currentTime() + "_" + NSUUID().uuidString
@@ -76,7 +76,7 @@ class YZUserDefaultsManager: NSObject {
     
     class func getNotePassword() ->String {
         let notePassword = UserDefaults.standard.object(forKey: "note_password")
-        return notePassword != nil ? notePassword as! String : "1234"
+        return notePassword~~ ? notePassword as! String : "1234"
     }
     
     class func writeManagerPassword(_ password: String) {
@@ -87,7 +87,7 @@ class YZUserDefaultsManager: NSObject {
     
     class func getManagerPassword() ->String {
         let notePassword = UserDefaults.standard.object(forKey: "manager_password")
-        return notePassword != nil ? notePassword as! String : "1234"
+        return notePassword~~ ? notePassword as! String : "1234"
     }
 
 }

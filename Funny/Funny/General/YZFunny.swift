@@ -65,7 +65,7 @@ func YZColor(_ R: CGFloat, _ G: CGFloat, _ B: CGFloat) ->UIColor {
 ///<T>表示任何类型的参数
 func YZLog<T>(_ items: T,file: String = #file,line: Int = #line,method: String = #function) {
     #if DEBUG
-        print("\((file as NSString).lastPathComponent)[\(line)], \(method):\(items)")
+        print("\((file as NSString).lastPathComponent)[\(line)] \([method]) \(items)")
     #endif
 }
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AVKit
+import AVFoundation
 
 class YZFaceView: UIView {
 
@@ -21,14 +21,14 @@ class YZFaceView: UIView {
     }
     
     public func startRunning() {
-        if session != nil {
+        if session~~ {
             if !session!.isRunning {
                 session!.startRunning()
             }
             return
         }
         let device = AVCaptureDevice.defaultDevice(withDeviceType: AVCaptureDeviceType.builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .front)
-        let input = try! AVCaptureDeviceInput.init(device: device)
+        let input = try? AVCaptureDeviceInput.init(device: device)
         session = AVCaptureSession()
         session!.sessionPreset = AVCaptureSessionPresetHigh
         if session!.canAddInput(input) {

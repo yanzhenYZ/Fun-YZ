@@ -43,7 +43,7 @@ class YZWhatSomeViewController: YZContentSuperViewController {
             var modelArray = [YZSuperFrame]()
             for (_,value) in models!.enumerated() {
                 let model = value as! YZWhatSomeModel
-                if model.group != nil && model.group?.middle_image != nil {
+                if model.group~~ && model.group?.middle_image != nil {
                     let pictureFrame = YZWhatSomeFrame()
                     pictureFrame.model = model
                     modelArray.append(pictureFrame)

@@ -43,7 +43,7 @@ class YZContentVideoViewController: YZContentSuperViewController, YZVideoPlayDel
             var modelArray = [YZSuperFrame]()
             for (_,value) in models!.enumerated() {
                 let model = value as! YZContentModel
-                if model.group != nil {
+                if model.group~~ {
                     let videoFrame = YZContentVideoFrame()
                     videoFrame.contentModel = model
                     modelArray.append(videoFrame)

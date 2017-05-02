@@ -50,7 +50,7 @@ class YZLockedView: UIView {
         password = password + code
         views.append(view!)
         if views.count == 4 {
-            if delegate != nil {
+            if delegate~~ {
                 if !delegate!.passwordIsRight(password: password) {
                     UIView.animate(withDuration: 0.1, animations: { 
                         self.topView.transform = self.topView.transform.translatedBy(x: 20, y: 0)

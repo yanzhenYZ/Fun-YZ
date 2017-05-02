@@ -8,12 +8,12 @@
 
 import UIKit
 
-//@objc protocol PersonProtocol {
-//    func eating()
-//    @objc optional func sleeping()
-//    //可选方法通过下面这种方式调用
-//    //delegate?.sleeping?()
-//}
+/*
+ 添加framework方式：通过 Build Phases->Link Binary With Libraries->Add Other...
+ 添加完成之后            General->Embedded Binaries->Frmeworks文件夹下找到添加的framework选中
+                       下面的一项会生成一个多余的framework，删除重复的
+                       framework不是添加到工程内部的，设置 --> Framework Search Paths
+ */
 
 class YZRootViewController: UIViewController {
 

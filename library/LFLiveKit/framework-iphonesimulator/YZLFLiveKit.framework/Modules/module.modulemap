@@ -1,0 +1,6 @@
+framework module YZLFLiveKit {
+  umbrella header "YZLFLiveKit.h"
+
+  export *
+  module * { export * }
+}

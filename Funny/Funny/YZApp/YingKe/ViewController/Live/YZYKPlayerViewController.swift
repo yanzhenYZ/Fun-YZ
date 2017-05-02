@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IJKMediaFramework
 
 class YZYKPlayerViewController: UIViewController {
 
@@ -48,7 +49,7 @@ class YZYKPlayerViewController: UIViewController {
         self.view.addSubview(player.view)
         ///
         loadBlurImage = UIImageView(frame: self.view.bounds)
-        if model.creator != nil {
+        if model.creator~~ {
             loadBlurImage.yz_setImage(model.creator!.portrait, placeholder: "default_room")
         }
         self.view.addSubview(loadBlurImage)

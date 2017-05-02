@@ -15,7 +15,7 @@ class YZBuDeJieVideoFrame: YZVideoFrame {
         didSet{
             let viewWidth = WIDTH - 4 * CONTENTSPACE
             var rect = CGRect(x: CONTENTSPACE, y: USERVIEWHEIGHT - CONTENTSPACE / 2, width: viewWidth, height: 0)
-            if videoModel.text != nil {
+            if videoModel.text~~ {
                 rect.size.height = videoModel.text!.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth) + CONTENTSPACE / 2
             }
             contentLabelFrame = rect

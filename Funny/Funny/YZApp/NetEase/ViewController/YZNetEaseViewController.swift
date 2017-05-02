@@ -29,7 +29,7 @@ class YZNetEaseViewController: YZSuperSecondViewController {
             let models = YZNetEaseModel.mj_objectArray(withKeyValuesArray: keyArray)
             for (_,value) in models!.enumerated() {
                 let model = value as! YZNetEaseModel
-                if model.url != nil {
+                if model.url~~ {
                     if model.url!.hasPrefix("http") {
                         self.dataSource.append(model)
                     }
@@ -46,7 +46,8 @@ class YZNetEaseViewController: YZSuperSecondViewController {
     private func netEaseURL(_ refreshType: MJRefresh) ->String {
         if refreshType == .push {
             let urlString = pushURL + String(index * 20) + NetEaseDefaultFooterURL
-            index += 1
+//            index += 1
+            index++
             return urlString
         }else{
             return defaultURL
@@ -68,7 +69,7 @@ class YZNetEaseViewController: YZSuperSecondViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = dataSource[indexPath.row]
-        if model.imgextra != nil && model.imgextra!.count >= 2 {
+        if model.imgextra~~ && model.imgextra!.count >= 2 {
             var cell = tableView.dequeueReusableCell(withIdentifier: "YZNEPicturesTableViewCell") as? YZNEPicturesTableViewCell
             if cell == nil {
                 cell = Bundle.main.loadNibNamed("YZNEPicturesTableViewCell", owner: nil, options: nil)?.last as? YZNEPicturesTableViewCell
@@ -87,7 +88,7 @@ class YZNetEaseViewController: YZSuperSecondViewController {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = dataSource[indexPath.row]
-        if model.imgextra != nil && model.imgextra!.count >= 2 {
+        if model.imgextra~~ && model.imgextra!.count >= 2 {
             return ISIPAD ? 200 : 125
         }else{
             return ISIPAD ? 150 : 90

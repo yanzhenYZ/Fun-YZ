@@ -15,7 +15,7 @@ class YZWalfareVideoFrame: YZVideoFrame {
         didSet{
             let viewWidth = WIDTH - CONTENTSPACE * 4
             var rect = CGRect(x: CONTENTSPACE * 2, y: 25, width: viewWidth, height: 0)
-            if videoModel.wbody != nil {
+            if videoModel.wbody~~ {
                 rect.size.height = videoModel.wbody!.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth) + CONTENTSPACE
             }
             contentLabelFrame = rect

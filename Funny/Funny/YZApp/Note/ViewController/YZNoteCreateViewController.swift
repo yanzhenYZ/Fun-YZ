@@ -29,7 +29,7 @@ class YZNoteCreateViewController: UIViewController {
         self.title = "笔记"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(self.saveNote))
         textView.becomeFirstResponder()
-        if noteModel != nil {
+        if noteModel~~ {
             textView.text = noteModel?.title
         }
         
@@ -56,7 +56,7 @@ class YZNoteCreateViewController: UIViewController {
             return
         }
         
-        if noteModel != nil {
+        if noteModel~~ {
             if noteModel?.title != textView.text {
                 noteModel?.title = textView.text
                 YZNoteManager.manager.updateNote(noteModel!)

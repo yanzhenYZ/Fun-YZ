@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YZLFLiveKit
 
 class YZYKBeautyViewController: UIViewController {
     
@@ -29,12 +30,16 @@ class YZYKBeautyViewController: UIViewController {
         
         session = LFLiveSession(audioConfiguration: LFLiveAudioConfiguration.default(), videoConfiguration: LFLiveVideoConfiguration.defaultConfiguration(for: LFLiveVideoQuality(rawValue: YZUserDefaultsManager.getVideoQuality())!))
         session.showDebugInfo = false
-        session.preView = self.view
         session.beautyLevel = CGFloat(YZUserDefaultsManager.getBeautyLevel())
         session.brightLevel = CGFloat(YZUserDefaultsManager.getBrightLevel())
-        session.running = true
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        session.preView = self.view
+        session.running = true
+    }
+    
     @objc private func saveAction() {
         YZUserDefaultsManager.saveBeautyLevel(beautyLevel)
         YZUserDefaultsManager.saveBrightLevel(brightLevel)

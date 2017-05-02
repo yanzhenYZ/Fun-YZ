@@ -9,6 +9,4 @@
 #import "FMDB.h"
 #import "YZQRImageTool.h"
 #import "MBProgressHUD+YZZ.h"
-#import <IJKMediaFramework/IJKMediaFramework.h>
-#import "LFLiveKit.h"
 #import "WXApi.h"

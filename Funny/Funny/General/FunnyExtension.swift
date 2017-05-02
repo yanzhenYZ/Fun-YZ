@@ -6,7 +6,6 @@
 //  Copyright © 2016年 Y&Z. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 extension UIView {
