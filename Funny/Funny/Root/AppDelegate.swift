@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import YZPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var videoWindow: YZVideoWindow!
-
-    //可以忽略返回的结果
-    @discardableResult
-    public func showVideoWindow() -> Bool {
-        videoWindow.makeKeyAndVisible()
-        return true
-    }
+    
+    lazy var avWindow: YZAVWindow = {
+        let avW = YZAVWindow(frame: CGRect(x: 0, y: 0, width: WIDTH, height: WIDTH / 4 * 3))
+        let color = UIColor(colorLiteralRed: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
+        let attributes = [NSForegroundColorAttributeName : color, NSFontAttributeName : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
+        let mark = YZAVMark("Y&Z TV", rect: CGRect(x: 5, y: 5, width: 120, height: 40), attrs: attributes)
+        avW.mark(mark)
+        avW.setImageName("WindowViewPause", close: "closeWindowView")
+//        avW.isHidden = true
+//        avW.makeKeyAndVisible()
+        return avW
+    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -31,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nvc = UINavigationController(rootViewController: vc)
         window?.rootViewController = nvc
 
-        configureVideoWindow()
         configureAppearance()
         configureMJExtension()
         configure3DTouch()
@@ -47,9 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configure3DTouch() {
-        let types = ["106","100","109"]
+        let types = ["106","100","902"]
         let titles = ["直播","内涵段子","扫一扫"]
-        let icons = [UIApplicationShortcutIconType.play,UIApplicationShortcutIconType.captureVideo,UIApplicationShortcutIconType.shuffle]
+        let icons = [UIApplicationShortcutIconType.captureVideo,UIApplicationShortcutIconType.play,UIApplicationShortcutIconType.shuffle]
         var items = [UIApplicationShortcutItem]()
         for i in 0...2 {
             let icon = UIApplicationShortcutIcon(type: icons[i])
@@ -57,12 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             items.append(item)
         }
         UIApplication.shared.shortcutItems = items
-    }
-    
-    private func configureVideoWindow() {
-        videoWindow = YZVideoWindow()
-        videoWindow.backgroundColor = UIColor.clear
-        videoWindow.windowLevel = UIWindowLevelAlert + 1
     }
     
     private func configureAppearance() {

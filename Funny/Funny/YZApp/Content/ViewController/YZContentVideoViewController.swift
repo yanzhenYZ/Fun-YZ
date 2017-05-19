@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YZContentVideoViewController: YZContentSuperViewController, YZVideoPlayDelegate {
+class YZContentVideoViewController: YZContentSuperViewController {
 
     override var normalURLStr: String {
         get {
@@ -66,7 +66,6 @@ class YZContentVideoViewController: YZContentSuperViewController, YZVideoPlayDel
         var cell = tableView.dequeueReusableCell(withIdentifier: "YZContentVideoTableViewCell") as? YZContentVideoTableViewCell
         if cell == nil {
             cell = YZContentVideoTableViewCell(style:.default, reuseIdentifier:"YZContentVideoTableViewCell")
-                cell!.delegate = self
         }
         cell?.configureCell(dataSource[indexPath.row] as! YZContentVideoFrame)
         cell?.tableViewReloadData()
@@ -78,26 +77,4 @@ class YZContentVideoViewController: YZContentSuperViewController, YZVideoPlayDel
         let wvc = YZContentWebViewController(urlString: videoFrame.contentModel.group!.share_url!)
         self.navigationController?.pushViewController(wvc, animated: true)
     }
-    
-//MARK: - YZVideoPlayDelegate
-    func playVideo(_ play: Bool, videoCell: YZVideoTableViewCell) {
-        let indexPath = tableView.indexPath(for: videoCell)
-        let videoFrame = dataSource[indexPath!.row] as! YZContentVideoFrame
-        let url = videoFrame.contentModel.group?.video_720p?.url_list?[0]["url"]
-        if YZWindowViewManager.manager.isWindowViewShow() {
-            videoCell.playBtn.isSelected = false
-            YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
-        }else{
-            YZVideoManager.manager.playVideo(videoCell, urlString: url!)
-        }
-    }
-    
-    func playVideoOnWindow(_ videoCell: YZVideoTableViewCell) {
-        let indexPath = tableView.indexPath(for: videoCell)
-        let videoFrame = dataSource[indexPath!.row] as! YZContentVideoFrame
-        let url = videoFrame.contentModel.group?.video_720p?.url_list?[0]["url"]
-        YZVideoManager.manager.tableViewReload()
-        YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
-    }
-
 }

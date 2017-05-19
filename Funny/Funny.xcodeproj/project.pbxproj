@@ -162,6 +162,8 @@
 		9B3282621E10F91C00506424 /* YZSuperSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3282601E10F91C00506424 /* YZSuperSecondViewController.swift */; };
 		9B3282631E10F91C00506424 /* YZSuperSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B3282611E10F91C00506424 /* YZSuperSecondViewController.xib */; };
 		9B32826E1E10FE1700506424 /* YZNVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32826D1E10FE1700506424 /* YZNVCModel.swift */; };
+		9B358B691ECD9BD000917BED /* YZPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B358B671ECD9BC800917BED /* YZPlayer.framework */; };
+		9B358B6A1ECD9BD000917BED /* YZPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B358B671ECD9BC800917BED /* YZPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B46EE901E23898200E16350 /* YZNewVersionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46EE8E1E23898200E16350 /* YZNewVersionViewController.swift */; };
 		9B46EE911E23898200E16350 /* YZNewVersionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46EE8F1E23898200E16350 /* YZNewVersionViewController.xib */; };
 		9B46EE9F1E247A5D00E16350 /* YZYKHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46EE9E1E247A5D00E16350 /* YZYKHomeViewController.swift */; };
@@ -204,6 +206,8 @@
 		9B46F1C11E28A71500E16350 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B46F1BC1E28A71500E16350 /* libWeChatSDK.a */; };
 		9B46F1C21E28A71500E16350 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F1BD1E28A71500E16350 /* README.txt */; };
 		9B46F1C41E28ADA500E16350 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B46F1C31E28ADA500E16350 /* CoreTelephony.framework */; };
+		9B7246F71EC1A1A00070FE88 /* YZMPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7246F61EC1A1A00070FE88 /* YZMPViewController.swift */; };
+		9B7246F91EC1A9B60070FE88 /* YZMPSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7246F81EC1A9B60070FE88 /* YZMPSettingView.swift */; };
 		9B8268071EB1A0AE007AE4D1 /* YZPostfix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8268061EB1A0AE007AE4D1 /* YZPostfix.swift */; };
 		9B904E731E0B7BC100E99D25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B904E721E0B7BC100E99D25 /* Assets.xcassets */; };
 		9B904E8F1E0BD06000E99D25 /* FunnyExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904E8B1E0BD06000E99D25 /* FunnyExtension.swift */; };
@@ -222,12 +226,6 @@
 		9BF6A82E1E14BEE800F534F8 /* YZWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A82C1E14BEE800F534F8 /* YZWebViewController.swift */; };
 		9BF6A82F1E14BEE800F534F8 /* YZWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BF6A82D1E14BEE800F534F8 /* YZWebViewController.xib */; };
 		9BF6A8311E14D52F00F534F8 /* YZContentWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A8301E14D52F00F534F8 /* YZContentWebViewController.swift */; };
-		9BF6A8341E14DBB600F534F8 /* YZVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A8331E14DBB600F534F8 /* YZVideoManager.swift */; };
-		9BF6A8361E14DBE200F534F8 /* YZLayerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A8351E14DBE200F534F8 /* YZLayerDelegate.swift */; };
-		9BF6A8381E15005200F534F8 /* YZWindowLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A8371E15005200F534F8 /* YZWindowLoadingView.swift */; };
-		9BF6A83A1E15023500F534F8 /* YZVideoWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A8391E15023500F534F8 /* YZVideoWindow.swift */; };
-		9BF6A83C1E1509DA00F534F8 /* YZWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A83B1E1509DA00F534F8 /* YZWindowView.swift */; };
-		9BF6A83E1E150CAD00F534F8 /* YZWindowViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6A83D1E150CAD00F534F8 /* YZWindowViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +246,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				9BAB30691EB86198009EF0F6 /* YZUIKit.framework in Embed Frameworks */,
+				9B358B6A1ECD9BD000917BED /* YZPlayer.framework in Embed Frameworks */,
 				9BAB30651EB86044009EF0F6 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -468,6 +467,7 @@
 		9B3282601E10F91C00506424 /* YZSuperSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZSuperSecondViewController.swift; sourceTree = "<group>"; };
 		9B3282611E10F91C00506424 /* YZSuperSecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YZSuperSecondViewController.xib; sourceTree = "<group>"; };
 		9B32826D1E10FE1700506424 /* YZNVCModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZNVCModel.swift; sourceTree = "<group>"; };
+		9B358B671ECD9BC800917BED /* YZPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YZPlayer.framework; path = ../library/YZPlayer/YZPlayer.framework; sourceTree = "<group>"; };
 		9B46EE8E1E23898200E16350 /* YZNewVersionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZNewVersionViewController.swift; sourceTree = "<group>"; };
 		9B46EE8F1E23898200E16350 /* YZNewVersionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YZNewVersionViewController.xib; sourceTree = "<group>"; };
 		9B46EE9E1E247A5D00E16350 /* YZYKHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZYKHomeViewController.swift; sourceTree = "<group>"; };
@@ -514,6 +514,8 @@
 		9B46F1BF1E28A71500E16350 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		9B46F1C01E28A71500E16350 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		9B46F1C31E28ADA500E16350 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		9B7246F61EC1A1A00070FE88 /* YZMPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZMPViewController.swift; sourceTree = "<group>"; };
+		9B7246F81EC1A9B60070FE88 /* YZMPSettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZMPSettingView.swift; sourceTree = "<group>"; };
 		9B8268061EB1A0AE007AE4D1 /* YZPostfix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZPostfix.swift; sourceTree = "<group>"; };
 		9B904E681E0B7BC100E99D25 /* Funny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Funny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B904E721E0B7BC100E99D25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -532,12 +534,6 @@
 		9BF6A82C1E14BEE800F534F8 /* YZWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZWebViewController.swift; sourceTree = "<group>"; };
 		9BF6A82D1E14BEE800F534F8 /* YZWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YZWebViewController.xib; sourceTree = "<group>"; };
 		9BF6A8301E14D52F00F534F8 /* YZContentWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZContentWebViewController.swift; sourceTree = "<group>"; };
-		9BF6A8331E14DBB600F534F8 /* YZVideoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZVideoManager.swift; sourceTree = "<group>"; };
-		9BF6A8351E14DBE200F534F8 /* YZLayerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZLayerDelegate.swift; sourceTree = "<group>"; };
-		9BF6A8371E15005200F534F8 /* YZWindowLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZWindowLoadingView.swift; sourceTree = "<group>"; };
-		9BF6A8391E15023500F534F8 /* YZVideoWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZVideoWindow.swift; sourceTree = "<group>"; };
-		9BF6A83B1E1509DA00F534F8 /* YZWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZWindowView.swift; sourceTree = "<group>"; };
-		9BF6A83D1E150CAD00F534F8 /* YZWindowViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZWindowViewManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -560,6 +556,7 @@
 				9B46EEE01E260C1B00E16350 /* libc++.tbd in Frameworks */,
 				9B46F1C11E28A71500E16350 /* libWeChatSDK.a in Frameworks */,
 				9B46EEDE1E2602B200E16350 /* IJKMediaFramework.framework in Frameworks */,
+				9B358B691ECD9BD000917BED /* YZPlayer.framework in Frameworks */,
 				9B29A1101E1E199200891D6B /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1011,6 +1008,7 @@
 		9B29A10E1E1E199200891D6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B358B671ECD9BC800917BED /* YZPlayer.framework */,
 				9BAB30661EB86187009EF0F6 /* YZUIKit.framework */,
 				9BAB30621EB86038009EF0F6 /* Alamofire.framework */,
 				9B46F1C31E28ADA500E16350 /* CoreTelephony.framework */,
@@ -1138,6 +1136,7 @@
 		9B3282491E10CCC700506424 /* YZApp */ = {
 			isa = PBXGroup;
 			children = (
+				9B7246F51EC1A1680070FE88 /* Zipai */,
 				9B46EE971E2479D500E16350 /* YingKe */,
 				9B29A1111E1E395000891D6B /* QR */,
 				9B29A0E21E1CF94100891D6B /* Note */,
@@ -1280,6 +1279,15 @@
 			path = WeChatSDK1.7.5;
 			sourceTree = "<group>";
 		};
+		9B7246F51EC1A1680070FE88 /* Zipai */ = {
+			isa = PBXGroup;
+			children = (
+				9B7246F61EC1A1A00070FE88 /* YZMPViewController.swift */,
+				9B7246F81EC1A9B60070FE88 /* YZMPSettingView.swift */,
+			);
+			path = Zipai;
+			sourceTree = "<group>";
+		};
 		9B904E5F1E0B7BC100E99D25 = {
 			isa = PBXGroup;
 			children = (
@@ -1306,7 +1314,6 @@
 				9B904E961E0BD41400E99D25 /* Super */,
 				9B904E8D1E0BD06000E99D25 /* Root */,
 				9B32822C1E0D247700506424 /* GlobalView */,
-				9BF6A8321E14DB6100F534F8 /* VideoManager */,
 				9B904E9C1E0BD4D400E99D25 /* Lib */,
 				9B904E8A1E0BD06000E99D25 /* General */,
 				9B904E951E0BD11100E99D25 /* Resource */,
@@ -1405,19 +1412,6 @@
 				9B06D0921E124E9D004C5AC7 /* MJExtension */,
 			);
 			path = Lib;
-			sourceTree = "<group>";
-		};
-		9BF6A8321E14DB6100F534F8 /* VideoManager */ = {
-			isa = PBXGroup;
-			children = (
-				9BF6A8331E14DBB600F534F8 /* YZVideoManager.swift */,
-				9BF6A8351E14DBE200F534F8 /* YZLayerDelegate.swift */,
-				9BF6A8371E15005200F534F8 /* YZWindowLoadingView.swift */,
-				9BF6A8391E15023500F534F8 /* YZVideoWindow.swift */,
-				9BF6A83B1E1509DA00F534F8 /* YZWindowView.swift */,
-				9BF6A83D1E150CAD00F534F8 /* YZWindowViewManager.swift */,
-			);
-			path = VideoManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1571,7 +1565,6 @@
 			files = (
 				9B46EEAD1E2483C700E16350 /* YZYKHotTableViewController.swift in Sources */,
 				9B29A0A61E1B983100891D6B /* YZWalfareTextTableViewCell.swift in Sources */,
-				9BF6A83A1E15023500F534F8 /* YZVideoWindow.swift in Sources */,
 				9B29A10A1E1E194400891D6B /* FMDatabaseAdditions.m in Sources */,
 				9B06D0A91E124E9D004C5AC7 /* MJFoundation.m in Sources */,
 				9B46EEA11E247A9700E16350 /* YZYKTabBarViewController.swift in Sources */,
@@ -1585,10 +1578,10 @@
 				9B06D0FB1E125BFD004C5AC7 /* UIView+WebCache.m in Sources */,
 				9B46EED31E24E49700E16350 /* YZUserDefaultsManager.swift in Sources */,
 				9B06D0161E1203A1004C5AC7 /* YZContentURL.swift in Sources */,
-				9BF6A83C1E1509DA00F534F8 /* YZWindowView.swift in Sources */,
 				9B06D0F41E125BFD004C5AC7 /* SDWebImagePrefetcher.m in Sources */,
 				9B32826E1E10FE1700506424 /* YZNVCModel.swift in Sources */,
 				9B06D0F81E125BFD004C5AC7 /* UIImage+WebP.m in Sources */,
+				9B7246F71EC1A1A00070FE88 /* YZMPViewController.swift in Sources */,
 				9B06D1071E13510D004C5AC7 /* YZUserView.swift in Sources */,
 				9B904E9B1E0BD43600E99D25 /* YZSuperViewController.swift in Sources */,
 				9B06D0901E124E8E004C5AC7 /* YZContentGroup.swift in Sources */,
@@ -1600,6 +1593,7 @@
 				9B904E911E0BD06000E99D25 /* AppDelegate.swift in Sources */,
 				9B29A0B71E1C95E300891D6B /* YZUCPictureTableViewCell.swift in Sources */,
 				9B29A0B21E1BAE2E00891D6B /* YZUCNewsURL.swift in Sources */,
+				9B7246F91EC1A9B60070FE88 /* YZMPSettingView.swift in Sources */,
 				9B32820D1E0D103F00506424 /* YZRootSecondViewController.swift in Sources */,
 				9B32822F1E0D248E00506424 /* YZIconButton.swift in Sources */,
 				9B29A0A01E1B96FB00891D6B /* YZWalfareGirlFrame.swift in Sources */,
@@ -1636,7 +1630,6 @@
 				9B06D0051E111021004C5AC7 /* YZShotView.swift in Sources */,
 				9B46EEBE1E24C36E00E16350 /* YZYKNearCollectionViewCell.swift in Sources */,
 				9B06D0911E124E8E004C5AC7 /* YZContentUser.swift in Sources */,
-				9BF6A8381E15005200F534F8 /* YZWindowLoadingView.swift in Sources */,
 				9B29A0CC1E1CCDB700891D6B /* YZNEPictureTableViewCell.swift in Sources */,
 				9B06D0EF1E125BFD004C5AC7 /* SDWebImageCompat.m in Sources */,
 				9B29A1141E1E3A2400891D6B /* YZQRViewController.swift in Sources */,
@@ -1650,7 +1643,6 @@
 				9B06D0FE1E125D93004C5AC7 /* YZVideoFrame.swift in Sources */,
 				9B32820B1E0D102F00506424 /* YZRootFirstViewController.swift in Sources */,
 				9B29A14B1E209EA900891D6B /* MBProgressHUD.m in Sources */,
-				9BF6A8361E14DBE200F534F8 /* YZLayerDelegate.swift in Sources */,
 				9B06D0F91E125BFD004C5AC7 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9B46EECA1E24CF5500E16350 /* YZYKBeautyViewController.swift in Sources */,
 				9B29A0A81E1B985700891D6B /* YZWalfareGirlTableViewCell.swift in Sources */,
@@ -1665,7 +1657,6 @@
 				9B46EEA71E24817200E16350 /* YZYKMyTableViewController.swift in Sources */,
 				9B29A0A41E1B980C00891D6B /* YZWalfareVideoTableViewCell.swift in Sources */,
 				9B06D0FA1E125BFD004C5AC7 /* UIImageView+WebCache.m in Sources */,
-				9BF6A8341E14DBB600F534F8 /* YZVideoManager.swift in Sources */,
 				9B29A0601E1B3B3500891D6B /* YZGifShowViewController.swift in Sources */,
 				9B06D0EC1E125BFD004C5AC7 /* NSImage+WebCache.m in Sources */,
 				9B29A06E1E1B597D00891D6B /* YZWhatSomeFrame.swift in Sources */,
@@ -1729,7 +1720,6 @@
 				9B06D0F71E125BFD004C5AC7 /* UIImage+MultiFormat.m in Sources */,
 				9B29A1171E1E3A9500891D6B /* YZQRMakeViewController.swift in Sources */,
 				9B904E8F1E0BD06000E99D25 /* FunnyExtension.swift in Sources */,
-				9BF6A83E1E150CAD00F534F8 /* YZWindowViewManager.swift in Sources */,
 				9B29A18D1E23690900891D6B /* YZPasswordManagerTableViewController.swift in Sources */,
 				9B06D0EA1E125BFD004C5AC7 /* MKAnnotationView+WebCache.m in Sources */,
 				9B29A0B41E1BAE9A00891D6B /* YZUCNewsModel.swift in Sources */,
@@ -1919,6 +1909,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../library/LFLiveKit/framework$(EFFECTIVE_PLATFORM_NAME)",
 					"$(SRCROOT)/../library/YZUIKit/",
+					"$(SRCROOT)/../library/YZPlayer/",
 					"$(SRCROOT)/../library/Alamofire/",
 					"$(SRCROOT)/../library/IJKMedia/",
 					"$(PROJECT_DIR)/Funny",
@@ -1957,6 +1948,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../library/LFLiveKit/framework$(EFFECTIVE_PLATFORM_NAME)",
 					"$(SRCROOT)/../library/YZUIKit/",
+					"$(SRCROOT)/../library/YZPlayer/",
 					"$(SRCROOT)/../library/Alamofire/",
 					"$(SRCROOT)/../library/IJKMedia/",
 					"$(PROJECT_DIR)/Funny",

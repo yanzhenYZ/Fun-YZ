@@ -37,16 +37,15 @@ class YZContentVideoTableViewCell: YZVideoTableViewCell {
         contentLabel.text = group?.text
         mainImageView.yz_setImage(group!.large_cover!.url_list![0]["url"]!)
         ///
-        contentLabel.frame = videoFrame.contentLabelFrame
-        mainImageView.frame = videoFrame.mainIVFrame
-        playBtn.frame = videoFrame.playBtnFrame
-        progressView.frame = videoFrame.progressViewFrame
-        commentView.frame = videoFrame.commentViewFrame
-        backView.frame = videoFrame.backViewFrame
-        if (videoFrame.contentModel.comments?.count)! > 0 {
-            let user = videoFrame.contentModel.comments![0]
-            commentView.configureCommentView(user)
+        contentLabel.frame  = videoFrame.contentLabelFrame
+        videoViewFrame = videoFrame.mainIVFrame
+        commentView.frame   = videoFrame.commentViewFrame
+        backView.frame      = videoFrame.backViewFrame
+    
+        guard let comments = videoFrame.contentModel.comments, comments.count > 0 else {
+            return
         }
+        commentView.configureCommentView(comments[0])
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -15,8 +15,8 @@ class YZRootSecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let titles = ["画图","记事本","二维码"]
-        let images = ["drawPicture","note","QR"]
+        let titles = ["画图","记事本","二维码","自拍"]
+        let images = ["drawPicture","note","QR","meipai"]
         let IconWidth: CGFloat = 60
         let IconHeight: CGFloat = 90
         for (index,value) in images.enumerated() {
@@ -41,7 +41,7 @@ class YZRootSecondViewController: UIViewController {
     }
 
     public func widgetIntoViewController(_ tag: NSInteger) {
-        let vcClass = NSClassFromString(FunnyApp[tag - 100]) as! UIViewController.Type
+        let vcClass = NSClassFromString(FunnyApp[tag]!) as! UIViewController.Type
         let vc = vcClass.init()
         let nvc = UINavigationController(rootViewController: vc)
         nvc.modalPresentationStyle = .custom

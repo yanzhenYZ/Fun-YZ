@@ -55,39 +55,39 @@ class YZQRMakeViewController: UIViewController {
         return UIImage(cgImage: scaleImage!)
     }
     
-    func test(_ image: UIImage, red: CGFloat, green: CGFloat, blue: CGFloat) ->UIImage {
-        let imageW = Int(image.size.width)
-        let imageH = Int(image.size.height)
-        let bytesPerRow = imageW * 4
-        let rgbImageBuf = UnsafeMutablePointer<UInt>.allocate(capacity: bytesPerRow * imageH)
-        
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let context = CGContext(data: rgbImageBuf, width: imageW, height: imageH, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.noneSkipLast.rawValue)
-        context?.draw(image.cgImage!, in: CGRect(x: 0, y: 0, width: imageW, height: imageH))
-        /// 遍历像素
-        let pixelNum = imageW * imageH
-        var pCurPtr = rgbImageBuf
-        for _ in 0..<pixelNum {
-            if (pCurPtr.pointee & 0xFFFFFF00) < 0x99999900 {
-                let ptr = unsafeBitCast(pCurPtr, to: UnsafeMutablePointer<CUnsignedChar>.self)
+//    func test(_ image: UIImage, red: CGFloat, green: CGFloat, blue: CGFloat) ->UIImage {
+//        let imageW = Int(image.size.width)
+//        let imageH = Int(image.size.height)
+//        let bytesPerRow = imageW * 4
+//        let rgbImageBuf = UnsafeMutablePointer<UInt>.allocate(capacity: bytesPerRow * imageH)
+//        
+//        let colorSpace = CGColorSpaceCreateDeviceRGB()
+//        let context = CGContext(data: rgbImageBuf, width: imageW, height: imageH, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: CGBitmapInfo.byteOrder32Little.rawValue | CGImageAlphaInfo.noneSkipLast.rawValue)
+//        context?.draw(image.cgImage!, in: CGRect(x: 0, y: 0, width: imageW, height: imageH))
+//        /// 遍历像素
+//        let pixelNum = imageW * imageH
+//        var pCurPtr = rgbImageBuf
+//        for _ in 0..<pixelNum {
+//            if (pCurPtr.pointee & 0xFFFFFF00) < 0x99999900 {
 //                let ptr = unsafeBitCast(pCurPtr, to: UnsafeMutablePointer<CUnsignedChar>.self)
-                ptr[3] = CUnsignedChar(red)
-                ptr[2] = CUnsignedChar(green)
-                ptr[1] = CUnsignedChar(blue)
-            }else{
-                let ptr = unsafeBitCast(pCurPtr, to: UnsafeMutablePointer<CUnsignedChar>.self)
-                ptr[0] = 0
-            }
-            pCurPtr += 1
-        }
-        let dataProvider = CGDataProvider.init(dataInfo: nil, data: rgbImageBuf, size: bytesPerRow * imageH, releaseData: ProviderReleaseDataCallback)
-        ///8195
-        let imageRef = CGImage(width: imageW, height: imageH, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: CGBitmapInfo.byteOrder32Little, provider: dataProvider!, decode: nil, shouldInterpolate: true, intent:  CGColorRenderingIntent.defaultIntent)
-
-        //CGDataProviderRelease(dataProvider)
-        let resultImage = UIImage(cgImage: imageRef!)
-        return resultImage
-    }
+////                let ptr = unsafeBitCast(pCurPtr, to: UnsafeMutablePointer<CUnsignedChar>.self)
+//                ptr[3] = CUnsignedChar(red)
+//                ptr[2] = CUnsignedChar(green)
+//                ptr[1] = CUnsignedChar(blue)
+//            }else{
+//                let ptr = unsafeBitCast(pCurPtr, to: UnsafeMutablePointer<CUnsignedChar>.self)
+//                ptr[0] = 0
+//            }
+//            pCurPtr += 1
+//        }
+//        let dataProvider = CGDataProvider.init(dataInfo: nil, data: rgbImageBuf, size: bytesPerRow * imageH, releaseData: ProviderReleaseDataCallback)
+//        ///8195
+//        let imageRef = CGImage(width: imageW, height: imageH, bitsPerComponent: 8, bitsPerPixel: 32, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: CGBitmapInfo.byteOrder32Little, provider: dataProvider!, decode: nil, shouldInterpolate: true, intent:  CGColorRenderingIntent.defaultIntent)
+//
+//        //CGDataProviderRelease(dataProvider)
+//        let resultImage = UIImage(cgImage: imageRef!)
+//        return resultImage
+//    }
     
     let ProviderReleaseDataCallback: @convention(c) (UnsafeMutableRawPointer?, UnsafeRawPointer, Int) ->Void = {(info, data, size) ->Void in
         let ptr = UnsafeMutableRawPointer(mutating: data)

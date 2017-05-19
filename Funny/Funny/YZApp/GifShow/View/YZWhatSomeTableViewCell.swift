@@ -28,9 +28,10 @@ class YZWhatSomeTableViewCell: YZPictureTableViewCell {
         userView.configureUserView(group.user!.avatar_url!, name: group.user!.name!, time: dateString(group.create_time!.intValue))
         contentLabel.text = group.text
         mainImageView.yz_setImage(group.middle_image!.url_list![0]["url"]!)
-        contentLabel.frame = pictureFrame.contentLabelFrame
+        
+        contentLabel.frame  = pictureFrame.contentLabelFrame
         mainImageView.frame = pictureFrame.mainIVFrame
-        backView.frame = pictureFrame.backViewFrame
+        backView.frame      = pictureFrame.backViewFrame
     }
     
     required init?(coder aDecoder: NSCoder) {

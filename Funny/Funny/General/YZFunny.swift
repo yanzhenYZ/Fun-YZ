@@ -37,21 +37,26 @@ enum YZAPPNAME: Int {
     case UC
     case NetEsae
     case YingKe
-    case Draw
+    case Draw    = 900
     case Note
     case QR
+    case Zipai
 }
 
-let FunnyApp = ["Funny.YZContentTabBarViewController",
-                "Funny.YZGifShowTabBarViewController",
-                "Funny.YZBuDeJieTabBarViewController",
-                "Funny.YZWalfareTabBarViewController",
-                "Funny.YZUCTabBarViewController",
-                "Funny.YZNetEaseTabBarViewController",
-                "Funny.YZYKTabBarViewController",
-                "Funny.YZDrawPictureViewController",
-                "Funny.YZNoteLockedViewController",
-                "Funny.YZQRViewController"]
+let FunnyApp: [Int : String] = [
+    100 : "Funny.YZContentTabBarViewController",
+    101 : "Funny.YZGifShowTabBarViewController",
+    102 : "Funny.YZBuDeJieTabBarViewController",
+    103 : "Funny.YZWalfareTabBarViewController",
+    104 : "Funny.YZUCTabBarViewController",
+    105 : "Funny.YZNetEaseTabBarViewController",
+    106 : "Funny.YZYKTabBarViewController",
+    900 : "Funny.YZDrawPictureViewController",
+    901 : "Funny.YZNoteLockedViewController",
+    902 : "Funny.YZQRViewController",
+    903 : "Funny.YZMPViewController"
+]
+
 enum MJRefresh : Int {
     case pull = -1
     case normal

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import YZPlayer
 
 protocol YZVideoPlayDelegate : NSObjectProtocol {
     func playVideo(_ play: Bool, videoCell: YZVideoTableViewCell)
@@ -15,37 +16,26 @@ protocol YZVideoPlayDelegate : NSObjectProtocol {
 
 class YZVideoTableViewCell: YZTableViewCell {
 
-    var mainImageView: UIImageView!
+    var mainImageView: YZAVView!
     var playBtn: UIButton!
-    var progressView: UIProgressView!
-    
-    weak var delegate: YZVideoPlayDelegate?
+    private var progressView: UIProgressView!
     ///分享的标题可能不存在--网址一定存在
     var shareTitle: String?
     var shareURL: String!
-    ///
-    var rightSpace: CGFloat = 90
-    var isPause: Bool = false
-    ///
-    ///
-    ///
-    var isRefresh: Bool {
-        get{
-            return playBtn.isSelected || isPause
+    var videoViewFrame: CGRect! {
+        didSet {
+            mainImageView.frame = videoViewFrame;
+            playBtn.frame = CGRect(x: videoViewFrame.maxX - 70, y: videoViewFrame.maxY - 62, width: 70, height: 62)
+            progressView.frame = CGRect(x: videoViewFrame.origin.x, y: videoViewFrame.maxY, width: videoViewFrame.size.width, height: 2)
+            
         }
     }
+
     
     public func tableViewReloadData() {
-        if isRefresh {
-            YZVideoManager.manager.tableViewReload()
-            playBtn.isSelected = false
-        }
-    }
-    
-    deinit {
-        if playBtn.isSelected {
-            YZVideoManager.manager.tableViewReload()
-        }
+        playBtn.isSelected = false
+        progressView.setProgress(0, animated: false)
+        mainImageView.reset()
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -90,34 +80,78 @@ class YZVideoTableViewCell: YZTableViewCell {
     }
     
     @objc private func pinGestureAction(pin: UIPinchGestureRecognizer) {
-        YZLog("pinGestureAction")
-        if pin.state == .began && isRefresh {
-            delegate?.playVideoOnWindow(self)
+        if pin.state == .began {
+            if playBtn.isSelected || mainImageView.isPausing {
+                playBtn.isSelected = false
+                progressView.setProgress(0, animated: false)
+                let appdegate = UIApplication.shared.delegate as! AppDelegate
+                appdegate.avWindow.isHidden = false
+                appdegate.avWindow.coverImage = mainImageView.image
+                mainImageView.reset()
+                appdegate.avWindow.playAV(shareURL)
+            }
         }
     }
     
-    @objc private func platBtnClick(btn: UIButton) {
+    @objc private func playBtnClick(btn: UIButton) {
+        let appdegate = UIApplication.shared.delegate as! AppDelegate
+//        print(appdegate.avWindow.isHidden)
+        if !appdegate.avWindow.isHidden {
+            appdegate.avWindow.coverImage = mainImageView.image
+            appdegate.avWindow.playAV(shareURL)
+            return
+        }
+        
         btn.isSelected = !btn.isSelected
-        delegate?.playVideo(btn.isSelected, videoCell: self)
+        if (!btn.isSelected) {
+            mainImageView.pause()
+            return;
+        }
+        if (mainImageView.isPausing) {
+            mainImageView.play()
+            return;
+        }
+        
+        mainImageView.playAV(shareURL, begin: {
+            print("begin")
+        }, finished: { [weak self] in
+            self?.playBtn.isSelected = !(self?.playBtn.isSelected)!
+            self?.progressView.setProgress(0, animated: false)
+            print("finished")
+            }, failed: { (error) in
+                print(error!)
+        }) { [weak self] (time) in
+            print("\(time.totalTime)--\(time.currentTime)--\(time.loadedTime)")
+            self?.progressView.setProgress(Float(time.currentTime / time.totalTime), animated: false)
+        }
     }
     
     private func configureUI() {
-        mainImageView = UIImageView()
+        mainImageView = YZAVView()
         mainImageView.contentMode = .scaleAspectFill
         mainImageView.clipsToBounds = true
         backView.addSubview(mainImageView)
+        
+        let color = UIColor(colorLiteralRed: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
+        let attributes = [NSForegroundColorAttributeName : color, NSFontAttributeName : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
+        let mark = YZAVMark("Y&Z TV", rect: CGRect(x: 5, y: 5, width: 120, height: 40), attrs: attributes)
+        mainImageView.mark = mark
         
         playBtn = UIButton(type: .custom)
         playBtn.backgroundColor = UIColor.clear
         playBtn.setBackgroundImage(UIImage(named: "play_start"), for: .normal)
         playBtn.setBackgroundImage(UIImage(named: "play_pause"), for: .selected)
-        playBtn.addTarget(self, action: #selector(self.platBtnClick(btn:)), for: .touchUpInside)
+        playBtn.addTarget(self, action: #selector(self.playBtnClick(btn:)), for: .touchUpInside)
         backView.addSubview(playBtn)
         
         progressView = UIProgressView()
         progressView.progressTintColor = YZColor(255, 155, 23)
         progressView.progress = 0
         backView.addSubview(progressView)
+    }
+    
+    deinit {
+        mainImageView.reset()
     }
     
     required init?(coder aDecoder: NSCoder) {

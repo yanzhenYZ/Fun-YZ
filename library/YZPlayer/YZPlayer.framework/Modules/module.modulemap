@@ -1,0 +1,10 @@
+framework module YZPlayer {
+  umbrella header "YZPlayer.h"
+
+  export *
+  module * { export * }
+}
+
+module YZPlayer.Swift {
+    header "YZPlayer-Swift.h"
+}

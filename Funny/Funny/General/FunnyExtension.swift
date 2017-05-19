@@ -141,6 +141,16 @@ extension UIView {
         UIGraphicsEndImageContext()
         return image!
     }
+    
+    public func snapshotScreenInView() -> UIImage {
+        let size = self.bounds.size
+        let rect = self.frame
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        self .drawHierarchy(in: rect, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
 }
 
 extension String {

@@ -34,7 +34,7 @@ class YZWhatSomeViewController: YZContentSuperViewController {
             }else if refreshType == .pull {
                 self.max_Time = String(maxTime)
             }else{
-                self.min_Time = String(minTime)
+                self.min_Time = String(minTime - 200)
             }
             ///
             let dataArray = dataDict["data"] as! Array<[String : AnyObject]>
@@ -49,11 +49,17 @@ class YZWhatSomeViewController: YZContentSuperViewController {
                     modelArray.append(pictureFrame)
                 }
             }
-            if refreshType == .pull {
-                self.dataSource.insert(contentsOf: modelArray, at: 0)
-            }else{
-                self.dataSource += modelArray
+            
+            if modelArray.count > 0 {
+                if refreshType == .pull {
+                    //最后一个重复
+                    modelArray.removeLast()
+                    self.dataSource.insert(contentsOf: modelArray, at: 0)
+                }else{
+                    self.dataSource += modelArray
+                }
             }
+            
             baseView?.endRefreshing()
             self.tableView.reloadData()
         }) { (error) in

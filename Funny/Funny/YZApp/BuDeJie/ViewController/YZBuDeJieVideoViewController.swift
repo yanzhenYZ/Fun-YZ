@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YZBuDeJieVideoViewController: YZBuDeJieViewController, YZVideoPlayDelegate {
+class YZBuDeJieVideoViewController: YZBuDeJieViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,6 @@ class YZBuDeJieVideoViewController: YZBuDeJieViewController, YZVideoPlayDelegate
         var cell = tableView.dequeueReusableCell(withIdentifier: "YZBuDeJieVideoTableViewCell") as? YZBuDeJieVideoTableViewCell
         if cell == nil {
             cell = YZBuDeJieVideoTableViewCell(style:.default, reuseIdentifier:"YZBuDeJieVideoTableViewCell")
-            cell!.delegate = self
         }
         cell?.configureCell(dataSource[indexPath.row] as! YZBuDeJieVideoFrame)
         cell?.tableViewReloadData()
@@ -61,25 +60,5 @@ class YZBuDeJieVideoViewController: YZBuDeJieViewController, YZVideoPlayDelegate
         let videoFrame = dataSource[indexPath.row] as! YZBuDeJieVideoFrame
         let wvc = YZBuDeJieWebViewController(urlString: videoFrame.videoModel.weixin_url)
         self.navigationController?.pushViewController(wvc, animated: true)
-    }
-//MARK: - YZVideoPlayDelegate
-    func playVideo(_ play: Bool, videoCell: YZVideoTableViewCell) {
-        let indexPath = tableView.indexPath(for: videoCell)
-        let videoFrame = dataSource[indexPath!.row] as! YZBuDeJieVideoFrame
-        let url = videoFrame.videoModel.videouri
-        if YZWindowViewManager.manager.isWindowViewShow() {
-            videoCell.playBtn.isSelected = false
-            YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
-        }else{
-            YZVideoManager.manager.playVideo(videoCell, urlString: url!)
-        }
-    }
-    
-    func playVideoOnWindow(_ videoCell: YZVideoTableViewCell) {
-        let indexPath = tableView.indexPath(for: videoCell)
-        let videoFrame = dataSource[indexPath!.row] as! YZBuDeJieVideoFrame
-        let url = videoFrame.videoModel.videouri
-        YZVideoManager.manager.tableViewReload()
-        YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
     }
 }

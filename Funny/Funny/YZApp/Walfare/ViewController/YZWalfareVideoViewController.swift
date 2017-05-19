@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YZWalfareVideoViewController: YZWalfareViewController, YZVideoPlayDelegate {
+class YZWalfareVideoViewController: YZWalfareViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,32 +40,9 @@ class YZWalfareVideoViewController: YZWalfareViewController, YZVideoPlayDelegate
         var cell = tableView.dequeueReusableCell(withIdentifier: "YZWalfareVideoTableViewCell") as? YZWalfareVideoTableViewCell
         if cell == nil {
             cell = YZWalfareVideoTableViewCell(style:.default, reuseIdentifier:"YZWalfareVideoTableViewCell")
-            cell!.delegate = self
         }
         cell?.tableViewReloadData()
         cell?.configureCell(dataSource[indexPath.row] as! YZWalfareVideoFrame)
         return cell!
     }
-
-//MARK: - YZVideoPlayDelegate
-    func playVideo(_ play: Bool, videoCell: YZVideoTableViewCell) {
-        let indexPath = tableView.indexPath(for: videoCell)
-        let videoFrame = dataSource[indexPath!.row] as! YZWalfareVideoFrame
-        let url = videoFrame.videoModel.vplay_url
-        if YZWindowViewManager.manager.isWindowViewShow() {
-            videoCell.playBtn.isSelected = false
-            YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
-        }else{
-            YZVideoManager.manager.playVideo(videoCell, urlString: url!)
-        }
-    }
-    
-    func playVideoOnWindow(_ videoCell: YZVideoTableViewCell) {
-        let indexPath = tableView.indexPath(for: videoCell)
-        let videoFrame = dataSource[indexPath!.row] as! YZWalfareVideoFrame
-        let url = videoFrame.videoModel.vplay_url
-        YZVideoManager.manager.tableViewReload()
-        YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
-    }
-
 }

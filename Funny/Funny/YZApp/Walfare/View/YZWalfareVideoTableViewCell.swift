@@ -31,11 +31,9 @@ class YZWalfareVideoTableViewCell: YZVideoTableViewCell {
         contentLabel.text  = videoFrame.videoModel.wbody
         mainImageView.yz_setImage(videoFrame.videoModel.vpic_small)
         ///
-        contentLabel.frame  = videoFrame.contentLabelFrame
-        mainImageView.frame = videoFrame.mainIVFrame
-        playBtn.frame       = videoFrame.playBtnFrame
-        progressView.frame  = videoFrame.progressViewFrame
-        backView.frame      = videoFrame.backViewFrame
+        contentLabel.frame = videoFrame.contentLabelFrame
+        videoViewFrame = videoFrame.mainIVFrame
+        backView.frame = videoFrame.backViewFrame
     }
     
     required init?(coder aDecoder: NSCoder) {

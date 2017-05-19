@@ -41,7 +41,7 @@ class YZRootFirstViewController: UIViewController {
     }
 
     public func widgetIntoViewController(_ tag: NSInteger) {
-        let vcClass = NSClassFromString(FunnyApp[tag - 100]) as! UIViewController.Type
+        let vcClass = NSClassFromString(FunnyApp[tag]!) as! UIViewController.Type
         let vc = vcClass.init()
         vc.modalPresentationStyle = .custom
         vc.transitioningDelegate = transition

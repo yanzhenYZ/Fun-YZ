@@ -22,11 +22,9 @@ class YZGifShowTableViewCell: YZVideoTableViewCell {
         userView.configureUserView(model.headurl, name: model.user_name, time: model.time)
         mainImageView.yz_setImage(model.thumbnail_url)
         let mainHeight = (WIDTH - 100) / 3 * 4
-        let mainIVFrame = CGRect(x: 50, y: 65, width: WIDTH - 100, height: mainHeight)
-        mainImageView.frame = mainIVFrame
-        progressView.frame = CGRect(x: mainIVFrame.origin.x, y: mainIVFrame.maxY, width: mainIVFrame.size.width, height: 2)
-        playBtn.frame = CGRect(x: mainIVFrame.maxX - 70, y: mainIVFrame.maxY - 62, width: 70, height: 62)
-        backView.frame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2, width: WIDTH - 2 * CONTENTSPACE, height: mainIVFrame.maxY + 7)
+        
+        videoViewFrame = CGRect(x: 50, y: 65, width: WIDTH - 100, height: mainHeight)
+        backView.frame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2, width: WIDTH - 2 * CONTENTSPACE, height: videoViewFrame.maxY + 7)
     }
     
     required init?(coder aDecoder: NSCoder) {

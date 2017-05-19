@@ -29,10 +29,9 @@ class YZBuDeJieVideoTableViewCell: YZVideoTableViewCell {
         userView.configureUserView(videoFrame.videoModel.profile_image, name: videoFrame.videoModel.name, time: videoFrame.videoModel.create_time)
         contentLabel.text = videoFrame.videoModel.text
         mainImageView.yz_setImage(videoFrame.videoModel.bimageuri)
+        
         contentLabel.frame = videoFrame.contentLabelFrame
-        mainImageView.frame = videoFrame.mainIVFrame
-        playBtn.frame = videoFrame.playBtnFrame
-        progressView.frame = videoFrame.progressViewFrame
+        videoViewFrame = videoFrame.mainIVFrame
         backView.frame = videoFrame.backViewFrame
 
     }

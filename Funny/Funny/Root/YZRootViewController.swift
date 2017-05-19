@@ -23,23 +23,27 @@ class YZRootViewController: UIViewController {
     private var faceView: YZFaceView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        //详情---widgetIntoViewController()
+        if scrollView != nil {
+            return
+        }
         
         self.title = "Funny"
         automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = UIColor.gray
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "weibo_profile_s"), style: .plain, target: self, action: #selector(self.aboutFunny(_:)))
-        unowned let blockSelf = self
-        YZFunnyManager.requestAccessForVideo { (authorized) in
-            if authorized {
-                DispatchQueue.main.async(execute: { 
-                    blockSelf.faceView = YZFaceView(frame: CGRectScreen)
-                    blockSelf.faceView?.backgroundColor = UIColor.red
-                    blockSelf.view.insertSubview(blockSelf.faceView!, at: 0)
-                    blockSelf.faceView?.startRunning()
-                })
-            }
-        }
-        
+        //和自拍都采用摄像头采集，产生冲突
+//        unowned let blockSelf = self
+//        YZFunnyManager.requestAccessForVideo { (authorized) in
+//            if authorized {
+//                DispatchQueue.main.async(execute: { 
+//                    blockSelf.faceView = YZFaceView(frame: CGRectScreen)
+//                    blockSelf.faceView?.backgroundColor = UIColor.red
+//                    blockSelf.view.insertSubview(blockSelf.faceView!, at: 0)
+//                    blockSelf.faceView?.startRunning()
+//                })
+//            }
+//        }
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 64, width: WIDTH, height: HEIGHT - 64))
         scrollView.showsVerticalScrollIndicator = false
         scrollView.isPagingEnabled = true
@@ -69,12 +73,13 @@ class YZRootViewController: UIViewController {
 
     public func widgetIntoViewController(_ tag: Int) {
         ///程序直接通过-3DTouch-或者-Widget-启动--viewDidLoad()没有被调用，需要手动调用一下
+        //调用之后，viewDidLoad还会被调用一次---？？？（不同于OC）
         if !self.isViewLoaded {
             viewDidLoad()
         }
         ///只考虑push和present一级的情况
-        if self.navigationController?.presentedViewController != nil {
-            self.navigationController?.presentedViewController?.dismiss(animated: true, completion: nil)
+        if let presentedVC = self.navigationController?.presentedViewController {
+            presentedVC.dismiss(animated: true, completion: nil)
         }else if (self.navigationController!.viewControllers.count > 1) {
             self.navigationController?.popToRootViewController(animated: true)
         }

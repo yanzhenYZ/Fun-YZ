@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YZGifShowViewController: YZSuperSecondViewController, YZVideoPlayDelegate {
+class YZGifShowViewController: YZSuperSecondViewController {
 
     var dataSource = [YZGifShowModel]()
     override func viewDidLoad() {
@@ -76,29 +76,9 @@ class YZGifShowViewController: YZSuperSecondViewController, YZVideoPlayDelegate 
         var cell = tableView.dequeueReusableCell(withIdentifier: "YZGifShowTableViewCell") as? YZGifShowTableViewCell
         if cell == nil {
             cell = YZGifShowTableViewCell(style:.default, reuseIdentifier:"YZGifShowTableViewCell")
-            cell!.delegate = self
         }
         cell?.configCell(dataSource[indexPath.row])
         cell?.tableViewReloadData()
         return cell!
     }
-//MARK: - YZVideoPlayDelegate
-    func playVideo(_ play: Bool, videoCell: YZVideoTableViewCell) {
-        let indexPath = tableView.indexPath(for: videoCell)
-        let url = dataSource[indexPath!.row].main_mv_url
-        if YZWindowViewManager.manager.isWindowViewShow() {
-            videoCell.playBtn.isSelected = false
-            YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
-        }else{
-            YZVideoManager.manager.playVideo(videoCell, urlString: url!)
-        }
-    }
-    
-    func playVideoOnWindow(_ videoCell: YZVideoTableViewCell) {
-        let indexPath = tableView.indexPath(for: videoCell)
-        let url = dataSource[indexPath!.row].main_mv_url
-        YZVideoManager.manager.tableViewReload()
-        YZWindowViewManager.manager.videoPlayWithVideoUrlString(url!)
-    }
-
 }

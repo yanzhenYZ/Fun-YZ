@@ -38,6 +38,5 @@ class YZNoteCollectionViewCell: UICollectionViewCell {
     
     @IBAction @objc private func deleteBtnClick(_ sender: UIButton) {
         delegate?.deleteNote(self)
-        YZLog(1111)
     }
 }

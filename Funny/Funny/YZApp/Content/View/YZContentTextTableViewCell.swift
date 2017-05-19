@@ -24,14 +24,15 @@ class YZContentTextTableViewCell: YZTextTableViewCell {
     public func configureCell(textFrame: YZContentTextFrame) {
         let group = textFrame.contentModel.group!
         userView.configureUserView(group.user!.avatar_url!, name: group.user!.name!, time: dateString(group.create_time!.intValue))
-        mainTextLabel.text = group.text
+        mainTextLabel.text  = group.text
         mainTextLabel.frame = textFrame.mainLabelFrame
-        commentView.frame = textFrame.commentViewFrame
-        backView.frame = textFrame.backViewFrame
-        if (textFrame.contentModel.comments?.count)! > 0 {
-            let user = textFrame.contentModel.comments![0]
-            commentView.configureCommentView(user)
+        commentView.frame   = textFrame.commentViewFrame
+        backView.frame      = textFrame.backViewFrame
+        
+        guard let comments = textFrame.contentModel.comments, comments.count > 0 else {
+            return
         }
+        commentView.configureCommentView(comments[0])
     }
     
     required init?(coder aDecoder: NSCoder) {

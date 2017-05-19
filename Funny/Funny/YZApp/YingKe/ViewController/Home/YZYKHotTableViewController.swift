@@ -41,12 +41,10 @@ class YZYKHotTableViewController: UITableViewController {
     public func reloadData() {
         YZHttpManager.get(YK_Hot_URL, success: { (response) in
             let lives = response["lives"] as! Array<[String : AnyObject]>
-            let models = YZYingKeModel.mj_objectArray(withKeyValuesArray: lives)
+            let models = YZYingKeModel.mj_objectArray(withKeyValuesArray: lives) as! Array<YZYingKeModel>
             self.dataSource.removeAll()
-            for (_,value) in models!.enumerated() {
-                let model = value as! YZYingKeModel
-                self.dataSource.append(model)
-            }
+            self.dataSource += models
+            
             self.header.endRefreshing()
             self.tableView.reloadData()
         }) { (error) in
