@@ -11,19 +11,19 @@ import UIKit
 class YZWalfareVideoFrame: YZVideoFrame {
 
     var contentLabelFrame: CGRect!
-    var videoModel: YZWalfareVideoModel! {
-        didSet{
-            let viewWidth = WIDTH - CONTENTSPACE * 4
-            var rect = CGRect(x: CONTENTSPACE * 2, y: 25, width: viewWidth, height: 0)
-            if videoModel.wbody~~ {
-                rect.size.height = videoModel.wbody!.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth) + CONTENTSPACE
-            }
-            contentLabelFrame = rect
-            mainIVFrame = CGRect(x: CONTENTSPACE * 2, y: rect.maxY, width: viewWidth, height: viewWidth * 3 / 4)
-            backViewFrame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2 , width: WIDTH - 2 * CONTENTSPACE, height: mainIVFrame.maxY + 7)
+    var videoModel: YZWalfareVideoModel!
+    init(_ model: YZWalfareVideoModel) {
+        super.init()
+        self.videoModel = model
+        let viewWidth = WIDTH - CONTENTSPACE * 4
+        var rect = CGRect(x: CONTENTSPACE * 2, y: 25, width: viewWidth, height: 0)
+        if videoModel.wbody~~ {
+            rect.size.height = videoModel.wbody!.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth) + CONTENTSPACE
         }
+        contentLabelFrame = rect
+        mainIVFrame = CGRect(x: CONTENTSPACE * 2, y: rect.maxY, width: viewWidth, height: viewWidth * 3 / 4)
+        backViewFrame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2 , width: WIDTH - 2 * CONTENTSPACE, height: mainIVFrame.maxY + 7)
     }
-    
 }
 
 class YZWalfareVideoModel: YZWalfareTextModel {

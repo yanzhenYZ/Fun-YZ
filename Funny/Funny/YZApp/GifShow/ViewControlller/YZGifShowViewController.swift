@@ -50,15 +50,11 @@ class YZGifShowViewController: YZSuperSecondViewController {
             ]
         YZHttpManager.post(GifShowHeadURL, parameters: parameters, success: { (response) in
             let feeds = response["feeds"] as! Array<[String : AnyObject]>
-            let models = YZGifShowModel.mj_objectArray(withKeyValuesArray: feeds)
-            var modelArray = [YZGifShowModel]()
-            for (_,value) in models!.enumerated() {
-                modelArray.append(value as! YZGifShowModel)
-            }
+            let models = YZGifShowModel.mj_objectArray(withKeyValuesArray: feeds) as! [YZGifShowModel]
             if refreshType == .pull {
-                self.dataSource.insert(contentsOf: modelArray, at: 0)
+                self.dataSource.insert(contentsOf: models, at: 0)
             }else{
-                self.dataSource.append(contentsOf: modelArray)
+                self.dataSource.append(contentsOf: models)
             }
             baseView?.endRefreshing()
             self.tableView.reloadData()

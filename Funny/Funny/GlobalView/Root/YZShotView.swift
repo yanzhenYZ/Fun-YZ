@@ -44,7 +44,7 @@ class YZShotView: UIView {
         let btnY: CGFloat = self.height - btnWH - 10
         cancelBtn.frame = CGRect(x: self.width - 40, y: btnY, width: btnWH, height: btnWH)
         block(cancelBtn)
-        cancelBtn.setBackgroundImage(UIImage(named: "closeWindowView"), for: .normal)
+        cancelBtn.setBackgroundImage(#imageLiteral(resourceName: "closeWindowView"), for: .normal)
         cancelBtn.addTarget(self, action: #selector(self.cancelBtnClick), for: .touchUpInside)
         self.addSubview(cancelBtn)
         

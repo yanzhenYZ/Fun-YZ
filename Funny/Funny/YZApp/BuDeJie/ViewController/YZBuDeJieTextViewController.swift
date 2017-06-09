@@ -27,17 +27,13 @@ class YZBuDeJieTextViewController: YZBuDeJieViewController {
     override func netRequestWithMJRefresh(_ refreshType: MJRefresh, baseView: MJRefreshBaseView?) {
         let urlString = budejieURL(refreshType)
         YZHttpManager.get(urlString, success: { (response) in
-//            let responseDict = response as! [String : AnyObject]
             let infoDict = response["info"] as! [String : AnyObject]
             self.maxid = infoDict["maxid"] as! String!
             ///
             let listArray = response["list"] as! Array<[String:AnyObject]>
-            let models = YZBuDeJieTextModel.mj_objectArray(withKeyValuesArray: listArray)
-            for (_,value) in models!.enumerated() {
-                let model = value as! YZBuDeJieTextModel
-                let textFrame = YZBuDeJieTextFrame()
-                textFrame.textModel = model
-                self.dataSource.append(textFrame)
+            let models = YZBuDeJieTextModel.mj_objectArray(withKeyValuesArray: listArray) as! [YZBuDeJieTextModel]
+            for value in models {
+                self.dataSource.append(YZBuDeJieTextFrame(value))
             }
             baseView?.endRefreshing()
             self.tableView.reloadData()

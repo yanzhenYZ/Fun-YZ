@@ -31,7 +31,7 @@ class YZRootViewController: UIViewController {
         self.title = "Funny"
         automaticallyAdjustsScrollViewInsets = false
         self.view.backgroundColor = UIColor.gray
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "weibo_profile_s"), style: .plain, target: self, action: #selector(self.aboutFunny(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "weibo_profile_s"), style: .plain, target: self, action: #selector(self.aboutFunny(_:)))
         //和自拍都采用摄像头采集，产生冲突
 //        unowned let blockSelf = self
 //        YZFunnyManager.requestAccessForVideo { (authorized) in

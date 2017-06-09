@@ -41,7 +41,7 @@ class YZPaintingView: UIView {
         if paths.count <= 0 {
             return
         }
-        for (_,value) in paths.enumerated() {
+        for value in paths {
             if value is UIImage {
                 let image = value as! UIImage
                 image.draw(at: CGPointZero)

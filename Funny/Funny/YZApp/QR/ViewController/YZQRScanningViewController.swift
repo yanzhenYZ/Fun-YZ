@@ -120,7 +120,7 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
         
         let features = detector?.features(in: ciImage)
         if features~~ && features!.count > 0 {
-            for (_,value) in features!.enumerated() {
+            for value in features! {
                 if value is CIQRCodeFeature {
                     let feature = value as! CIQRCodeFeature
                     scanningDone(feature.messageString!)

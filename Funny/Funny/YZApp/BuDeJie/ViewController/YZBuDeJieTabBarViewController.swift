@@ -16,14 +16,14 @@ class YZBuDeJieTabBarViewController: UITabBarController {
         let vc1 = YZBuDeJieVideoViewController()
         vc1.title = "视频"
         let nvc1 = UINavigationController(rootViewController: vc1)
-        nvc1.tabBarItem.image = UIImage(named: "weibo_music_u")
-        nvc1.tabBarItem.selectedImage = UIImage(named: "weibo_music_s")
+        nvc1.tabBarItem.image = #imageLiteral(resourceName: "weibo_music_u")
+        nvc1.tabBarItem.selectedImage = #imageLiteral(resourceName: "weibo_music_s")
         
         let vc2 = YZBuDeJieTextViewController()
         vc2.title = "段子"
         let nvc2 = UINavigationController(rootViewController: vc2)
-        nvc2.tabBarItem.image = UIImage(named: "weibo_compose_u")
-        nvc2.tabBarItem.selectedImage = UIImage(named: "weibo_compose_s")
+        nvc2.tabBarItem.image = #imageLiteral(resourceName: "weibo_compose_u")
+        nvc2.tabBarItem.selectedImage = #imageLiteral(resourceName: "weibo_compose_s")
         self.viewControllers = [nvc1,nvc2]
     }
 

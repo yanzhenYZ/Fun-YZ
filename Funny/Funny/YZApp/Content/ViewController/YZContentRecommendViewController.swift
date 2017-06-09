@@ -39,15 +39,11 @@ class YZContentRecommendViewController: YZContentSuperViewController {
             }
             ///
             let dataArray = dataDict["data"] as! Array<[String : AnyObject]>
-            
-            let models = YZContentModel.mj_objectArray(withKeyValuesArray: dataArray)
+            let models = YZContentModel.mj_objectArray(withKeyValuesArray: dataArray) as! [YZContentModel]
             var modelArray = [YZSuperFrame]()
-            for (_,value) in models!.enumerated() {
-                let model = value as! YZContentModel
-                if model.group?.category_name == "搞笑视频" {
-                    let videoFrame = YZContentVideoFrame()
-                    videoFrame.contentModel = model
-                    modelArray.append(videoFrame)
+            for value in models {
+                if value.group?.category_name == "搞笑视频" {
+                    modelArray.append(YZContentVideoFrame(value))
                 }
             }
             if refreshType == .pull {

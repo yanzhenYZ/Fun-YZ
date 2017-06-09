@@ -139,8 +139,8 @@ class YZVideoTableViewCell: YZTableViewCell {
         
         playBtn = UIButton(type: .custom)
         playBtn.backgroundColor = UIColor.clear
-        playBtn.setBackgroundImage(UIImage(named: "play_start"), for: .normal)
-        playBtn.setBackgroundImage(UIImage(named: "play_pause"), for: .selected)
+        playBtn.setBackgroundImage(#imageLiteral(resourceName: "play_start"), for: .normal)
+        playBtn.setBackgroundImage(#imageLiteral(resourceName: "play_pause"), for: .selected)
         playBtn.addTarget(self, action: #selector(self.playBtnClick(btn:)), for: .touchUpInside)
         backView.addSubview(playBtn)
         

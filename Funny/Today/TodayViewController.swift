@@ -27,17 +27,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Do any additional setup after loading the view from its nib.
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         let titles = ["快手","直播","二维码","自拍"]
-        let images = ["gifShow","yingke","QR","meipai"]
+        let images = [#imageLiteral(resourceName: "gifShow"),#imageLiteral(resourceName: "yingke"),#imageLiteral(resourceName: "QR"),#imageLiteral(resourceName: "meipai")]
         let tags = [101,106,902,903]
         
         let space: CGFloat = 10
         let maximumSize = self.extensionContext?.widgetMaximumSize(for: .expanded)
         let btnWidth = (maximumSize!.width - 5.0 * space) / 4
         let btnHeight = maximumSize!.height - 20.0;
-        for i in 0..<4 {
+        for i in 0...3 {
             let btn = YZTodayButton(frame: CGRect(x: space + (btnWidth + space) * CGFloat(i), y: 10, width: btnWidth, height: btnHeight))
             btn.tag = tags[i]
-            btn.setImage(UIImage(named: images[i]), for: .normal)
+            btn.setImage(images[i], for: .normal)
             btn.setTitle(titles[i], for: .normal)
             btn.addTarget(self, action: #selector(self.extensionButtonAction(btn:)), for: .touchUpInside)
             self.view.addSubview(btn)

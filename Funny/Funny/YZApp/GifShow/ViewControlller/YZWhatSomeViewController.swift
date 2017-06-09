@@ -39,14 +39,11 @@ class YZWhatSomeViewController: YZContentSuperViewController {
             ///
             let dataArray = dataDict["data"] as! Array<[String : AnyObject]>
             
-            let models = YZWhatSomeModel.mj_objectArray(withKeyValuesArray: dataArray)
+            let models = YZWhatSomeModel.mj_objectArray(withKeyValuesArray: dataArray) as! [YZWhatSomeModel]
             var modelArray = [YZSuperFrame]()
-            for (_,value) in models!.enumerated() {
-                let model = value as! YZWhatSomeModel
-                if model.group~~ && model.group?.middle_image != nil {
-                    let pictureFrame = YZWhatSomeFrame()
-                    pictureFrame.model = model
-                    modelArray.append(pictureFrame)
+            for value in models {
+                if value.group~~ && value.group?.middle_image != nil {
+                    modelArray.append(YZWhatSomeFrame(value))
                 }
             }
             

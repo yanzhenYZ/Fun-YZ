@@ -10,15 +10,15 @@ import UIKit
 
 class YZWalfareTextFrame: YZTextFrame {
 
-    var textModel: YZWalfareTextModel! {
-        didSet{
-            let viewWidth = WIDTH - CONTENTSPACE * 4
-            let contentHeigth = textModel.wbody?.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth)
-            mainLabelFrame = CGRect(x: CONTENTSPACE * 2, y: 25, width: viewWidth, height: contentHeigth!)
-            backViewFrame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2 , width: WIDTH - 2 * CONTENTSPACE, height: mainLabelFrame.maxY + 5)
-        }
+    var textModel: YZWalfareTextModel!
+    init(_ model: YZWalfareTextModel) {
+        super.init()
+        self.textModel = model
+        let viewWidth = WIDTH - CONTENTSPACE * 4
+        let contentHeigth = textModel.wbody?.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth)
+        mainLabelFrame = CGRect(x: CONTENTSPACE * 2, y: 25, width: viewWidth, height: contentHeigth!)
+        backViewFrame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2 , width: WIDTH - 2 * CONTENTSPACE, height: mainLabelFrame.maxY + 5)
     }
-    
 }
 
 class YZWalfareTextModel: NSObject {

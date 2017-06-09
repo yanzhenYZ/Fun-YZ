@@ -27,12 +27,13 @@ class YZUCViewController: YZSuperSecondViewController {
             let dataDict = response["data"] as! [String : AnyObject]
             let articles = dataDict["articles"] as! [String : [String : AnyObject]]
             var models = [YZUCNewsModel]()
-            for (_,value) in articles {
+            for value in articles {
                 let model = YZUCNewsModel.mj_object(withKeyValues: value)
                 if (model?.thumbnails?.count)! > 0 {
                     models.append(model!)
                 }
             }
+            
             if refreshType == .pull {
                 self.dataSource.insert(contentsOf: models, at: 0)
             }else{

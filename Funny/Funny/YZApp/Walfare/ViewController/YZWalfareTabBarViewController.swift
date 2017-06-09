@@ -12,7 +12,7 @@ class YZWalfareTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let block = { (model: YZNVCModel) ->UINavigationController in
             let vc = model.vc as! YZWalfareViewController
             vc.title = model.title

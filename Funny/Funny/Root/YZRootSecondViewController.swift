@@ -16,7 +16,7 @@ class YZRootSecondViewController: UIViewController {
         super.viewDidLoad()
 
         let titles = ["画图","记事本","二维码","自拍"]
-        let images = ["drawPicture","note","QR","meipai"]
+        let images = [#imageLiteral(resourceName: "drawPicture"),#imageLiteral(resourceName: "note"),#imageLiteral(resourceName: "QR"),#imageLiteral(resourceName: "meipai")]
         let IconWidth: CGFloat = 60
         let IconHeight: CGFloat = 90
         for (index,value) in images.enumerated() {
@@ -26,7 +26,7 @@ class YZRootSecondViewController: UIViewController {
             let btn = YZIconButton(type: .custom)
             btn.frame = CGRect(x: spaceX + (spaceX + IconWidth) * CGFloat(row), y: 30 + (IconHeight + 20) * CGFloat(col), width: IconWidth, height: IconHeight)
             btn.tag = YZAPPNAME.Draw.rawValue + index
-            btn.setImage(UIImage(named: value), for: .normal)
+            btn.setImage(value, for: .normal)
             btn.setTitle(titles[index], for: .normal)
             btn.addTarget(self, action: #selector(self.selectedApp(btn:)), for: .touchUpInside)
             self.view.addSubview(btn)

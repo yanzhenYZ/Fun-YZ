@@ -31,12 +31,9 @@ class YZBuDeJieVideoViewController: YZBuDeJieViewController {
             self.maxtime = infoDict["maxtime"] as! String!
             ///
             let listArray = response["list"] as! Array<[String:AnyObject]>
-            let models = YZBuDeJieVideoModel.mj_objectArray(withKeyValuesArray: listArray)
-            for (_,value) in models!.enumerated() {
-                let model = value as! YZBuDeJieVideoModel
-                let videoFrame = YZBuDeJieVideoFrame()
-                videoFrame.videoModel = model
-                self.dataSource.append(videoFrame)
+            let models = YZBuDeJieVideoModel.mj_objectArray(withKeyValuesArray: listArray) as! [YZBuDeJieVideoModel]
+            for value in models {
+                self.dataSource.append(YZBuDeJieVideoFrame(value))
             }
             baseView?.endRefreshing()
             self.tableView.reloadData()

@@ -80,7 +80,7 @@ class YZLockedView: UIView {
     
     private func resetAll() {
         password = ""
-        for (_,view) in views.enumerated() {
+        for view in views {
             view.backgroundColor = UIColor.clear
         }
         views.removeAll()
@@ -96,7 +96,7 @@ class YZLockedView: UIView {
         ///
         topView = UIView()
         topView.backgroundColor = UIColor.clear
-        for i in 0..<4 {
+        for i in 0...3 {
             let view = UIView()
             view.tag = 100 + i
             view.layer.masksToBounds = true
@@ -110,7 +110,7 @@ class YZLockedView: UIView {
         lockView = UIView()
         lockView.backgroundColor = UIColor.clear
         let lockBtnWH: CGFloat = ISIPAD ? 80 : 75
-        for i in 0..<10 {
+        for i in 0...9 {
             let btn = UIButton()
             btn.tag = i
             btn.layer.masksToBounds = true
@@ -143,7 +143,7 @@ class YZLockedView: UIView {
         ///
         lockView.frame = CGRect(x: 0, y: 0, width: lockW, height: lockH)
         lockView.center = CGPoint(x: self.width * 0.5, y: self.height * 0.5 + (lockBtnWH + lockSpace) * 0.5)
-        for (_,btn) in lockView.subviews.enumerated() {
+        for btn in lockView.subviews {
             let row = btn.tag / 3
             let col = btn.tag % 3
             if btn.tag == 9 {
@@ -160,7 +160,7 @@ class YZLockedView: UIView {
         let topH = viewWH + 5 * 2
         topView.frame = CGRect(x: 0, y: 0, width: topW, height: topH)
         topView.center = CGPoint(x: self.width * 0.5, y: lockView.y - 30)
-        for (_,view) in topView.subviews.enumerated() {
+        for view in topView.subviews {
             view.frame = CGRect(x: space + (space + viewWH) * CGFloat(view.tag - 100), y: 5, width: viewWH, height: viewWH)
         }
         ///

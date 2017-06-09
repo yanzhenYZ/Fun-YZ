@@ -197,3 +197,13 @@ extension UIImageView {
 //        return image!
 //    }
 //}
+
+extension Array {
+    public mutating func add(_ element: Element, add: Bool) {
+        if add {
+            self.append(element)
+        }else{
+            self.insert(element, at: 0)
+        }
+    }
+}

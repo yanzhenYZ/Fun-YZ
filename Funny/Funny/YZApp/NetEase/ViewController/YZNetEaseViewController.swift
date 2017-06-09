@@ -26,12 +26,11 @@ class YZNetEaseViewController: YZSuperSecondViewController {
         let urlString = netEaseURL(refreshType)
         YZHttpManager.get(urlString, success: { (response) in
             let keyArray = response[self.key] as! Array<[String : AnyObject]>
-            let models = YZNetEaseModel.mj_objectArray(withKeyValuesArray: keyArray)
-            for (_,value) in models!.enumerated() {
-                let model = value as! YZNetEaseModel
-                if model.url~~ {
-                    if model.url!.hasPrefix("http") {
-                        self.dataSource.append(model)
+            let models = YZNetEaseModel.mj_objectArray(withKeyValuesArray: keyArray) as! [YZNetEaseModel]
+            for value in models {
+                if value.url~~ {
+                    if value.url!.hasPrefix("http") {
+                        self.dataSource.append(value)
                     }
                 }
             }

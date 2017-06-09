@@ -16,8 +16,8 @@ class YZGifShowTabBarViewController: UITabBarController {
         let vc1 = YZGifShowViewController()
         vc1.title = "快手"
         let nvc1 = UINavigationController(rootViewController: vc1)
-        nvc1.tabBarItem.image = UIImage(named: "weibo_music_u")
-        nvc1.tabBarItem.selectedImage = UIImage(named: "weibo_music_s")
+        nvc1.tabBarItem.image = #imageLiteral(resourceName: "weibo_music_u")
+        nvc1.tabBarItem.selectedImage = #imageLiteral(resourceName: "weibo_music_s")
         
         let vc2 = YZWhatSomeViewController()
         vc2.title = "图片"
@@ -26,8 +26,8 @@ class YZGifShowTabBarViewController: UITabBarController {
         vc2.pushHeaderStr = SomeWhatPushHeadURL
         vc2.pushFooterStr = SomeWhatDefaultFootURL
         let nvc2 = UINavigationController(rootViewController: vc2)
-        nvc2.tabBarItem.image = UIImage(named: "weibo_favorite_u")
-        nvc2.tabBarItem.selectedImage = UIImage(named: "weibo_favorite_s")
+        nvc2.tabBarItem.image = #imageLiteral(resourceName: "weibo_favorite_u")
+        nvc2.tabBarItem.selectedImage = #imageLiteral(resourceName: "weibo_favorite_s")
         self.viewControllers = [nvc1,nvc2]
     }
 

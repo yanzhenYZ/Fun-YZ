@@ -14,13 +14,13 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let block = {(imageName: String) -> YZCircularItem in
-            let menuItemImage = UIImage(named: "menu_bg")
-            return YZCircularItem(image: menuItemImage!, highlightedImage: nil, contentImage: UIImage(named: imageName)!, highlightedContentImage: nil)
+        
+        let block = {(image: UIImage) -> YZCircularItem in
+            return YZCircularItem(image: #imageLiteral(resourceName: "menu_bg"), highlightedImage: nil, contentImage: image, highlightedContentImage: nil)
         }
-        let menuItems = [block("shotPart"),block("home"),block("exit"),block("my")]
-        let startItem =  YZCircularItem(image: UIImage(named: "menu")!, highlightedImage: nil, contentImage: UIImage(named: "plus")!, highlightedContentImage: UIImage(named: "plusHL"));
+        let menuItems = [block(#imageLiteral(resourceName: "shotPart")),block(#imageLiteral(resourceName: "home")),block(#imageLiteral(resourceName: "exit")),block(#imageLiteral(resourceName: "my"))]
+        
+        let startItem =  YZCircularItem(image: #imageLiteral(resourceName: "menu"), highlightedImage: nil, contentImage: #imageLiteral(resourceName: "plus"), highlightedContentImage: #imageLiteral(resourceName: "plusHL"));
         
         let menu = YZCircularMenu(frame: CGRect(x: 0, y: HEIGHT - 200 - 49, width: 200, height: 200), startItem: startItem, startPoint: CGPoint(x: 20, y: 180), menuWholeAngle: Double.pi / 2, items: menuItems)
         menu.delegate = self

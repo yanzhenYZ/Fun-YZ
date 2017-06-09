@@ -11,23 +11,24 @@ import UIKit
 class YZWalfareGirlFrame: YZPictureFrame{
 
     var contentLabelFrame: CGRect!
-    var girlModel: YZWalfareGirlModel! {
-        didSet{
-            let viewWidth = WIDTH - CONTENTSPACE * 4
-            var rect = CGRect(x: CONTENTSPACE * 2, y: 25, width: viewWidth, height: 0)
-            if (girlModel.wbody?.length)! > 1 {
-                rect.size.height = girlModel.wbody!.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth) + CONTENTSPACE
-            }
-            contentLabelFrame = rect
-            ///
-            var originW = Int(girlModel.wpic_m_width)
-            originW = originW == 0 ? 1 : originW
-            let originH = Int(girlModel.wpic_m_height)
-            let scale = viewWidth / CGFloat(originW!)
-            let imageH = CGFloat(originH!) * scale
-            mainIVFrame = CGRect(x: CONTENTSPACE, y: rect.maxY, width: viewWidth, height: imageH)
-            backViewFrame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2 , width: WIDTH - 2 * CONTENTSPACE, height: mainIVFrame.maxY + 5)
+    var girlModel: YZWalfareGirlModel!
+    init(_ model: YZWalfareGirlModel) {
+        super.init()
+        self.girlModel = model
+        let viewWidth = WIDTH - CONTENTSPACE * 4
+        var rect = CGRect(x: CONTENTSPACE * 2, y: 25, width: viewWidth, height: 0)
+        if (girlModel.wbody?.length)! > 1 {
+            rect.size.height = girlModel.wbody!.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth) + CONTENTSPACE
         }
+        contentLabelFrame = rect
+        ///
+        var originW = Int(girlModel.wpic_m_width)
+        originW = originW == 0 ? 1 : originW
+        let originH = Int(girlModel.wpic_m_height)
+        let scale = viewWidth / CGFloat(originW!)
+        let imageH = CGFloat(originH!) * scale
+        mainIVFrame = CGRect(x: CONTENTSPACE, y: rect.maxY, width: viewWidth, height: imageH)
+        backViewFrame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2 , width: WIDTH - 2 * CONTENTSPACE, height: mainIVFrame.maxY + 5)
     }
 }
 

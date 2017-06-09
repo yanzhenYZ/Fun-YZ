@@ -19,12 +19,9 @@ class YZWalfareGirlViewController: YZWalfareViewController {
         let urlString = walfareURL(refreshType)
         YZHttpManager.get(urlString, success: { (response) in
             let items = response["items"] as! Array<[String : AnyObject]>
-            let models = YZWalfareGirlModel.mj_objectArray(withKeyValuesArray: items)
-            for (_,value) in models!.enumerated() {
-                let model = value as! YZWalfareGirlModel
-                let girlFrame = YZWalfareGirlFrame()
-                girlFrame.girlModel = model
-                self.dataSource.append(girlFrame)
+            let models = YZWalfareGirlModel.mj_objectArray(withKeyValuesArray: items) as! [YZWalfareGirlModel]
+            for value in models{
+                self.dataSource.append(YZWalfareGirlFrame(value))
             }
             let girlFrame = self.dataSource.last as! YZWalfareGirlFrame
             self.max_timestamp = girlFrame.girlModel.update_time

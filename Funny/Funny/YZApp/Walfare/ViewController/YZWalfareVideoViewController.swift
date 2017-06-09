@@ -19,12 +19,9 @@ class YZWalfareVideoViewController: YZWalfareViewController {
         let urlString = walfareURL(refreshType)
         YZHttpManager.get(urlString, success: { (response) in
             let items = response["items"] as! Array<[String : AnyObject]>
-            let models = YZWalfareVideoModel.mj_objectArray(withKeyValuesArray: items)
-            for (_,value) in models!.enumerated() {
-                let model = value as! YZWalfareVideoModel
-                let videoFrame = YZWalfareVideoFrame()
-                videoFrame.videoModel = model
-                self.dataSource.append(videoFrame)
+            let models = YZWalfareVideoModel.mj_objectArray(withKeyValuesArray: items) as! [YZWalfareVideoModel]
+            for value in models{
+                self.dataSource.append(YZWalfareVideoFrame(value))
             }
             let videoFrame = self.dataSource.last as! YZWalfareVideoFrame
             self.max_timestamp = videoFrame.videoModel.update_time

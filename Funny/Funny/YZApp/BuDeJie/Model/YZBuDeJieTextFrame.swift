@@ -10,13 +10,14 @@ import UIKit
 
 class YZBuDeJieTextFrame: YZTextFrame {
 
-    var textModel: YZBuDeJieTextModel! {
-        didSet{
-            let viewWidth = WIDTH - 4 * CONTENTSPACE
-            let textHeight = textModel.text?.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth)
-            mainLabelFrame = CGRect(x: CONTENTSPACE, y: USERVIEWHEIGHT - CONTENTSPACE / 2, width: viewWidth, height: textHeight!)
-            backViewFrame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2, width: WIDTH - CONTENTSPACE * 2, height: mainLabelFrame.maxY + 5)
-        }
+    var textModel: YZBuDeJieTextModel!
+    init(_ model: YZBuDeJieTextModel) {
+        super.init()
+        self.textModel = model
+        let viewWidth = WIDTH - 4 * CONTENTSPACE
+        let textHeight = textModel.text?.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth)
+        mainLabelFrame = CGRect(x: CONTENTSPACE, y: USERVIEWHEIGHT - CONTENTSPACE / 2, width: viewWidth, height: textHeight!)
+        backViewFrame = CGRect(x: CONTENTSPACE, y: CONTENTSPACE / 2, width: WIDTH - CONTENTSPACE * 2, height: mainLabelFrame.maxY + 5)
     }
 }
 
