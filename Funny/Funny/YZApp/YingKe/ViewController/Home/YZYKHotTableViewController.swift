@@ -31,9 +31,8 @@ class YZYKHotTableViewController: UITableViewController {
         
         header = MJRefreshHeaderView.header()
         header.scrollView = tableView
-        unowned let blockSelf = self
-        header.beginRefreshingBlock = { (footerView) ->Void in
-            blockSelf.reloadData()
+        header.beginRefreshingBlock = { [weak self] (footerView) ->Void in
+            self?.reloadData()
         }
         reloadData()
     }

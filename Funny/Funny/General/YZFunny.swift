@@ -27,6 +27,7 @@ let Document = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDoma
 
 //MARK: typealias
 typealias int = Int;
+typealias UITableViewProtocol = UITableViewDataSource & UITableViewDelegate
 
 //MARK: Enum
 enum YZAPPNAME: Int {

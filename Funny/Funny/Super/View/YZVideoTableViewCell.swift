@@ -18,7 +18,7 @@ class YZVideoTableViewCell: YZTableViewCell {
 
     var mainImageView: YZAVView!
     var playBtn: UIButton!
-    private var progressView: UIProgressView!
+    fileprivate var progressView: UIProgressView!
     ///分享的标题可能不存在--网址一定存在
     var shareTitle: String?
     var shareURL: String!
@@ -48,7 +48,43 @@ class YZVideoTableViewCell: YZTableViewCell {
         configureUI()
     }
     
-    @objc private func longPressGestureAction(longPress: UILongPressGestureRecognizer) {
+    deinit {
+        mainImageView.reset()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}
+
+extension YZVideoTableViewCell {
+    
+    fileprivate func configureUI() {
+        mainImageView = YZAVView()
+        mainImageView.contentMode = .scaleAspectFill
+        mainImageView.clipsToBounds = true
+        backView.addSubview(mainImageView)
+        
+        let color = UIColor(colorLiteralRed: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
+        let attributes = [NSForegroundColorAttributeName : color, NSFontAttributeName : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
+        let mark = YZAVMark("Y&Z TV", rect: CGRect(x: 5, y: 5, width: 120, height: 40), attrs: attributes)
+        mainImageView.mark = mark
+        
+        playBtn = UIButton(type: .custom)
+        playBtn.backgroundColor = UIColor.clear
+        playBtn.setBackgroundImage(#imageLiteral(resourceName: "play_start"), for: .normal)
+        playBtn.setBackgroundImage(#imageLiteral(resourceName: "play_pause"), for: .selected)
+        playBtn.addTarget(self, action: #selector(self.playBtnClick(btn:)), for: .touchUpInside)
+        backView.addSubview(playBtn)
+        
+        progressView = UIProgressView()
+        progressView.progressTintColor = YZColor(255, 155, 23)
+        progressView.progress = 0
+        backView.addSubview(progressView)
+    }
+    
+    @objc fileprivate func longPressGestureAction(longPress: UILongPressGestureRecognizer) {
         YZLog("longPressGestureAction")
         if longPress.state == .began {
             let message = WXMediaMessage()
@@ -79,7 +115,7 @@ class YZVideoTableViewCell: YZTableViewCell {
         }
     }
     
-    @objc private func pinGestureAction(pin: UIPinchGestureRecognizer) {
+    @objc fileprivate func pinGestureAction(pin: UIPinchGestureRecognizer) {
         if pin.state == .began {
             if playBtn.isSelected || mainImageView.isPausing {
                 playBtn.isSelected = false
@@ -93,9 +129,8 @@ class YZVideoTableViewCell: YZTableViewCell {
         }
     }
     
-    @objc private func playBtnClick(btn: UIButton) {
+    @objc fileprivate func playBtnClick(btn: UIButton) {
         let appdegate = UIApplication.shared.delegate as! AppDelegate
-//        print(appdegate.avWindow.isHidden)
         if !appdegate.avWindow.isHidden {
             appdegate.avWindow.coverImage = mainImageView.image
             appdegate.avWindow.playAV(shareURL)
@@ -125,37 +160,4 @@ class YZVideoTableViewCell: YZTableViewCell {
             self?.progressView.setProgress(Float(time.currentTime / time.totalTime), animated: false)
         }
     }
-    
-    private func configureUI() {
-        mainImageView = YZAVView()
-        mainImageView.contentMode = .scaleAspectFill
-        mainImageView.clipsToBounds = true
-        backView.addSubview(mainImageView)
-        
-        let color = UIColor(colorLiteralRed: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
-        let attributes = [NSForegroundColorAttributeName : color, NSFontAttributeName : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
-        let mark = YZAVMark("Y&Z TV", rect: CGRect(x: 5, y: 5, width: 120, height: 40), attrs: attributes)
-        mainImageView.mark = mark
-        
-        playBtn = UIButton(type: .custom)
-        playBtn.backgroundColor = UIColor.clear
-        playBtn.setBackgroundImage(#imageLiteral(resourceName: "play_start"), for: .normal)
-        playBtn.setBackgroundImage(#imageLiteral(resourceName: "play_pause"), for: .selected)
-        playBtn.addTarget(self, action: #selector(self.playBtnClick(btn:)), for: .touchUpInside)
-        backView.addSubview(playBtn)
-        
-        progressView = UIProgressView()
-        progressView.progressTintColor = YZColor(255, 155, 23)
-        progressView.progress = 0
-        backView.addSubview(progressView)
-    }
-    
-    deinit {
-        mainImageView.reset()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
 }

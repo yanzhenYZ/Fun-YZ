@@ -32,9 +32,8 @@ class YZBuDeJieViewController: YZSuperSecondViewController {
     private func budejieRefresh() {
         footer = MJRefreshFooterView.footer()
         footer?.scrollView = tableView
-        unowned let blockSelf = self
-        footer?.beginRefreshingBlock = {(baseView) ->Void in
-            blockSelf.netRequestWithMJRefresh(.push, baseView: baseView)
+        footer?.beginRefreshingBlock = { [weak self] (baseView) ->Void in
+            self?.netRequestWithMJRefresh(.push, baseView: baseView)
         }
     }
 //MARK: - tableview

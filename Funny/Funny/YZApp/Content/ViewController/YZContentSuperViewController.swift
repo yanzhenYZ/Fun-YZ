@@ -50,12 +50,11 @@ class YZContentSuperViewController: YZSuperSecondViewController {
         footer = MJRefreshFooterView.footer()
         header?.scrollView = tableView
         footer?.scrollView = tableView
-        unowned let blockSelf = self
-        header?.beginRefreshingBlock = {(baseView) ->Void in
-            blockSelf.netRequestWithMJRefresh(.pull, baseView: baseView)
+        header?.beginRefreshingBlock = { [weak self] (baseView) ->Void in
+            self?.netRequestWithMJRefresh(.pull, baseView: baseView)
         }
-        footer?.beginRefreshingBlock = {(baseView) ->Void in
-            blockSelf.netRequestWithMJRefresh(.push, baseView: baseView)
+        footer?.beginRefreshingBlock = { [weak self] (baseView) ->Void in
+            self?.netRequestWithMJRefresh(.push, baseView: baseView)
         }
     }
 //MARK: tableView

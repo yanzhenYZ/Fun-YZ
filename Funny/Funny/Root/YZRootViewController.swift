@@ -23,10 +23,7 @@ class YZRootViewController: UIViewController {
     private var faceView: YZFaceView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        //详情---widgetIntoViewController()
-        if scrollView != nil {
-            return
-        }
+        
         
         self.title = "Funny"
         automaticallyAdjustsScrollViewInsets = false
@@ -72,11 +69,6 @@ class YZRootViewController: UIViewController {
     }
 
     public func widgetIntoViewController(_ tag: Int) {
-        ///程序直接通过-3DTouch-或者-Widget-启动--viewDidLoad()没有被调用，需要手动调用一下
-        //调用之后，viewDidLoad还会被调用一次---？？？（不同于OC）
-        if !self.isViewLoaded {
-            viewDidLoad()
-        }
         ///只考虑push和present一级的情况
         if let presentedVC = self.navigationController?.presentedViewController {
             presentedVC.dismiss(animated: true, completion: nil)
@@ -100,6 +92,5 @@ class YZRootViewController: UIViewController {
         vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-
 }
+

@@ -42,9 +42,8 @@ class YZYKNearCollectionViewController: UICollectionViewController, UICollection
         collectionView?.register(UINib(nibName: "YZYKNearCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "YZYKNearCollectionViewCell")
         header = MJRefreshHeaderView.header()
         header?.scrollView = collectionView
-        unowned let blockSelf = self
-        header?.beginRefreshingBlock = { (footerView) ->Void in
-            blockSelf.reloadData()
+        header?.beginRefreshingBlock = { [weak self] (footerView) ->Void in
+            self?.reloadData()
         }
         reloadData()
     }

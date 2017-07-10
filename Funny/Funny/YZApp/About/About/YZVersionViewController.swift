@@ -44,9 +44,8 @@ class YZVersionViewController: UIViewController, UIViewControllerPreviewingDeleg
         if ISIPAD {
             saveHeadImage(image)
         }else{
-            unowned let blockSelf = self
-            let vc = YZClipImageViewController(image: image, block: { (doneImage) in
-                blockSelf.saveHeadImage(doneImage)
+            let vc = YZClipImageViewController(image: image, block: { [weak self] (doneImage) in
+                self?.saveHeadImage(doneImage)
             })
             picker.pushViewController(vc, animated: true)
         }

@@ -25,12 +25,14 @@ class YZUCViewController: YZSuperSecondViewController {
         let urlString = ucURL(refreshType)
         YZHttpManager.get(urlString, success: { (response) in
             let dataDict = response["data"] as! [String : AnyObject]
-            let articles = dataDict["articles"] as! [String : [String : AnyObject]]
+            let articles = dataDict["articles"] as! [String : Dictionary<String, AnyObject>]
             var models = [YZUCNewsModel]()
-            for value in articles {
+            for value in articles.values {
                 let model = YZUCNewsModel.mj_object(withKeyValues: value)
-                if (model?.thumbnails?.count)! > 0 {
-                    models.append(model!)
+                if let thumbnails = model?.thumbnails {
+                    if thumbnails.count > 0 {
+                        models.append(model!)
+                    }
                 }
             }
             
@@ -61,12 +63,12 @@ class YZUCViewController: YZSuperSecondViewController {
         footer = MJRefreshFooterView.footer()
         header?.scrollView = tableView
         footer?.scrollView = tableView
-        unowned let blockSelf = self
+        weak var weakSelf = self
         header?.beginRefreshingBlock = {(baseView) ->Void in
-            blockSelf.netRequestWithMJRefresh(.pull, baseView: baseView)
+            weakSelf?.netRequestWithMJRefresh(.pull, baseView: baseView)
         }
         footer?.beginRefreshingBlock = {(baseView) ->Void in
-            blockSelf.netRequestWithMJRefresh(.push, baseView: baseView)
+            weakSelf?.netRequestWithMJRefresh(.push, baseView: baseView)
         }
     }
 //MARK: - tableView

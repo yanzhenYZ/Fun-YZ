@@ -30,7 +30,9 @@ class YZContentVideoTableViewCell: YZVideoTableViewCell {
     
     public func configureCell(_ videoFrame: YZContentVideoFrame) {
         let group = videoFrame.contentModel.group
-        shareURL = group?.video_720p?.url_list?[0]["url"]
+        if group?.video_720p?.url_list?[0]["url"] != nil {
+            shareURL = (group?.video_720p?.url_list?[0]["url"])!
+        }
         shareTitle = group?.text
         
         userView.configureUserView(group!.user!.avatar_url!, name: group!.user!.name!, time: dateString(group!.create_time!.intValue))

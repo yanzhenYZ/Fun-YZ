@@ -81,15 +81,12 @@ class YZFunnyManager: NSObject {
                 }
                 handler?(granted)
             })
-            break
         case .authorized:
             YZLog("--用户已开启摄像头--")
             handler?(true)
-            break
         default:
             YZLog("--用户拒绝开启摄像头--")
             handler?(false)
-            break
         }
     }
     
@@ -102,13 +99,10 @@ class YZFunnyManager: NSObject {
                     YZLog("--用户开启麦克风--")
                 }
             })
-            break
         case .authorized:
             YZLog("--用户已开启麦克风--")
-            break
         default:
             YZLog("--用户拒绝开启麦克风--")
-            break
         }
 
     }

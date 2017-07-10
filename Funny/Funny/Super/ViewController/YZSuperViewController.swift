@@ -12,6 +12,18 @@ import CoreGraphics
 
 class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionSheetDelegate, YZShotViewDelegate {
 
+    private lazy var sheet: YZActionSheet = {
+        let titleItem = YZActionSheetItem(title: "退出程序", titleColor: UIColor.gray)
+        let item = YZActionSheetItem(title: "确定")
+        return YZActionSheet(titleItem: titleItem, delegate: self, actions: [item])
+    }()
+    
+    private lazy var shotView: YZShotView = {
+        let shotView = YZShotView(frame: CGRect(x: 0.0, y: 64.0, width: WIDTH, height: HEIGHT - 64.0 - 49.0))
+        shotView.delegate = self
+        return shotView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,18 +75,20 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
         shotView.removeFromSuperview()
         if isShot {
             var image = self.view.getRenderImage()
-            image = clipImage(image, rect: frame)
+            image = self.clipImage(image, rect: frame)
             YZFunnyManager.saveImage(image)
         }
     }
-    
-    private func clipImage(_ image: UIImage, rect: CGRect) ->UIImage {
+}
+
+extension YZSuperViewController {
+    fileprivate func clipImage(_ image: UIImage, rect: CGRect) ->UIImage {
         let scale = UIScreen.main.scale
         let frame = CGRect(x: rect.origin.x * scale, y: rect.origin.y * scale, width: rect.size.width * scale, height: rect.size.height * scale)
         let imageRef = image.cgImage
         //考虑navigationBar
         let subImageRef = imageRef?.cropping(to: CGRect(x: frame.origin.x, y: frame.origin.y + 64 * scale, width: frame.size.width, height: frame.size.height))
-//        let subImageRef = imageRef?.cropping(to: frame)
+        //        let subImageRef = imageRef?.cropping(to: frame)
         UIGraphicsBeginImageContext(frame.size)
         let context = UIGraphicsGetCurrentContext()
         context?.draw(subImageRef!, in: frame)
@@ -82,16 +96,4 @@ class YZSuperViewController: UIViewController, YZCircularMenuDelegate, YZActionS
         UIGraphicsEndImageContext()
         return newImage
     }
-//MARK: lazy var
-    lazy var sheet: YZActionSheet = {
-        let titleItem = YZActionSheetItem(title: "退出程序", titleColor: UIColor.gray)
-        let item = YZActionSheetItem(title: "确定")
-        return YZActionSheet(titleItem: titleItem, delegate: self, actions: [item])
-    }()
-    
-    lazy var shotView: YZShotView = {
-        let shotView = YZShotView(frame: CGRect(x: 0.0, y: 64.0, width: WIDTH, height: HEIGHT - 64.0 - 49.0))
-        shotView.delegate = self
-        return shotView
-    }()
 }

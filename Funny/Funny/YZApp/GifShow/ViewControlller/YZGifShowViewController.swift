@@ -25,12 +25,12 @@ class YZGifShowViewController: YZSuperSecondViewController {
         footer = MJRefreshFooterView.footer()
         header?.scrollView = tableView
         footer?.scrollView = tableView
-        unowned let blockSelf = self
+        weak var weakSelf = self
         header?.beginRefreshingBlock = {(baseView) ->Void in
-            blockSelf.netRequestWithMJRefresh(.pull, baseView: baseView)
+            weakSelf?.netRequestWithMJRefresh(.pull, baseView: baseView)
         }
         footer?.beginRefreshingBlock = {(baseView) ->Void in
-            blockSelf.netRequestWithMJRefresh(.push, baseView: baseView)
+            weakSelf?.netRequestWithMJRefresh(.push, baseView: baseView)
         }
     }
 

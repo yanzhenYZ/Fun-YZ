@@ -35,5 +35,5 @@ class YZContent720p_video: NSObject {
     ///视频高
     var height: NSNumber?
     ///视频地址---[0][url]
-    var url_list: Array<[String : String]>?
+    var url_list: Array<[String : String?]>?
 }

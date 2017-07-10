@@ -135,6 +135,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootNVC = self.window?.rootViewController as! UINavigationController
         //程序未启动通过3DTouch---使用storyBoard这里会崩溃？？？
         let rootVC = rootNVC.viewControllers.first as! YZRootViewController
+        ///程序直接通过-3DTouch-或者-Widget-启动--viewDidLoad()没有被调用，需要手动调用一下
+        rootVC.view.isHidden = false
         rootVC.widgetIntoViewController(tag)
 
 //        rootVC.dismiss(animated: true, completion: nil)

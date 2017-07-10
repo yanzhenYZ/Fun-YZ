@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YZSuperSecondViewController: YZSuperViewController,UITableViewDelegate, UITableViewDataSource {
+class YZSuperSecondViewController: YZSuperViewController, UITableViewProtocol {
 
     var header: MJRefreshHeaderView?
     var footer: MJRefreshFooterView?
