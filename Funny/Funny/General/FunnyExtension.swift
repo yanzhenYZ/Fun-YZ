@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension UIView {
     
@@ -184,7 +185,7 @@ extension String {
 extension UIImageView {
     public func yz_setImage(_ urlString: String, placeholder imageName: String = "Y&Z") {
         let image = UIImage(named: imageName)
-        self.sd_setImage(with: URL(string: urlString), placeholderImage: image)
+        self.kf.setImage(with: URL(string: urlString), placeholder: image)
     }
 }
 //extension UIImage {

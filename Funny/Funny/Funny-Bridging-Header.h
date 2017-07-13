@@ -4,7 +4,6 @@
 
 //---re --- 1
 #import "MJRefresh.h"
-#import "UIImageView+WebCache.h"
 #import "MJExtension.h"
 #import "FMDB.h"
 #import "YZQRImageTool.h"

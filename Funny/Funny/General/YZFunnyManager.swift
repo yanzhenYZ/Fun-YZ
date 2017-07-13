@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 import AVFoundation
 import LocalAuthentication
 
@@ -50,25 +51,24 @@ class YZFunnyManager: NSObject {
         }
     }
     
-//MARK: - SDWebImage
+//MARK: - Kingfisher
     class func clearCache() {
-        let manager = SDWebImageManager.shared()
-        manager.cancelAll()
-        manager.imageCache?.clearMemory()
+        let manager = KingfisherManager.shared
+        manager.cache.clearMemoryCache()
     }
 //    class func clearDisk(completion: @escaping (Void) ->Void) {
 //    class func clearDisk(completion: @escaping () ->Void) {
 //    class func clearDisk(completion: (() -> Swift.Void)? = nil) {
     class func clearDisk(completion: (() -> Swift.Void)?) {
-        let manager = SDWebImageManager.shared()
-        manager.imageCache?.clearDisk(onCompletion: {
+        KingfisherManager.shared.cache.clearDiskCache {
             completion?()
-        })
+        }
     }
     
-    class func getDiskCacheSize() ->UInt{
-        let manager = SDWebImageManager.shared()
-        return manager.imageCache!.getSize()
+    class func getDiskCacheSize(handler: @escaping (UInt) -> Void) {
+        KingfisherManager.shared.cache.calculateDiskCacheSize { (size) in
+            handler(size)
+        }
     }
 //MARK: - Audio and Video
     class func requestAccessForVideo(completionHandler handler: ((Bool) -> Swift.Void)?){

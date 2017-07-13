@@ -66,11 +66,6 @@ class YZAboutInfoTableViewController: UITableViewController, UIImagePickerContro
     @objc private func exitVC() {
         exit(0)
     }
-    
-    private func diskSize() ->String {
-        let size = YZFunnyManager.getDiskCacheSize()
-        return String(format: "%.2fMB", CGFloat(size) / 1000 / 1000.0)
-    }
 
 // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -90,7 +85,9 @@ class YZAboutInfoTableViewController: UITableViewController, UIImagePickerContro
             cell?.detailTextLabel?.textColor = YZColor(255, 133, 25)
         }
         if indexPath.row == 0 {
-            cell?.detailTextLabel?.text = diskSize()
+            YZFunnyManager.getDiskCacheSize(handler: { (size) in
+                cell?.detailTextLabel?.text = String(format: "%.2fMB", CGFloat(size) / 1000 / 1000.0)
+            })
         }
         cell?.textLabel?.text = dataSource[indexPath.row]
         return cell!
