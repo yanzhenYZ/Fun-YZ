@@ -30,8 +30,8 @@ class YZContentVideoTableViewCell: YZVideoTableViewCell {
     
     public func configureCell(_ videoFrame: YZContentVideoFrame) {
         let group = videoFrame.contentModel.group
-        if group?.video_720p?.url_list?[0]["url"] != nil {
-            shareURL = (group?.video_720p?.url_list?[0]["url"])!
+        if let url = group?.mp4_url {
+            shareURL = url
         }
         shareTitle = group?.text
         

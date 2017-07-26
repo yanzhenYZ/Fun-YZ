@@ -22,6 +22,8 @@ class YZWalfareVideoTableViewCell: YZVideoTableViewCell {
         contentLabel.numberOfLines = 0
         contentLabel.font = UIFont.systemFont(ofSize: USERTEXTMAINLABELFONT)
         backView.addSubview(contentLabel)
+        ///
+        mainImageView.videoGravity = .Resize
     }
     
     public func configureCell(_ videoFrame: YZWalfareVideoFrame) {
