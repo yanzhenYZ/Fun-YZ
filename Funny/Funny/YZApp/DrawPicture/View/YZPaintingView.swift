@@ -14,56 +14,66 @@ class YZPaintingView: UIView {
     var lineColor = UIColor.black
     var image: UIImage! {
         didSet {
-            paths.append(image)
-            setNeedsDisplay()
+            let imgLayer = CAShapeLayer()
+            imgLayer.contents = image.cgImage
+            imgLayer.frame = self.bounds
+            self.layer.addSublayer(imgLayer)
+            self.layers.append(imgLayer)
         }
     }
-    private var path: YZBezierPath!
-    private var paths = [AnyObject]()
+    fileprivate var path: YZBezierPath!
+    fileprivate var shapeLayer: CAShapeLayer!
+    fileprivate var layers = [CAShapeLayer]()
     
     public func clearScreen() {
-        paths.removeAll()
+        for subLayer in layers {
+            subLayer.removeFromSuperlayer()
+        }
+        layers.removeAll()
         setNeedsDisplay()
     }
     
     public func undo() {
-        if paths.count > 0 {
-            paths.removeLast()
-            setNeedsDisplay()
+        if layers.count > 0 {
+            self.layers.last?.removeFromSuperlayer()
+            layers.removeLast()
         }
     }
     
     public func isDrawInView() ->Bool{
-        return paths.count > 0
-    }
-    ///
-    override func draw(_ rect: CGRect) {
-        if paths.count <= 0 {
-            return
-        }
-        for value in paths {
-            if value is UIImage {
-                let image = value as! UIImage
-                image.draw(at: CGPointZero)
-            }else{
-                let onePath = value as! YZBezierPath
-                onePath.color?.set()
-                onePath.stroke()
-            }
-        }
+        return layers.count > 0
     }
     
-//MARK: - touch
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.clipsToBounds = true
+    }
+}
+
+extension YZPaintingView {
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let point = ((touches as NSSet).anyObject()! as! UITouch).location(in: self)
         let startPath = YZBezierPath(pathLineWidth: lineWidth, pathColor: lineColor, startPoint: point)
+        
+        let sLayer = CAShapeLayer()
+        sLayer.path = startPath.cgPath
+        sLayer.backgroundColor = UIColor.clear.cgColor
+        sLayer.fillColor = UIColor.clear.cgColor
+        sLayer.lineCap = kCALineCapRound
+        sLayer.lineJoin = kCALineJoinRound
+        sLayer.strokeColor = startPath.color?.cgColor
+        sLayer.lineWidth = startPath.lineWidth
+        self.layer.addSublayer(sLayer)
+        
+        shapeLayer = sLayer
         path = startPath
-        paths.append(startPath)
+        layers.append(sLayer)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         let point = ((touches as NSSet).anyObject()! as! UITouch).location(in: self)
         path.addLine(to: point)
-        setNeedsDisplay()
+        shapeLayer.path = path.cgPath
     }
 }
