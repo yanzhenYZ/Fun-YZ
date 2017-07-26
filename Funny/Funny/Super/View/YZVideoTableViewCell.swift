@@ -21,7 +21,7 @@ class YZVideoTableViewCell: YZTableViewCell {
     fileprivate var progressView: UIProgressView!
     ///分享的标题可能不存在--网址一定存在
     var shareTitle: String?
-    var shareURL: String!
+    var shareURL: String = ""
     var videoViewFrame: CGRect! {
         didSet {
             mainImageView.frame = videoViewFrame;
@@ -62,7 +62,6 @@ extension YZVideoTableViewCell {
     
     fileprivate func configureUI() {
         mainImageView = YZAVView()
-        mainImageView.contentMode = .scaleAspectFill
         mainImageView.clipsToBounds = true
         backView.addSubview(mainImageView)
         
@@ -146,17 +145,10 @@ extension YZVideoTableViewCell {
             mainImageView.play()
             return;
         }
-        
-        mainImageView.playAV(shareURL, begin: {
-            print("begin")
-        }, finished: { [weak self] in
+        mainImageView.playAV(shareURL, begin: nil, finished: { [weak self] in
             self?.playBtn.isSelected = !(self?.playBtn.isSelected)!
             self?.progressView.setProgress(0, animated: false)
-            print("finished")
-            }, failed: { (error) in
-                print(error!)
-        }) { [weak self] (time) in
-            print("\(time.totalTime)--\(time.currentTime)--\(time.loadedTime)")
+        }, failed: nil) { [weak self] (time) in
             self?.progressView.setProgress(Float(time.currentTime / time.totalTime), animated: false)
         }
     }
