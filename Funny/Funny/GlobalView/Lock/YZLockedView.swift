@@ -33,7 +33,7 @@ class YZLockedView: UIView {
 
     @objc private func lockBtnClick(btn: UIButton) {
         UIView.animate(withDuration: 0.05, animations: {
-            btn.backgroundColor = YZColor(43, 134, 182)
+            btn.backgroundColor = UIColor(43, 134, 182)
         }) { (finished) in
             btn.backgroundColor = UIColor.clear
         }
@@ -46,7 +46,7 @@ class YZLockedView: UIView {
         }
         
         let view = topView.viewWithTag(views.count + 100)
-        view?.backgroundColor = YZColor(43, 134, 182)
+        view?.backgroundColor = UIColor(43, 134, 182)
         password = password + code
         views.append(view!)
         if views.count == 4 {
@@ -102,7 +102,7 @@ class YZLockedView: UIView {
             view.layer.masksToBounds = true
             view.layer.cornerRadius = 7.5
             view.layer.borderWidth = 1
-            view.layer.borderColor = YZColor(43, 134, 182).cgColor
+            view.layer.borderColor = UIColor(43, 134, 182).cgColor
             topView.addSubview(view)
         }
         addSubview(topView)
@@ -116,7 +116,7 @@ class YZLockedView: UIView {
             btn.layer.masksToBounds = true
             btn.layer.cornerRadius = lockBtnWH / 2
             btn.layer.borderWidth = 2
-            btn.layer.borderColor = YZColor(43, 134, 182).cgColor
+            btn.layer.borderColor = UIColor(43, 134, 182).cgColor
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 27)
             if i == 9 {
                 btn.setTitle("0", for: .normal)

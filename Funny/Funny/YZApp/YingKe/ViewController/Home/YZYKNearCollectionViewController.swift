@@ -38,7 +38,7 @@ class YZYKNearCollectionViewController: UICollectionViewController, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        collectionView?.backgroundColor = YZColor(235, 246, 252)
+        collectionView?.backgroundColor = UIColor(235, 246, 252)
         collectionView?.register(UINib(nibName: "YZYKNearCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "YZYKNearCollectionViewCell")
         header = MJRefreshHeaderView.header()
         header?.scrollView = collectionView

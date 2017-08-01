@@ -65,7 +65,7 @@ class YZYKPlayerViewController: UIViewController {
         closeBtn.layer.masksToBounds = true
         closeBtn.layer.cornerRadius = closeBthWH * 0.5
         closeBtn.layer.borderWidth = 1.0
-        closeBtn.layer.borderColor = YZColor(27, 210, 189).cgColor
+        closeBtn.layer.borderColor = UIColor(27, 210, 189).cgColor
         closeBtn.addTarget(self, action: #selector(self.closeBtnClick), for: .touchUpInside)
         self.view.addSubview(closeBtn)
         

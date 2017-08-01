@@ -34,7 +34,7 @@ class YZAboutInfoTableViewController: UITableViewController, UIImagePickerContro
 
         self.title = "我的"
         automaticallyAdjustsScrollViewInsets = false
-        self.view.backgroundColor = YZColor(247, 247, 247)
+        self.view.backgroundColor = UIColor(247, 247, 247)
         ///headView
         let headView = UIView(frame: CGRect(x: 0, y: 0, width: WIDTH, height: ABOUTHEADHEIGHT))
         headImageView = UIImageView(frame: headView.bounds)
@@ -57,7 +57,7 @@ class YZAboutInfoTableViewController: UITableViewController, UIImagePickerContro
         exitBtn.backgroundColor = UIColor.white
         exitBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         exitBtn.setTitle("退出", for: .normal)
-        exitBtn.setTitleColor(YZColor(255, 133, 25), for: .normal)
+        exitBtn.setTitleColor(UIColor(255, 133, 25), for: .normal)
         exitBtn.addTarget(self, action: #selector(self.exitVC), for: .touchUpInside)
         footerView.addSubview(exitBtn)
         tableView.tableFooterView = footerView
@@ -82,7 +82,7 @@ class YZAboutInfoTableViewController: UITableViewController, UIImagePickerContro
         if cell == nil {
             cell = UITableViewCell(style: .value1, reuseIdentifier: "YZAboutInfoTableViewController")
             cell?.accessoryType = .disclosureIndicator
-            cell?.detailTextLabel?.textColor = YZColor(255, 133, 25)
+            cell?.detailTextLabel?.textColor = UIColor(255, 133, 25)
         }
         if indexPath.row == 0 {
             YZFunnyManager.getDiskCacheSize(handler: { (size) in

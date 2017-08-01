@@ -63,10 +63,6 @@ enum MJRefresh : Int {
     case normal
     case push
 }
-//MARK: Func
-func YZColor(_ R: CGFloat, _ G: CGFloat, _ B: CGFloat) ->UIColor {
-    return UIColor(red: R / 255.0, green: G / 255.0, blue: B / 255.0, alpha: 1.0)
-}
 
 ///<T>表示任何类型的参数
 func YZLog<T>(_ items: T,file: String = #file,line: Int = #line,method: String = #function) {

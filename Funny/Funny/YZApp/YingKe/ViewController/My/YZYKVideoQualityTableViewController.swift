@@ -20,7 +20,7 @@ class YZYKVideoQualityTableViewController: UITableViewController {
         videoQuality = Int(YZUserDefaultsManager.getVideoQuality())
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(self.saveAction))
         
-        tableView.backgroundColor = YZColor(230, 230, 237)
+        tableView.backgroundColor = UIColor(230, 230, 237)
         tableView.rowHeight = 50
         tableView.sectionFooterHeight = 25
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "YZYKVideoQualityTableVC")

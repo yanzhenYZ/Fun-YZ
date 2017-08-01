@@ -13,7 +13,7 @@ class YZYKNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationBar.barTintColor = YZColor(36, 215, 200)
+        self.navigationBar.barTintColor = UIColor(36, 215, 200)
         self.navigationBar.tintColor = UIColor.white
     }
 

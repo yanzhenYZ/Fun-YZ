@@ -14,7 +14,7 @@ class YZManagerLockViewController: UIViewController, YZLockedViewDelegate {
         super.viewDidLoad()
 
         self.title = "管理"
-        view.backgroundColor = YZColor(32, 52, 62)
+        view.backgroundColor = UIColor(32, 52, 62)
         let lockView = YZLockedView(frame: CGRect(x: 0, y: 0, width: WIDTH, height: HEIGHT))
         lockView.delegate = self
         view.addSubview(lockView)

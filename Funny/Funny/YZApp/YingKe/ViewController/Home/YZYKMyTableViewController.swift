@@ -24,7 +24,7 @@ class YZYKMyTableViewController: UITableViewController {
         self.navigationItem.title = "我的"
         tableView.rowHeight = 50
         tableView.sectionFooterHeight = 25
-        tableView.backgroundColor = YZColor(230, 230, 237)
+        tableView.backgroundColor = UIColor(230, 230, 237)
     }
 
 // MARK: - Table view data source

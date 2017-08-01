@@ -15,7 +15,7 @@ class YZPasswordManagerTableViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 50
         tableView.sectionFooterHeight = 0.1
-        tableView.backgroundColor = YZColor(230, 230, 237)
+        tableView.backgroundColor = UIColor(230, 230, 237)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "YZPasswordManager")
     }
 
@@ -41,7 +41,7 @@ class YZPasswordManagerTableViewController: UITableViewController {
  
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView()
-        footerView.backgroundColor = YZColor(230, 230, 237)
+        footerView.backgroundColor = UIColor(230, 230, 237)
         return footerView
     }
     

@@ -17,12 +17,12 @@ class YZSettingTableViewController: UITableViewController {
         self.title = "设置"
         tableView.rowHeight = 50
         tableView.sectionFooterHeight = 25.0
-        tableView.backgroundColor = YZColor(230, 230, 237)
+        tableView.backgroundColor = UIColor(230, 230, 237)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "YZSettingTableViewController")
         ///
         let tableHeaderView = UIView()
         tableHeaderView.height = 25.0
-        tableHeaderView.backgroundColor = YZColor(230, 230, 237)
+        tableHeaderView.backgroundColor = UIColor(230, 230, 237)
         tableView.tableHeaderView = tableHeaderView
     }
 
@@ -50,7 +50,7 @@ class YZSettingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = UIView()
-        footerView.backgroundColor = YZColor(230, 230, 237)
+        footerView.backgroundColor = UIColor(230, 230, 237)
         return footerView
     }
 

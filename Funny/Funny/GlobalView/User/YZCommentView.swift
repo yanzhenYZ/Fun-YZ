@@ -15,11 +15,11 @@ class YZCommentView: UIView {
     private var userTextLabel: UILabel!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = YZColor(246, 246, 256)
+        self.backgroundColor = UIColor(246, 246, 256)
         self.clipsToBounds = true
         ///
         let tipLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 37, height: 18))
-        tipLabel.backgroundColor = YZColor(251, 95, 136)
+        tipLabel.backgroundColor = UIColor(251, 95, 136)
         tipLabel.textAlignment = .center
         tipLabel.textColor = UIColor.white
         tipLabel.font = UIFont.systemFont(ofSize: 12)

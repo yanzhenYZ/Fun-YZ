@@ -78,7 +78,7 @@ extension YZVideoTableViewCell {
         backView.addSubview(playBtn)
         
         progressView = UIProgressView()
-        progressView.progressTintColor = YZColor(255, 155, 23)
+        progressView.progressTintColor = UIColor(255, 155, 23)
         progressView.progress = 0
         backView.addSubview(progressView)
     }
