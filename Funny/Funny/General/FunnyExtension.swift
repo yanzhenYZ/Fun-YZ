@@ -181,6 +181,33 @@ extension String {
         return self.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: fontSize)], context: nil).size.height
     }
     
+    public func substringTo(index: Int) -> String {
+        //1
+        //return (self as NSString).substring(to: index)
+        //2
+        let sub = self.index(self.startIndex, offsetBy: index)
+        return self.substring(to: sub)
+    }
+    
+    public func substringForm(index: Int) ->String {
+        //1
+        //return (self as NSString).substring(from: index);
+        //2
+        
+        let sub = self.index(self.endIndex, offsetBy: index - self.characters.count)
+        return self.substring(from: sub)
+    }
+    
+    public func substringRange(from: Int, length: Int) ->String {
+        //1
+        //return (self as NSString).substring(with: NSMakeRange(from, length))
+        
+        let start = self.index(self.startIndex, offsetBy: from)
+        let offset = from + length
+        let end = self.index(self.startIndex, offsetBy: offset)
+        return self.substring(with: Range(start..<end))
+    }
+    
     public func removeLast(length: Int) ->String {
         let index = self.index(self.endIndex, offsetBy: -length)
         return self.substring(to: index)

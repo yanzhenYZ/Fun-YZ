@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.notConnectWifi()
             }
         }
-        
+        print("123456789".substringRange(from: 4, length: 3))
         window?.makeKeyAndVisible()
         return true
     }
