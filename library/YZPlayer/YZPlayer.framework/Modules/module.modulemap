@@ -7,4 +7,5 @@ framework module YZPlayer {
 
 module YZPlayer.Swift {
     header "YZPlayer-Swift.h"
+    requires objc
 }

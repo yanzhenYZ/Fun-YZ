@@ -7,4 +7,5 @@ framework module YZUIKit {
 
 module YZUIKit.Swift {
     header "YZUIKit-Swift.h"
+    requires objc
 }
