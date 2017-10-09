@@ -61,7 +61,7 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
         if session~~ {
             return
         }
-        let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        let device = AVCaptureDevice.default(for: AVMediaType.video)
         let input = try! AVCaptureDeviceInput(device: device!)
         let output = AVCaptureMetadataOutput()
         output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
@@ -74,18 +74,18 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
         output.rectOfInterest = CGRect(x: scanX, y: scanY, width: scanWH / HEIGHT + scanX, height: scanWH / WIDTH + scanY)
         ///
         session = AVCaptureSession()
-        session?.sessionPreset = AVCaptureSessionPresetHigh
+        session?.sessionPreset = AVCaptureSession.Preset.high
         if session!.canAddInput(input) {
             session?.addInput(input)
         }
         if session!.canAddOutput(output) {
             session?.addOutput(output)
         }
-        output.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
         let previewLayer = AVCaptureVideoPreviewLayer(session: session!)
-        previewLayer?.frame = CGRect(x: 0, y: 0, width: WIDTH, height: HEIGHT)
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        view.layer.insertSublayer(previewLayer!, at: 0)
+        previewLayer.frame = CGRect(x: 0, y: 0, width: WIDTH, height: HEIGHT)
+        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        view.layer.insertSublayer(previewLayer, at: 0)
         session?.startRunning()
     }
 //MARK: - UIImagePickerController
@@ -93,8 +93,8 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .savedPhotosAlbum
         imagePicker.delegate = self
-        self.present(imagePicker, animated: true) { 
-            MBProgressHUD.showMessage("正在识别", to: self.view)
+        self.present(imagePicker, animated: true) {
+            YZProgressHud.showHud(self.view, message: "正在识别")
         }
     }
     
@@ -106,7 +106,7 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        MBProgressHUD.hide(for: view)
+        YZProgressHud.hideHud(for: self.view)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -116,7 +116,7 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
         let ciImage = CIImage(cgImage: image.cgImage!)
         let context = CIContext(options: [kCIContextUseSoftwareRenderer : NSNumber(value: true)])
         let detector = CIDetector(ofType: CIDetectorTypeQRCode, context: context, options: [CIDetectorAccuracy : CIDetectorAccuracyHigh])
-        MBProgressHUD.hide(for: self.view, animated: true)
+        YZProgressHud.hideHud(for: self.view)
         
         let features = detector?.features(in: ciImage)
         if features~~ && features!.count > 0 {
@@ -134,10 +134,10 @@ class YZQRScanningViewController: UIViewController, AVCaptureMetadataOutputObjec
         self.present(alert, animated: true, completion: nil)
     }
 //MARK: - AVCaptureMetadataOutputObjectsDelegate
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    func metadataOutput(captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         if metadataObjects.count > 0 {
             let obj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
-            scanningDone(obj.stringValue)
+            scanningDone(obj.stringValue!)
         }
     }
     

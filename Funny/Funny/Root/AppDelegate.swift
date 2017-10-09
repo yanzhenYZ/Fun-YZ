@@ -16,8 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var avWindow: YZAVWindow = {
         let avW = YZAVWindow(frame: CGRect(x: 0, y: 0, width: WIDTH, height: WIDTH / 4 * 3))
-        let color = UIColor(colorLiteralRed: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
-        let attributes = [NSForegroundColorAttributeName : color, NSFontAttributeName : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
+        
+        let color = UIColor(displayP3Red: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
+        let attributes = [NSAttributedStringKey.foregroundColor.rawValue : color, NSAttributedStringKey.font.rawValue : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
         let mark = YZAVMark("Y&Z TV", rect: CGRect(x: 5, y: 5, width: 120, height: 40), attrs: attributes)
         avW.mark(mark)
         avW.setImageName("WindowViewPause", close: "closeWindowView")
@@ -66,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func configureAppearance() {
         let navigationBar = UINavigationBar.appearance()
         navigationBar.tintColor = FunnyColor
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : FunnyColor]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : FunnyColor]
         let tabBar = UITabBar.appearance()
         tabBar.tintColor = FunnyColor
     }

@@ -27,18 +27,18 @@ class YZFaceView: UIView {
             }
             return
         }
-        let device = AVCaptureDevice.defaultDevice(withDeviceType: AVCaptureDeviceType.builtInWideAngleCamera, mediaType: AVMediaTypeVideo, position: .front)
-        let input = try? AVCaptureDeviceInput.init(device: device)
+        let device = AVCaptureDevice.default(AVCaptureDevice.DeviceType.builtInWideAngleCamera, for: AVMediaType.video, position: .front)
+        let input = try? AVCaptureDeviceInput.init(device: device!)
         session = AVCaptureSession()
-        session!.sessionPreset = AVCaptureSessionPresetHigh
-        if session!.canAddInput(input) {
-            session?.addInput(input)
+        session!.sessionPreset = AVCaptureSession.Preset.high
+        if session!.canAddInput(input!) {
+            session?.addInput(input!)
         }
         let previewLayer = AVCaptureVideoPreviewLayer(session: session!)
-        previewLayer?.frame = self.bounds
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        previewLayer?.backgroundColor = UIColor.clear.cgColor
-        self.layer.insertSublayer(previewLayer!, at: 0)
+        previewLayer.frame = self.bounds
+        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        previewLayer.backgroundColor = UIColor.clear.cgColor
+        self.layer.insertSublayer(previewLayer, at: 0)
         session?.startRunning()
     }
     

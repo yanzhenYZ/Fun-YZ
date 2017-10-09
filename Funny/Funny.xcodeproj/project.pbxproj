@@ -123,9 +123,6 @@
 		9B29A11F1E1E3AEA00891D6B /* YZQRScanningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A11D1E1E3AEA00891D6B /* YZQRScanningViewController.swift */; };
 		9B29A1201E1E3AEA00891D6B /* YZQRScanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B29A11E1E1E3AEA00891D6B /* YZQRScanningViewController.xib */; };
 		9B29A1421E2087EF00891D6B /* YZQRImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1411E2087EF00891D6B /* YZQRImageTool.m */; };
-		9B29A1491E209EA900891D6B /* MBProgressHUD+YZZ.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1451E209EA900891D6B /* MBProgressHUD+YZZ.m */; };
-		9B29A14A1E209EA900891D6B /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B29A1461E209EA900891D6B /* MBProgressHUD.bundle */; };
-		9B29A14B1E209EA900891D6B /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1481E209EA900891D6B /* MBProgressHUD.m */; };
 		9B29A1811E2360B700891D6B /* YZSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1801E2360B700891D6B /* YZSettingTableViewController.swift */; };
 		9B29A1831E23611100891D6B /* YZManagerLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1821E23611100891D6B /* YZManagerLockViewController.swift */; };
 		9B29A1861E23614500891D6B /* YZDeclartionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B29A1841E23614500891D6B /* YZDeclartionViewController.swift */; };
@@ -199,6 +196,8 @@
 		9B904E931E0BD07600E99D25 /* YZRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904E921E0BD07600E99D25 /* YZRootViewController.swift */; };
 		9B904E9B1E0BD43600E99D25 /* YZSuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904E9A1E0BD43600E99D25 /* YZSuperViewController.swift */; };
 		9B904EC91E0CCC7B00E99D25 /* YZHttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B904EC81E0CCC7B00E99D25 /* YZHttpManager.swift */; };
+		9B9D4BD81F8B1D5E00857E22 /* YZProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9D4BD71F8B1D5D00857E22 /* YZProgressHud.swift */; };
+		9B9D4BDC1F8B213700857E22 /* UIView+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9D4BDB1F8B213700857E22 /* UIView+Toast.swift */; };
 		9BAB30631EB86038009EF0F6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BAB30621EB86038009EF0F6 /* Alamofire.framework */; };
 		9BAB30651EB86044009EF0F6 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BAB30621EB86038009EF0F6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9BAB30671EB86187009EF0F6 /* YZUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BAB30661EB86187009EF0F6 /* YZUIKit.framework */; };
@@ -389,11 +388,6 @@
 		9B29A11E1E1E3AEA00891D6B /* YZQRScanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YZQRScanningViewController.xib; sourceTree = "<group>"; };
 		9B29A1401E2087EF00891D6B /* YZQRImageTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YZQRImageTool.h; sourceTree = "<group>"; };
 		9B29A1411E2087EF00891D6B /* YZQRImageTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YZQRImageTool.m; sourceTree = "<group>"; };
-		9B29A1441E209EA900891D6B /* MBProgressHUD+YZZ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+YZZ.h"; sourceTree = "<group>"; };
-		9B29A1451E209EA900891D6B /* MBProgressHUD+YZZ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+YZZ.m"; sourceTree = "<group>"; };
-		9B29A1461E209EA900891D6B /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		9B29A1471E209EA900891D6B /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		9B29A1481E209EA900891D6B /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		9B29A1801E2360B700891D6B /* YZSettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZSettingTableViewController.swift; sourceTree = "<group>"; };
 		9B29A1821E23611100891D6B /* YZManagerLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZManagerLockViewController.swift; sourceTree = "<group>"; };
 		9B29A1841E23614500891D6B /* YZDeclartionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZDeclartionViewController.swift; sourceTree = "<group>"; };
@@ -472,6 +466,8 @@
 		9B904E921E0BD07600E99D25 /* YZRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZRootViewController.swift; sourceTree = "<group>"; };
 		9B904E9A1E0BD43600E99D25 /* YZSuperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZSuperViewController.swift; sourceTree = "<group>"; };
 		9B904EC81E0CCC7B00E99D25 /* YZHttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = YZHttpManager.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9B9D4BD71F8B1D5D00857E22 /* YZProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZProgressHud.swift; sourceTree = "<group>"; };
+		9B9D4BDB1F8B213700857E22 /* UIView+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Toast.swift"; sourceTree = "<group>"; };
 		9BAB30621EB86038009EF0F6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = ../library/Alamofire/Alamofire.framework; sourceTree = "<group>"; };
 		9BAB30661EB86187009EF0F6 /* YZUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YZUIKit.framework; path = ../library/YZUIKit/YZUIKit.framework; sourceTree = "<group>"; };
 		9BF6A8261E14B3DB00F534F8 /* YZTextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YZTextTableViewCell.swift; sourceTree = "<group>"; };
@@ -955,18 +951,6 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
-		9B29A1431E209EA900891D6B /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				9B29A1441E209EA900891D6B /* MBProgressHUD+YZZ.h */,
-				9B29A1451E209EA900891D6B /* MBProgressHUD+YZZ.m */,
-				9B29A1461E209EA900891D6B /* MBProgressHUD.bundle */,
-				9B29A1471E209EA900891D6B /* MBProgressHUD.h */,
-				9B29A1481E209EA900891D6B /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		9B29A1791E23607E00891D6B /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -1306,8 +1290,9 @@
 		9B904E9C1E0BD4D400E99D25 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				9B9D4BD71F8B1D5D00857E22 /* YZProgressHud.swift */,
+				9B9D4BDB1F8B213700857E22 /* UIView+Toast.swift */,
 				9B46F1BB1E28A71500E16350 /* WeChatSDK1.7.5 */,
-				9B29A1431E209EA900891D6B /* MBProgressHUD */,
 				9B29A0FD1E1E194400891D6B /* FMDB */,
 				9B06D0B21E125BFD004C5AC7 /* MJRefresh */,
 				9B06D0921E124E9D004C5AC7 /* MJExtension */,
@@ -1369,12 +1354,13 @@
 					9B46F17C1E2757FB00E16350 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = M7R5TQ8AQY;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					9B904E671E0B7BC100E99D25 = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = M7R5TQ8AQY;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1420,7 +1406,6 @@
 				9B46EEBB1E24B8EF00E16350 /* YZYKHotTableViewCell.xib in Resources */,
 				9B46EEAB1E2482D500E16350 /* YZYKLiveViewController.xib in Resources */,
 				9B29A1201E1E3AEA00891D6B /* YZQRScanningViewController.xib in Resources */,
-				9B29A14A1E209EA900891D6B /* MBProgressHUD.bundle in Resources */,
 				9B29A0E91E1CF99300891D6B /* YZNoteLockedViewController.xib in Resources */,
 				9B29A1181E1E3A9500891D6B /* YZQRMakeViewController.xib in Resources */,
 				9B29A0F11E1DD5E000891D6B /* YZNoteCreateViewController.xib in Resources */,
@@ -1507,7 +1492,6 @@
 				9B29A0DD1E1CDF2F00891D6B /* YZBezierPath.swift in Sources */,
 				9B29A0A21E1B978D00891D6B /* YZPictureFrame.swift in Sources */,
 				9B29A1421E2087EF00891D6B /* YZQRImageTool.m in Sources */,
-				9B29A1491E209EA900891D6B /* MBProgressHUD+YZZ.m in Sources */,
 				9B29A0FC1E1DD88F00891D6B /* YZLockedView.swift in Sources */,
 				9B29A0D01E1CCDD700891D6B /* YZNEPicturesTableViewCell.swift in Sources */,
 				9B29A0C91E1CCC2100891D6B /* YZNetEaseModel.swift in Sources */,
@@ -1516,6 +1500,7 @@
 				9B29A18A1E23617000891D6B /* YZVersionViewController.swift in Sources */,
 				9B46EEBA1E24B8EF00E16350 /* YZYKHotTableViewCell.swift in Sources */,
 				9B29A0AE1E1BADC200891D6B /* YZUCTabBarViewController.swift in Sources */,
+				9B9D4BDC1F8B213700857E22 /* UIView+Toast.swift in Sources */,
 				9B46EEAA1E2482D500E16350 /* YZYKLiveViewController.swift in Sources */,
 				9B29A0F51E1DD79D00891D6B /* YZNoteManager.swift in Sources */,
 				9B06D0A81E124E9D004C5AC7 /* MJExtensionConst.m in Sources */,
@@ -1533,7 +1518,6 @@
 				9B29A0941E1B931200891D6B /* YZWalfareVideoViewController.swift in Sources */,
 				9B06D0FE1E125D93004C5AC7 /* YZVideoFrame.swift in Sources */,
 				9B32820B1E0D102F00506424 /* YZRootFirstViewController.swift in Sources */,
-				9B29A14B1E209EA900891D6B /* MBProgressHUD.m in Sources */,
 				9B46EECA1E24CF5500E16350 /* YZYKBeautyViewController.swift in Sources */,
 				9B29A0A81E1B985700891D6B /* YZWalfareGirlTableViewCell.swift in Sources */,
 				9B29A11F1E1E3AEA00891D6B /* YZQRScanningViewController.swift in Sources */,
@@ -1571,6 +1555,7 @@
 				9B29A08A1E1B810F00891D6B /* YZBuDeJieVideoTableViewCell.swift in Sources */,
 				9B46EEB31E248F0100E16350 /* YZYKLocationManager.swift in Sources */,
 				9B06D0121E120388004C5AC7 /* YZContentTabBarViewController.swift in Sources */,
+				9B9D4BD81F8B1D5E00857E22 /* YZProgressHud.swift in Sources */,
 				9B29A0661E1B3D6200891D6B /* YZGifShowURL.swift in Sources */,
 				9B06D0AC1E124E9D004C5AC7 /* MJPropertyType.m in Sources */,
 				9B29A0901E1B92A300891D6B /* YZWalfareTabBarViewController.swift in Sources */,
@@ -1661,7 +1646,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = YZ.Funny.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1683,7 +1669,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = YZ.Funny.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1815,7 +1802,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Funny/Funny-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1854,7 +1842,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = YZ.Funny;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Funny/Funny-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

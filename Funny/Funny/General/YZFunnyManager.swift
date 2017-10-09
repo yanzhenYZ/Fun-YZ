@@ -17,11 +17,12 @@ class YZFunnyManager: NSObject {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
-    class func image(_ image: UIImage,didFinishSavingWithError error: NSError?, contextInfo: AnyObject){
+    @objc class func image(_ image: UIImage,didFinishSavingWithError error: NSError?, contextInfo: AnyObject){
+        let window = UIApplication.shared.keyWindow
         if error~~ {
-            MBProgressHUD.showMessage("保存失败", success: false, stringColor: UIColor.red)
+            window?.showToast("保存失败")
         }else{
-            MBProgressHUD.showMessage("已保存到相册", success: true, stringColor: UIColor.red)
+            YZProgressHud.showHud(window!, imgName: "Checkmark", message: "保存成功")
         }
     }
 //MARK: password
@@ -72,10 +73,10 @@ class YZFunnyManager: NSObject {
     }
 //MARK: - Audio and Video
     class func requestAccessForVideo(completionHandler handler: ((Bool) -> Swift.Void)?){
-        let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+        let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch status {
         case .notDetermined:
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (granted) in
+            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (granted) in
                 if granted {
                     YZLog("--用户开启摄像头--")
                 }
@@ -91,10 +92,10 @@ class YZFunnyManager: NSObject {
     }
     
     class func requestAccessForAudio() {
-        let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeAudio)
+        let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
         switch status {
         case .notDetermined:
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: { (granted) in
+            AVCaptureDevice.requestAccess(for: AVMediaType.audio, completionHandler: { (granted) in
                 if granted {
                     YZLog("--用户开启麦克风--")
                 }

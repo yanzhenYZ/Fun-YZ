@@ -161,11 +161,6 @@ extension UIView {
 }
 
 extension String {
-    public var length: Int {
-        get{
-            return self.characters.count;
-        }
-    }
     
     public var isURL: Bool {
         get{
@@ -178,7 +173,7 @@ extension String {
     
     public func boundingHeight(fontSize: CGFloat, maxWidth: CGFloat) ->CGFloat {
         let size = CGSize(width: maxWidth, height: 9999.0)
-        return self.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: fontSize)], context: nil).size.height
+        return self.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: fontSize)], context: nil).size.height
     }
     
     public func substringTo(index: Int) -> String {
@@ -194,7 +189,7 @@ extension String {
         //return (self as NSString).substring(from: index);
         //2
         
-        let sub = self.index(self.endIndex, offsetBy: index - self.characters.count)
+        let sub = self.index(self.endIndex, offsetBy: index - self.count)
         return self.substring(from: sub)
     }
     

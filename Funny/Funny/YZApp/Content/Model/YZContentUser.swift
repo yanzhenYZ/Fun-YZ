@@ -17,5 +17,5 @@ class YZContentUser: NSObject {
     ///评论用户名称
     var user_name: String?
     ///用户发表的内容
-    var text: String?
+    @objc var text: String?
 }

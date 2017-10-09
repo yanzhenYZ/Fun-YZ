@@ -7,5 +7,4 @@
 #import "MJExtension.h"
 #import "FMDB.h"
 #import "YZQRImageTool.h"
-#import "MBProgressHUD+YZZ.h"
 #import "WXApi.h"

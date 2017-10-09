@@ -65,8 +65,8 @@ extension YZVideoTableViewCell {
         mainImageView.clipsToBounds = true
         backView.addSubview(mainImageView)
         
-        let color = UIColor(colorLiteralRed: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
-        let attributes = [NSForegroundColorAttributeName : color, NSFontAttributeName : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
+        let color = UIColor(displayP3Red: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
+        let attributes = [NSAttributedStringKey.foregroundColor.rawValue : color, NSAttributedStringKey.font.rawValue : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
         let mark = YZAVMark("Y&Z TV", rect: CGRect(x: 5, y: 5, width: 120, height: 40), attrs: attributes)
         mainImageView.mark = mark
         

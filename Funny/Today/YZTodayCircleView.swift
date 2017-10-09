@@ -34,7 +34,7 @@ class YZTodayCircleView: UIView {
         progressLayer = CAShapeLayer()
         progressLayer.frame = self.bounds
         progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.strokeColor = UIColor(colorLiteralRed: 1.0, green: 133/255.0, blue: 25/255.0, alpha: 1.0).cgColor
+        progressLayer.strokeColor = UIColor(displayP3Red: 1.0, green: 133/255.0, blue: 25/255.0, alpha: 1.0).cgColor
         progressLayer.lineCap = kCAFillRuleNonZero
         progressLayer.strokeEnd = 0.0
         progressLayer.lineWidth = lineWidth
@@ -50,14 +50,14 @@ class YZTodayCircleView: UIView {
         titleLabel.text = title
         titleLabel.font = UIFont.systemFont(ofSize: titleFontSize)
         titleLabel.textAlignment = .center
-        titleLabel.textColor = UIColor(colorLiteralRed: 104/255.0, green: 99/255.0, blue: 107/255.0, alpha: 1.0)
+        titleLabel.textColor = UIColor(displayP3Red: 104/255.0, green: 99/255.0, blue: 107/255.0, alpha: 1.0)
         self.addSubview(titleLabel)
         ///
         subTitleLabel = UILabel(frame: CGRect(x: width * 0.5 - radius + lineWidth, y: height * 0.5, width: 2 * radius - 2 * lineWidth, height: labelHeight))
         subTitleLabel.text = subTitle
         subTitleLabel.font = UIFont.systemFont(ofSize: subTitleFontSize)
         subTitleLabel.textAlignment = .center
-        subTitleLabel.textColor = UIColor(colorLiteralRed: 14/255.0, green: 110/255.0, blue: 251/255.0, alpha: 1.0)
+        subTitleLabel.textColor = UIColor(displayP3Red: 14/255.0, green: 110/255.0, blue: 251/255.0, alpha: 1.0)
         self.addSubview(subTitleLabel)
     }
     

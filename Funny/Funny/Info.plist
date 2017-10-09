@@ -52,6 +52,8 @@
 	<string>想看附近的人的直播，建议开启</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Funny want to use your Microphone</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Funny想要保存图片到相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Funny want to open your Photo Library</string>
 	<key>UIBackgroundModes</key>

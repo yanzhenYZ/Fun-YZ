@@ -17,7 +17,7 @@ class YZWalfareGirlFrame: YZPictureFrame{
         self.girlModel = model
         let viewWidth = WIDTH - CONTENTSPACE * 4
         var rect = CGRect(x: CONTENTSPACE * 2, y: 25, width: viewWidth, height: 0)
-        if (girlModel.wbody?.length)! > 1 {
+        if (girlModel.wbody?.count)! > 1 {
             rect.size.height = girlModel.wbody!.boundingHeight(fontSize: USERTEXTMAINLABELFONT, maxWidth: viewWidth) + CONTENTSPACE
         }
         contentLabelFrame = rect

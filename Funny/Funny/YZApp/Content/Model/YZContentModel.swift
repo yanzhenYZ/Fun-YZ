@@ -11,7 +11,7 @@ import UIKit
 class YZContentModel: NSObject {
 
     var group: YZContentGroup?
-    var comments: Array<YZContentUser>?
+    @objc var comments: Array<YZContentUser>?
 
     override static func mj_objectClassInArray() -> [AnyHashable : Any]! {
         return ["comments" : YZContentUser.self]

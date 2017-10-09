@@ -27,15 +27,15 @@ class YZContentRecommendViewController: YZContentSuperViewController {
         
         YZHttpManager.get(urlString, success: { (response) in
             let dataDict = response["data"] as! [String : AnyObject]
-            let minTime = dataDict["min_time"] as! Int
-            let maxTime = dataDict["max_time"] as! Int
+            let minTime = dataDict["min_time"] as! NSNumber
+            let maxTime = dataDict["max_time"] as! NSNumber
             if refreshType == .normal {
-                self.min_Time = String(minTime)
-                self.max_Time = String(maxTime)
+                self.min_Time = String(minTime.intValue)
+                self.max_Time = String(maxTime.intValue)
             }else if refreshType == .pull {
-                self.max_Time = String(maxTime)
+                self.max_Time = String(maxTime.intValue)
             }else{
-                self.min_Time = String(minTime)
+                self.min_Time = String(minTime.intValue)
             }
             ///
             let dataArray = dataDict["data"] as! Array<[String : AnyObject]>

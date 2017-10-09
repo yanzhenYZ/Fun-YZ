@@ -32,7 +32,7 @@ class YZPasswordModifyViewController: UIViewController {
     }
 
     @IBAction private func sureAction(_ sender: UIButton) {
-        if password1TF.text?.length == 4 && password2TF.text == password1TF.text {
+        if password1TF.text?.count == 4 && password2TF.text == password1TF.text {
             if passwordType == .Manager {
                 YZUserDefaultsManager.writeManagerPassword(password1TF.text!)
             }else if passwordType == .Note {
