@@ -16,14 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     lazy var avWindow: YZAVWindow = {
         let avW = YZAVWindow(frame: CGRect(x: 0, y: 0, width: WIDTH, height: WIDTH / 4 * 3))
-        
         let color = UIColor(displayP3Red: 1.0, green: 155 / 255.0, blue: 23 / 255.0, alpha: 1)
-        let attributes = [NSAttributedStringKey.foregroundColor.rawValue : color, NSAttributedStringKey.font.rawValue : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
-        let mark = YZAVMark("Y&Z TV", rect: CGRect(x: 5, y: 5, width: 120, height: 40), attrs: attributes)
+        let att: [String : Any] = [NSAttributedStringKey.foregroundColor.rawValue : color, NSAttributedStringKey.font.rawValue : UIFont(name: "IowanOldStyle-BoldItalic", size: 18)!]
+        let mark = YZAVMark("Y&Z TV", rect: CGRect(x: 5, y: 5, width: 120, height: 40), attrs: att)
         avW.mark(mark)
         avW.setImageName("WindowViewPause", close: "closeWindowView")
-//        avW.isHidden = true
-//        avW.makeKeyAndVisible()
         return avW
     }()
     
@@ -52,8 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configure3DTouch() {
-        let types = ["106","100","902"]
-        let titles = ["直播","内涵段子","扫一扫"]
+        let types = ["903","100","902"]
+        let titles = ["相机","内涵段子","扫一扫"]
         let icons = [UIApplicationShortcutIconType.captureVideo,UIApplicationShortcutIconType.play,UIApplicationShortcutIconType.shuffle]
         var items = [UIApplicationShortcutItem]()
         for i in 0...2 {

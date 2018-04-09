@@ -26,9 +26,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-        let titles = ["快手","直播","二维码","自拍"]
-        let images = [#imageLiteral(resourceName: "gifShow"),#imageLiteral(resourceName: "yingke"),#imageLiteral(resourceName: "QR"),#imageLiteral(resourceName: "meipai")]
-        let tags = [101,106,902,903]
+        let titles = ["快手","笔记","二维码","自拍"]
+        let images = [#imageLiteral(resourceName: "gifShow"),#imageLiteral(resourceName: "note"),#imageLiteral(resourceName: "QR"),#imageLiteral(resourceName: "meipai")]
+        let tags = [101,901,902,903]
         
         let space: CGFloat = 10
         let maximumSize = self.extensionContext?.widgetMaximumSize(for: .expanded)

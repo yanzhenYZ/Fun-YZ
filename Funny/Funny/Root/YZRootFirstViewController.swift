@@ -15,7 +15,7 @@ class YZRootFirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let images = [#imageLiteral(resourceName: "content"),#imageLiteral(resourceName: "gifShow"),#imageLiteral(resourceName: "budejie"),#imageLiteral(resourceName: "walfare"),#imageLiteral(resourceName: "uc"),#imageLiteral(resourceName: "netease"),#imageLiteral(resourceName: "yingke")]
+        let images = [#imageLiteral(resourceName: "content"),#imageLiteral(resourceName: "gifShow"),#imageLiteral(resourceName: "budejie"),#imageLiteral(resourceName: "walfare"),#imageLiteral(resourceName: "uc"),#imageLiteral(resourceName: "netease")]
         let titles = ["内涵段子","快手","不得姐","福利社","UC新闻","网易新闻","直播"]
         let IconWidth: CGFloat = 60
         let IconHeight: CGFloat = 90
